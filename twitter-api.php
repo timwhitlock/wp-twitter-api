@@ -20,7 +20,7 @@ Author URI: http://timwhitlock.info/
  * @throws TwitterApiException
  */ 
 function twitter_api_get( $path, array $args = array() ){
-    _twitter_api_include('core');
+    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'GET' );
 } 
@@ -37,7 +37,7 @@ function twitter_api_get( $path, array $args = array() ){
  * @throws TwitterApiException
  */ 
 function twitter_api_post( $path, array $args = array() ){
-    _twitter_api_include('core');
+    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'POST' );
 } 
@@ -50,7 +50,7 @@ function twitter_api_post( $path, array $args = array() ){
  * @param string $component e.g. "core", or "admin"
  * @return void fatal error on failure
  */
-function _twitter_api_include(){
+function twitter_api_include(){
     static $dir;
     isset($dir) or $dir = dirname(__FILE__);
     foreach( func_get_args() as $component ){
@@ -65,5 +65,5 @@ function _twitter_api_include(){
 
 // Include application settings panel if in admin area
 if( is_admin() ){
-    _twitter_api_include('core','admin');
+    twitter_api_include('core','admin');
 }

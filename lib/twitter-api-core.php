@@ -19,25 +19,6 @@ define('TWITTER_OAUTH_ACCESS_TOKEN_URL', 'https://twitter.com/oauth/access_token
 
  
 /**
- * Get fully configured and authenticated Twitter API client singleton
- * @return TwitterApiClient
- */ 
-function twitter_api_client(){
-    static $Client;
-    if( ! isset($Client) ){
-        $Client = new TwitterApiClient;
-        extract( _twitter_api_config() );
-        if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-            trigger_error('Twitter application is not fully configured');
-        }
-        $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );
-    }
-    return $Client;
-}
-
-
-
-/**
  * Get config options from DB
  * @param array any new options to update
  */

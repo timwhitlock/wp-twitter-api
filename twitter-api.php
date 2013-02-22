@@ -20,7 +20,6 @@ Author URI: http://timwhitlock.info/
  * @throws TwitterApiException
  */ 
 function twitter_api_get( $path, array $args = array() ){
-    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'GET' );
 } 
@@ -37,7 +36,6 @@ function twitter_api_get( $path, array $args = array() ){
  * @throws TwitterApiException
  */ 
 function twitter_api_post( $path, array $args = array() ){
-    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'POST' );
 } 
@@ -51,7 +49,6 @@ function twitter_api_post( $path, array $args = array() ){
  * @return TwitterApiClient
  */
 function twitter_api_enable_cache( $ttl ){
-    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->enable_cache( $ttl );
 }
@@ -64,7 +61,6 @@ function twitter_api_enable_cache( $ttl ){
  * @return TwitterApiClient
  */
 function twitter_api_enable_cache( $ttl ){
-    twitter_api_include('core');
     $Client = twitter_api_client();
     return $Client->disable_cache();
 }
@@ -85,6 +81,26 @@ function twitter_api_include(){
     }
 } 
 
+
+
+
+/**
+ * Get fully configured and authenticated Twitter API client.
+ * @return TwitterApiClient
+ */ 
+function twitter_api_client(){
+    static $Client;
+    if( ! isset($Client) ){
+        twitter_api_include('core');
+        $Client = new TwitterApiClient;
+        extract( _twitter_api_config() );
+        if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
+            trigger_error('Twitter application is not fully configured');
+        }
+        $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );
+    }
+    return $Client;
+}
 
 
 

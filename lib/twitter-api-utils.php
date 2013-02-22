@@ -21,9 +21,9 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
     // linkify URLs    
     $src = preg_replace('!https?://\S+!', '<a href="\\0" target="'.$target.'">\\0</a>', $src );
     // linkify @names
-    $src = preg_replace('!@([a-z0-9_]{1,15})!i', '<a href="https://twitter.com/\\1" target="'.$target.'">\\0</a>', $src );
+    $src = preg_replace('!@([a-z0-9_]{1,15})!i', '<a class="twitter-screen-name" href="https://twitter.com/\\1" target="'.$target.'">\\0</a>', $src );
     // linkify #hashtags
-    $src = preg_replace('!#([^#\b\s]+)!i', '<a href="https://twitter.com/search?q=%23\\1&amp;src=hash" target="'.$target.'">\\0</a>', $src );
+    $src = preg_replace('/(?<!&)#([^#\W\s]+)/i', '<a class="twitter-hashtag" href="https://twitter.com/search?q=%23\\1&amp;src=hash" target="'.$target.'">\\0</a>', $src );
     return $src;
 } 
 

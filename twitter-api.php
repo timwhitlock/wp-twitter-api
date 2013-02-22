@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Twitter API
-Plugin URI: https://timwhitlock.info/tag/twitter
+Plugin URI: https://github.com/timwhitlock/wp-twitter-api
 Description: Provides generic access to the Twitter API with full authentication
 Author: Tim Whitlock
 Version: 1

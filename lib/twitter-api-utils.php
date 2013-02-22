@@ -60,7 +60,7 @@ function twitter_api_relative_date( $strdate ){
     // within last hour? X minutes ago
     if( $tdiff < 3600 ){
         $idiff = (int) floor( $tdiff / 60 );
-        return _n( '%s minute ago', '%s minutes ago', $idiff );
+        return _n( 'A minute ago', '%s minutes ago', $idiff );
     }
     // within same day? About X hours ago
     $samey = ($y === $yy) and
@@ -70,7 +70,7 @@ function twitter_api_relative_date( $strdate ){
         $hdiff = (int) floor( $tdiff / 3600 );
         return _n( 'About an hour ago', 'About %s hours ago', $hdiff );
     }
-    // else return formatted date, e.g. "Oct 20th 2008 9:27 PM GMT" */
+    // 
     static $dt;
     if( ! isset($dt) ){
         $tz = ini_get('date.timezone') or $tz = 'Europe/London';
@@ -79,6 +79,11 @@ function twitter_api_relative_date( $strdate ){
         $dt->setTimezone( $tz );
     }
     $dt->setTimestamp( $tt );
+    // within 24 hours?
+    if( $tdiff < 86400 ){
+        return __('Yesterday at ').$dt->format('g:i A');
+    }
+    // else return formatted date, e.g. "Oct 20th 2008 9:27 PM GMT" */
     return $dt->format('M jS Y g:i A');
 }   
 

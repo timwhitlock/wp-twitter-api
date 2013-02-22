@@ -44,6 +44,33 @@ function twitter_api_post( $path, array $args = array() ){
 
 
 
+
+/**
+ * Enable caching of Twitter API responses using APC
+ * @param int Cache lifetime in seconds
+ * @return TwitterApiClient
+ */
+function twitter_api_enable_cache( $ttl ){
+    twitter_api_include('core');
+    $Client = twitter_api_client();
+    return $Client->enable_cache( $ttl );
+}
+
+
+
+
+/**
+ * Disable caching of Twitter API responses
+ * @return TwitterApiClient
+ */
+function twitter_api_enable_cache( $ttl ){
+    twitter_api_include('core');
+    $Client = twitter_api_client();
+    return $Client->disable_cache();
+}
+
+
+
  
 /** 
  * Include a component from the lib directory.
@@ -57,8 +84,6 @@ function twitter_api_include(){
         require_once $dir.'/lib/twitter-api-'.$component.'.php';
     }
 } 
-
-
 
 
 

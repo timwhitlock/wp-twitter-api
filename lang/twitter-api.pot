@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp-twitter-api\n"
+"Project-Id-Version: Twitter API Wordpress plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Fri, 22 Feb 2013 17:50:38 +0000\n"
-"PO-Revision-Date: Fri, 22 Feb 2013 17:57:07 +0000\n"
+"PO-Revision-Date: Fri, 22 Feb 2013 19:32:46 +0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: English (UK)\n"
@@ -22,14 +22,14 @@ msgid "Just now"
 msgstr "" 
  
 #: Asset minutes-ago-singular 
-msgid "1 minute ago" 
-msgid_plural "%s minutes ago" 
+msgid "%u minute ago" 
+msgid_plural "%u minutes ago" 
 msgstr[0] "" 
 msgstr[1] "" 
  
 #: Asset hours-ago-singular 
-msgid "About an hour ago" 
-msgid_plural "About %s hours ago" 
+msgid "About %u hour ago" 
+msgid_plural "About %u hours ago" 
 msgstr[0] "" 
 msgstr[1] "" 
  

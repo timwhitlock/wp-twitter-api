@@ -114,6 +114,22 @@ class TwitterApiClient {
      * @var string
      */    
     private $last_call;     
+
+    
+    /**
+     * Get client instance authenticated with 'system' credentials
+     * @return TwitterApiClient
+     */    
+    public static function default_instance(){
+        $Client = new TwitterApiClient;
+        extract( _twitter_api_config() );
+        if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
+            trigger_error('Twitter application is not fully configured');
+        }
+        $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );        
+        return $Client;
+    }     
+    
     
     /**
      * @internal

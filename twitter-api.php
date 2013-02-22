@@ -60,7 +60,7 @@ function twitter_api_enable_cache( $ttl ){
  * Disable caching of Twitter API responses
  * @return TwitterApiClient
  */
-function twitter_api_enable_cache( $ttl ){
+function twitter_api_disable_cache( $ttl ){
     $Client = twitter_api_client();
     return $Client->disable_cache();
 }
@@ -92,12 +92,7 @@ function twitter_api_client(){
     static $Client;
     if( ! isset($Client) ){
         twitter_api_include('core');
-        $Client = new TwitterApiClient;
-        extract( _twitter_api_config() );
-        if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-            trigger_error('Twitter application is not fully configured');
-        }
-        $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );
+        $Client = TwitterApiClient::default_instance();
     }
     return $Client;
 }

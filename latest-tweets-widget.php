@@ -29,9 +29,9 @@ function latest_tweets_render( $screen_name, $count ){
         // So we'll get more than we want and trim the result.
         $tweets = twitter_api_get('statuses/user_timeline', array (
             'count' => 3 * $count,
-            'exclude_replies' => 'true',
-            'include_rts' => 'true',
-            'trim_user' => 'true',
+            'exclude_replies' => true,
+            'include_rts' => false,
+            'trim_user' => true,
             'screen_name' => $screen_name,
         ) );
         if( isset($tweets[$count]) ){

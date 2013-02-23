@@ -206,10 +206,30 @@ class TwitterApiClient {
      * @return array unserialized data returned from twitter
      * @throws TwitterApiException
      */
-    public function call( $path, array $args, $http_method ){
+    public function call( $path, array $_args, $http_method ){
         // all calls must be authenticated in API 1.1
         if( ! $this->has_auth() ){
             throw new TwitterApiException('Twitter client not authenticated', 0, 401 );
+        }
+        // transform some arguments and ensure strings
+        // no further validation is performed
+        $args = array();
+        foreach( $_args as $key => $val ){
+            if( is_string($val) ){
+                $args[$key] = $val;
+            }
+            else if( true === $val ){
+                $args[$key] = 'true';
+            }
+            else if( false === $val || null === $val ){
+                 $args[$key] = 'false';
+            }
+            else if( ! is_scalar($val) ){
+                throw new TwitterApiException('Invalid Twitter param type ('.gettype($val).') '.$key.' in '.$path, -1 );
+            }
+            else {
+                $args[$key] = (string) $val;
+            }
         }
         // Fetch response from cache if possible / allowed / enabled
         if( $http_method === 'GET' && isset($this->cache_ttl) ){

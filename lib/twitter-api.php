@@ -1,14 +1,8 @@
 <?php
-/*
-Plugin Name: Twitter API
-Plugin URI: https://github.com/timwhitlock/wp-twitter-api
-Description: Provides generic access to the Twitter API with full authentication
-Author: Tim Whitlock
-Version: 1
-Author URI: http://timwhitlock.info/
-Text Domain: default
-Domain Path: /lang/
-*/
+/**
+ * Twitter API Wordpress library.
+ * @author Tim Whitlock <@timwhitlock>
+ */
 
 
 
@@ -88,7 +82,7 @@ function twitter_api_include(){
  */
 function twitter_api_basedir(){
     static $dir;
-    isset($dir) or $dir = dirname(__FILE__);
+    isset($dir) or $dir = dirname(__FILE__).'/..';
     return $dir;    
 }    
 

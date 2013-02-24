@@ -1,12 +1,19 @@
 <?php
 /*
-Plugin Name: Latest Tweets Widget
+Plugin Name: Example Latest Tweets Widget
 Plugin URI: https://github.com/timwhitlock/wp-twitter-api/blob/master/latest-tweets-widget.php
 Description: Provides a sidebar widget showing latest tweets
 Author: Tim Whitlock
 Version: 1
 Author URI: http://timwhitlock.info/
 */
+
+
+
+// bootstrap Twitter API Wordpress library
+if( ! function_exists('twitter_api_get') ){
+    require dirname(__FILE__).'/lib/twitter-api.php';
+}
 
 
 
@@ -17,9 +24,6 @@ Author URI: http://timwhitlock.info/
  * @return array blocks of html expected by the widget
  */
 function latest_tweets_render( $screen_name, $count ){
-    if( ! function_exists('twitter_api_get') ){
-        throw new Exception( __('Twitter API plugin is not enabled') );
-    }
     if( function_exists('apc_fetch') ){
         // We could cache the rendered HTML, but this tests the twitter_api cache functions
         twitter_api_enable_cache( 300 );

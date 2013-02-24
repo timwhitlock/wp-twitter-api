@@ -51,3 +51,39 @@ Enable caching of Twitter response data for `$ttl` seconds. Requires the APC PHP
 Disables caching of responses. Caching is disabled by default.
 
 
+### Custom OAuth flows
+
+The above functions work with a single authenticated Twitter account.
+If you want to authenticate multiple clients or create OAuth flows outside of Wordpress admin, you'll have to work directly with the `TwitterApiClient` class and roll your own OAuth user flows.
+
+The following utility functions will help you construct your own OAuth flows, but please see [Twitter's own documentation](https://dev.twitter.com/docs/auth/obtaining-access-tokens) if you're not familiar with the process.
+
+#### twitter_api_oauth_request_token
+`TwitterOAuthToken twitter_api_oauth_request_token ( string $consumer_key, string $consumer_secret, string $oauth_callback )`  
+Fetches an OAuth request token from Twitter: e.g. `{ key: 'your request key', secret: 'your request secret' }`
+
+#### twitter_api_oauth_access_token
+`TwitterOAuthToken twitter_api_oauth_access_token ( $consumer_key, $consumer_secret, $request_key, $request_secret, $oauth_verifier )`
+Exhanges a verified request token for an access token: e.g. `{ key: 'your access key', secret: 'your access secret' }`
+
+### TwitterApiClient
+
+Once you have your own authentication credentials you can work directly with the API client.
+This example shows the main methods you might use:
+    
+    try {
+       $Client = twitter_api_client('some client');
+       $Client->set_oauth( 'my consumer key', 'my consumer secret', 'their access key', 'their access secret' );
+       $user = $Client->call( 'users/show', array( 'screen_name' => 'timwhitlock' ), 'GET' );
+       var_dump( $user );
+    }
+    catch( TwitterApiRateLimitException $Ex ){
+        $info = $Client->last_rate_limit();
+        wp_die( 'Rate limit exceeded. Try again at '.date( 'H:i:s', $info['reset'] ) );
+    }
+    catch( TwitterApiException $Ex ){
+        wp_die( 'Twitter responded with status '.$Ex->getStatus().', '.$Ex->getMessage() );
+    }
+    catch( Exception $Ex ){
+        wp_die( 'Fatal error, '. $Ex->getMessage() );
+    }

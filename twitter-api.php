@@ -110,6 +110,35 @@ function twitter_api_client( $id = null ){
 
 
 
+
+/**
+ * Contact Twitter for a request token, which will be exchanged for an access token later.
+ * @return TwitterOAuthToken Request token
+ */
+function twitter_api_oauth_request_token( $consumer_key, $consumer_secret, $oauth_callback = 'oob' ){
+    $Client = twitter_api_client('oauth');
+    $Client->set_oauth( $consumer_key, $consumer_secret );     
+    $params = $Client->oauth_exchange( TWITTER_OAUTH_REQUEST_TOKEN_URL, compact('oauth_callback') );
+    return new TwitterOAuthToken( $params['oauth_token'], $params['oauth_token_secret'] );
+}
+
+
+
+
+/**
+ * Exchange request token for an access token after authentication/authorization by user
+ * @return TwitterOAuthToken Access token
+ */
+function twitter_api_oauth_access_token( $consumer_key, $consumer_secret, $request_key, $request_secret, $oauth_verifier ){
+    $Client = twitter_api_client('oauth');
+    $Client->set_oauth( $consumer_key, $consumer_secret, $request_key, $request_secret );     
+    $params = $Client->oauth_exchange( TWITTER_OAUTH_ACCESS_TOKEN_URL, compact('oauth_verifier') );
+    return new TwitterOAuthToken( $params['oauth_token'], $params['oauth_token_secret'] );
+}
+
+
+
+
 // Include application settings panel if in admin area
 if( is_admin() ){
     twitter_api_include('core','admin');

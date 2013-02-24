@@ -29,7 +29,7 @@ function latest_tweets_render( $screen_name, $count ){
         twitter_api_enable_cache( 300 );
     }
     try {
-        // Note that exluding replies means we may get less than $count tweets.
+        // Note that excluding replies means we may get less than $count tweets.
         // So we'll get more than we want and trim the result.
         $tweets = twitter_api_get('statuses/user_timeline', array (
             'count' => 3 * $count,

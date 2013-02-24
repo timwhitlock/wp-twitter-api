@@ -6,6 +6,8 @@ Description: Provides generic access to the Twitter API with full authentication
 Author: Tim Whitlock
 Version: 1
 Author URI: http://timwhitlock.info/
+Text Domain: default
+Domain Path: /lang/
 */
 
 
@@ -74,12 +76,21 @@ function twitter_api_disable_cache( $ttl ){
  * @return void fatal error on failure
  */
 function twitter_api_include(){
-    static $dir;
-    isset($dir) or $dir = dirname(__FILE__);
     foreach( func_get_args() as $component ){
-        require_once $dir.'/lib/twitter-api-'.$component.'.php';
+        require_once twitter_api_basedir().'/lib/twitter-api-'.$component.'.php';
     }
 } 
+
+
+
+/**
+ * Get plugin local base directory in case __DIR__ isn't available (php<5.3)
+ */
+function twitter_api_basedir(){
+    static $dir;
+    isset($dir) or $dir = dirname(__FILE__);
+    return $dir;    
+}    
 
 
 

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Example Latest Tweets Widget
-Plugin URI: https://github.com/timwhitlock/wp-twitter-api/blob/master/latest-tweets-widget.php
+Plugin URI: https://github.com/timwhitlock/wp-twitter-api/blob/master/example-latest-tweets.php
 Description: Provides a sidebar widget showing latest tweets
 Author: Tim Whitlock
 Version: 1

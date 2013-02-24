@@ -5,36 +5,37 @@ This plugin exposes a fully authenticated Twitter API client to Wordpress sites.
 
 ## Features
 
-* Compatible with the new Twitter API 1.1;
-* OAuth flow connects your Twitter account via Wordpress admin;
-* Access to Twitter API client that any other plugin can use;
-* Latest Tweets sidebar widget included as a fully functioning example;
-* Caching of API responses - currently use APC only.
+* Compatible with the new Twitter API 1.1
+* OAuth flow connects your Twitter account via Wordpress admin
+* Access to Twitter API client that any other plugin can use
+* Latest Tweets sidebar widget included as a fully functioning example
+* Caching of API responses - currently only supports APC.
 
 
 ## Authentication
 
-Once the plugin is installed and enabled you can bind it to a Twitter account, as follows:
+Once the plugin is installed and enabled you can bind it to a Twitter account as follows:
 
 * Register a Twitter application at https://dev.twitter.com/apps
 * Note the Consumer key and Consumer secret under *OAuth settings*
-* Go back to Wordpress admin and go to *Settings > Twitter API*
+* Log into Wordpress admin and go to *Settings > Twitter API*
 * Enter the consumer key and secret and click 'Save settings'
 * Click the 'Connect to Twitter' button and follow the prompts.
 
-Any Wordpress plugin can now make fully authenticated calls to the Twitter API.
+Any Wordpress plugin can now make fully authenticated calls to the Twitter API. The functions are documented below.
 
 
 ## Twitter Client
 
-The following functions are available as soon as the plugin is authenticated and operate as the default system Twitter account.
+The following functions are available from anywhere as soon as the plugin is authenticated.
+They all operate as the Twitter account you connected in your admin area.
 
 #### twitter_api_get
 `array twitter_api_get ( string $path [, array $args ]  )`  
 GETs data from the Twitter API, returning the raw unserialized data.
 
 `$path` is any Twitter API method, e.g. `'users/show'` or `'statuses/user_timeline'`  
-`$args` is an associative array of parameters.
+`$args` is an associative array of parameters, e.g. `array('screen_name'=>'timwhitlock')`
 
 Note that neither the path nor the arguments are validated.
 
@@ -51,12 +52,12 @@ Enable caching of Twitter response data for `$ttl` seconds. Requires the APC PHP
 Disables caching of responses. Caching is disabled by default.
 
 
-### Custom OAuth flows
+## Custom OAuth flows
 
 The above functions work with a single authenticated Twitter account.
-If you want to authenticate multiple clients or create OAuth flows outside of Wordpress admin, you'll have to work directly with the `TwitterApiClient` class and roll your own OAuth user flows.
+If you want to authenticate multiple clients or create OAuth flows other than the one provided, you'll have to work directly with the `TwitterApiClient` class and roll your own OAuth user flows.
 
-The following utility functions will help you construct your own OAuth flows, but please see [Twitter's own documentation](https://dev.twitter.com/docs/auth/obtaining-access-tokens) if you're not familiar with the process.
+The following utility functions will do some lifting for you, but please see [Twitter's own documentation](https://dev.twitter.com/docs/auth/obtaining-access-tokens) if you're not familiar with the process.
 
 #### twitter_api_oauth_request_token
 `TwitterOAuthToken twitter_api_oauth_request_token ( string $consumer_key, string $consumer_secret, string $oauth_callback )`  

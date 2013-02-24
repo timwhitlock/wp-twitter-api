@@ -124,7 +124,7 @@ class TwitterApiClient {
         $Client = new TwitterApiClient;
         extract( _twitter_api_config() );
         if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-            trigger_error('Twitter application is not fully configured');
+            trigger_error( __('Twitter application is not fully configured') );
         }
         $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );        
         return $Client;
@@ -148,7 +148,7 @@ class TwitterApiClient {
           $this->cache_ns  = $namespace;
           return $this;
        }
-       trigger_error('Cannot enable Twitter API cache without APC extension');
+       trigger_error( __('Cannot enable Twitter API cache without APC extension') );
        return $this->disable_cache();
     }
     
@@ -209,7 +209,7 @@ class TwitterApiClient {
     public function call( $path, array $_args, $http_method ){
         // all calls must be authenticated in API 1.1
         if( ! $this->has_auth() ){
-            throw new TwitterApiException('Twitter client not authenticated', 0, 401 );
+            throw new TwitterApiException( __('Twitter client not authenticated'), 0, 401 );
         }
         // transform some arguments and ensure strings
         // no further validation is performed
@@ -225,7 +225,7 @@ class TwitterApiClient {
                  $args[$key] = 'false';
             }
             else if( ! is_scalar($val) ){
-                throw new TwitterApiException('Invalid Twitter param type ('.gettype($val).') '.$key.' in '.$path, -1 );
+                throw new TwitterApiException( __('Invalid Twitter parameter').' ('.gettype($val).') '.$key.' in '.$path, -1 );
             }
             else {
                 $args[$key] = (string) $val;
@@ -264,19 +264,25 @@ class TwitterApiClient {
         }
         $http = self::http_request( $endpoint, $conf );
         $data = json_decode( $http['body'], true );
+        $status = $http['response']['code'];
         // unserializable array assumed to be serious error
         if( ! is_array($data) ){
-            $err = array( 'message' => $http['response']['message'], 'code' => -1 );
-            TwitterApiException::chuck( $err, $http['response']['code'] );
+            $err = array( 
+                'message' => __($http['response']['message']), 
+                'code' => -1 
+            );
+            TwitterApiException::chuck( $err, $status );
         }
         // else could be well-formed error
         if( isset( $data['errors'] ) ) {
             while( $err = array_shift($data['errors']) ){
+                $err['message'] = __( $err['message'] );
                 if( $data['errors'] ){
-                    trigger_error( sprintf('Twitter error #%d "%s"', $err['code'], $err['message'] ), E_USER_WARNING );
+                    $message = sprintf( __('Twitter error #%d'), $err['code'] ).' "'.$err['message'].'"';
+                    trigger_error( $message, E_USER_WARNING );
                 }
                 else {
-                    TwitterApiException::chuck( $err, $http['response']['code'] );
+                    TwitterApiException::chuck( $err, $status );
                 }
             }
         }
@@ -322,7 +328,7 @@ class TwitterApiClient {
         }
         parse_str( $body, $params );
         if( ! is_array($params) || ! isset($params['oauth_token']) || ! isset($params['oauth_token_secret']) ){
-            throw new TwitterApiException( 'Malformed response from Twitter', -1, $stat );
+            throw new TwitterApiException( __('Malformed response from Twitter'), -1, $stat );
         }
         return $params;   
     }
@@ -341,7 +347,7 @@ class TwitterApiClient {
             }
         }
         if( empty($http['response']) ){
-            throw new TwitterApiException( 'Wordpress http execution failed', -1 );
+            throw new TwitterApiException( __('Wordpress HTTP request failure'), -1 );
         }
         return $http;
     }
@@ -376,7 +382,7 @@ class TwitterOAuthToken {
 
     function __construct( $key, $secret = '' ){
         if( ! $key ){
-           throw new Exception('Invalid OAuth token - must have a key even if secret is empty');
+           throw new Exception( __('Invalid OAuth token').' - '.__('Key required even if secret is empty') );
         }
         $this->key = $key;
         $this->secret = $secret;
@@ -518,7 +524,7 @@ function _twitter_api_http_status_text( $s ){
         504 => 'Gateway Time-out',
         505 => 'HTTP Version not supported',
     );
-    return isset($codes[$s]) ? $codes[$s] : 'Status '.$s.'from Twitter';
+    return __( isset($codes[$s]) ? $codes[$s] : sprintf('Status %u from Twitter', $s) );
 }
 
 

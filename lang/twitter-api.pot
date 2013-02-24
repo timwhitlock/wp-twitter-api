@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API Wordpress plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Fri, 22 Feb 2013 17:50:38 +0000\n"
-"PO-Revision-Date: Fri, 22 Feb 2013 19:32:46 +0000\n"
+"PO-Revision-Date: Sun, 24 Feb 2013 11:30:15 +0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: English (UK)\n"
@@ -35,4 +35,204 @@ msgstr[1] ""
  
 #: Asset yesterday-at 
 msgid "Yesterday at " 
+msgstr "" 
+ 
+#: Asset http-status-100 
+msgid "Continue" 
+msgstr "" 
+ 
+#: Asset http-status-101 
+msgid "Switching Protocols" 
+msgstr "" 
+ 
+#: Asset http-status-200 
+msgid "OK" 
+msgstr "" 
+ 
+#: Asset http-status-201 
+msgid "Created" 
+msgstr "" 
+ 
+#: Asset http-status-202 
+msgid "Accepted" 
+msgstr "" 
+ 
+#: Asset http-status-203 
+msgid "Non-Authoritative Information" 
+msgstr "" 
+ 
+#: Asset http-status-204 
+msgid "No Content" 
+msgstr "" 
+ 
+#: Asset http-status-205 
+msgid "Reset Content" 
+msgstr "" 
+ 
+#: Asset http-status-206 
+msgid "Partial Content" 
+msgstr "" 
+ 
+#: Asset http-status-300 
+msgid "Multiple Choices" 
+msgstr "" 
+ 
+#: Asset http-status-301 
+msgid "Moved Permanently" 
+msgstr "" 
+ 
+#: Asset http-status-302 
+msgid "Found" 
+msgstr "" 
+ 
+#: Asset http-status-303 
+msgid "See Other" 
+msgstr "" 
+ 
+#: Asset http-status-304 
+msgid "Not Modified" 
+msgstr "" 
+ 
+#: Asset http-status-305 
+msgid "Use Proxy" 
+msgstr "" 
+ 
+#: Asset http-status-307 
+msgid "Temporary Redirect" 
+msgstr "" 
+ 
+#: Asset http-status-400 
+msgid "Bad Request" 
+msgstr "" 
+ 
+#: Asset http-status-401 
+msgid "Authorization Required" 
+msgstr "" 
+ 
+#: Asset http-status-402 
+msgid "Payment Required" 
+msgstr "" 
+ 
+#: Asset http-status-403 
+msgid "Forbidden" 
+msgstr "" 
+ 
+#: Asset http-status-404 
+msgid "Not Found" 
+msgstr "" 
+ 
+#: Asset http-status-405 
+msgid "Method Not Allowed" 
+msgstr "" 
+ 
+#: Asset http-status-406 
+msgid "Not Acceptable" 
+msgstr "" 
+ 
+#: Asset http-status-407 
+msgid "Proxy Authentication Required" 
+msgstr "" 
+ 
+#: Asset http-status-408 
+msgid "Request Time-out" 
+msgstr "" 
+ 
+#: Asset http-status-409 
+msgid "Conflict" 
+msgstr "" 
+ 
+#: Asset http-status-410 
+msgid "Gone" 
+msgstr "" 
+ 
+#: Asset http-status-411 
+msgid "Length Required" 
+msgstr "" 
+ 
+#: Asset http-status-412 
+msgid "Precondition Failed" 
+msgstr "" 
+ 
+#: Asset http-status-413 
+msgid "Request Entity Too Large" 
+msgstr "" 
+ 
+#: Asset http-status-414 
+msgid "Request-URI Too Large" 
+msgstr "" 
+ 
+#: Asset http-status-415 
+msgid "Unsupported Media Type" 
+msgstr "" 
+ 
+#: Asset http-status-416 
+msgid "Requested range not satisfiable" 
+msgstr "" 
+ 
+#: Asset http-status-417 
+msgid "Expectation Failed" 
+msgstr "" 
+ 
+#: Asset http-status-429 
+msgid "Twitter API rate limit exceeded" 
+msgstr "" 
+ 
+#: Asset http-status-500 
+msgid "Twitter server error" 
+msgstr "" 
+ 
+#: Asset http-status-501 
+msgid "Not Implemented" 
+msgstr "" 
+ 
+#: Asset http-status-502 
+msgid "Twitter is not responding" 
+msgstr "" 
+ 
+#: Asset http-status-503 
+msgid "Twitter is too busy to respond" 
+msgstr "" 
+ 
+#: Asset http-status-504 
+msgid "Gateway Time-out" 
+msgstr "" 
+ 
+#: Asset http-status-505 
+msgid "HTTP Version not supported" 
+msgstr "" 
+ 
+#: Asset notice-unconfigured 
+msgid "Twitter application is not fully configured" 
+msgstr "" 
+ 
+#: Asset warning-no-apc 
+msgid "Cannot enable Twitter API cache without APC extension" 
+msgstr "" 
+ 
+#: Asset warning-unauthed 
+msgid "Twitter client not authenticated" 
+msgstr "" 
+ 
+#: Asset error-twitter-invalid-param 
+msgid "Invalid Twitter parameter" 
+msgstr "" 
+ 
+#: Asset error-twitter-generic 
+msgid "Twitter error #%d" 
+msgstr "" 
+ 
+#: Asset error-twitter-malformed 
+msgid "Malformed response from Twitter" 
+msgstr "" 
+ 
+#: Asset error-wordpress-http 
+msgid "Wordpress HTTP request failure" 
+msgstr "" 
+ 
+#: Asset error-oauth-invalid-token 
+msgid "Invalid OAuth token" 
+msgstr "" 
+ 
+#: Asset error-oauth-empty-key 
+msgid "Key required even if secret is empty" 
 msgstr "" 

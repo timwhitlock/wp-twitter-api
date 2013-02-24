@@ -18,7 +18,7 @@ Author URI: http://timwhitlock.info/
  */
 function latest_tweets_render( $screen_name, $count ){
     if( ! function_exists('twitter_api_get') ){
-        throw new Exception('Twitter API plugin is not enabled');
+        throw new Exception( __('Twitter API plugin is not enabled') );
     }
     if( function_exists('apc_fetch') ){
         // We could cache the rendered HTML, but this tests the twitter_api cache functions

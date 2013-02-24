@@ -13,7 +13,7 @@
 function twitter_api_admin_render_header( $subheader, $css = '' ){
     ?>
      <div class="wrap">
-        <h2>Twitter API Authentication Settings</h2>
+        <h2><?php echo esc_html__('Twitter API Authentication Settings')?></h2>
         <div class="<?php echo $css?>">
             <h3><?php echo esc_html($subheader)?></h3>
         </div>
@@ -59,7 +59,10 @@ function twitter_api_admin_render_form(){
         <p class="submit">
             <input type="submit" class="button-primary" value="Save settings" />
         </p>
-        <small>These details are available in your <a href="https://dev.twitter.com/apps">Twitter dashboard</a></small>
+        <small>
+            <?php echo esc_html__('These details are available in')?> 
+            <a href="https://dev.twitter.com/apps"><?php echo esc_html__('your Twitter dashboard')?></a>
+        </small>
     </form>
     <?php
 }
@@ -96,7 +99,7 @@ function twitter_api_admin_render_login( $consumer_key, $consumer_secret ){
  */ 
 function twitter_api_admin_render_page(){
     if ( ! current_user_can('manage_options') ){
-        twitter_api_admin_render_header("You don't have permission to manage Twitter API settings",'error');
+        twitter_api_admin_render_header( __("You don't have permission to manage Twitter API settings"),'error');
         twitter_api_admin_render_footer();
         return;
     }
@@ -115,7 +118,7 @@ function twitter_api_admin_render_page(){
         // check whether we have any OAuth params
         extract( $conf );
         if( ! $consumer_key || ! $consumer_secret ){
-            throw new Exception('Twitter application not configured');
+            throw new Exception( __('Twitter application not fully configured') );
         }
 
         // else exchange access token if callback // request secret saved as option
@@ -133,14 +136,14 @@ function twitter_api_admin_render_page(){
 
         // else administrator needs to connect / authenticate with Twitter.
         if( ! $access_key || ! $access_secret ){
-            twitter_api_admin_render_header('Twitter application is not authenticated.', 'error' );
+            twitter_api_admin_render_header( __('Plugin not yet authenticated with Twitter'), 'error' );
             twitter_api_admin_render_login( $consumer_key, $consumer_secret );
         }
 
         // else we have auth - verify that tokens are all still valid
         else {
             $me = twitter_api_get('account/verify_credentials');
-            twitter_api_admin_render_header('Authenticated as @'.$me['screen_name'], 'updated' );
+            twitter_api_admin_render_header( sprintf( __('Authenticated as @%s'), $me['screen_name'] ), 'updated' );
         }
 
     }
@@ -183,7 +186,7 @@ function twitter_api_admin_base_uri(){
  * Admin menu registration callback
  */
 function twitter_api_admin_menu() {
-    add_options_page( 'Twitter API', 'Twitter API', 'manage_options', 'twitter-api-admin', 'twitter_api_admin_render_page');
+    add_options_page( __('Twitter API'), __('Twitter API'), 'manage_options', 'twitter-api-admin', 'twitter_api_admin_render_page');
 }
 
 

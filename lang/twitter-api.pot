@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API Wordpress plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Fri, 22 Feb 2013 17:50:38 +0000\n"
-"PO-Revision-Date: Sun, 24 Feb 2013 11:30:15 +0000\n"
+"PO-Revision-Date: Sun, 24 Feb 2013 11:44:51 +0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: English (UK)\n"
@@ -235,4 +235,36 @@ msgstr ""
  
 #: Asset error-oauth-empty-key 
 msgid "Key required even if secret is empty" 
+msgstr "" 
+ 
+#: Asset twitter-api-authentication-settings 
+msgid "Twitter API Authentication Settings" 
+msgstr "" 
+ 
+#: Asset label-details-available-in 
+msgid "These details are available in" 
+msgstr "" 
+ 
+#: Asset label-your-twitter-dashboard 
+msgid "your Twitter dashboard" 
+msgstr "" 
+ 
+#: Asset admin-fatal-denied 
+msgid "You don't have permission to manage Twitter API settings" 
+msgstr "" 
+ 
+#: Asset admin-notice-unconfigured 
+msgid "Twitter application not fully configured" 
+msgstr "" 
+ 
+#: Asset admin-notice-unauthed 
+msgid "Plugin not yet authenticated with Twitter" 
+msgstr "" 
+ 
+#: Asset admin-notice-authenticated 
+msgid "Authenticated as @%s" 
+msgstr "" 
+ 
+#: Asset label-twitter-api 
+msgid "Twitter API" 
 msgstr "" 

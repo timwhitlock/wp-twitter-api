@@ -118,15 +118,21 @@ class TwitterApiClient {
     
     /**
      * Get client instance authenticated with 'system' credentials
+     * @param bool whether we're getting the system default client which is expected to be authed
      * @return TwitterApiClient
      */    
-    public static function default_instance(){
+    public static function create_instance( $default = true ){
         $Client = new TwitterApiClient;
         extract( _twitter_api_config() );
-        if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-            trigger_error( __('Twitter application is not fully configured') );
+        if( $default ){
+            if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
+                trigger_error( __('Twitter application is not fully configured') );
+            }
+            $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret ); 
+        }       
+        else if( $consumer_key && $consumer_secret ){
+            $Client->set_oauth( $consumer_key, $consumer_secret );
         }
-        $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret );        
         return $Client;
     }     
     

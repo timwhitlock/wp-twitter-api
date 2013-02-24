@@ -99,13 +99,13 @@ function twitter_api_basedir(){
  * Get fully configured and authenticated Twitter API client.
  * @return TwitterApiClient
  */ 
-function twitter_api_client(){
-    static $Client;
-    if( ! isset($Client) ){
+function twitter_api_client( $id = null ){
+    static $clients = array();
+    if( ! isset($clients[$id]) ){
         twitter_api_include('core');
-        $Client = TwitterApiClient::default_instance();
+        $clients[$id] = TwitterApiClient::create_instance( is_null($id) );
     }
-    return $Client;
+    return $clients[$id];
 }
 
 

@@ -116,7 +116,7 @@ class TwitterApiClient {
      * @internal
      */
     public function __sleep(){
-       return array('User','Consumer','AccessToken');
+       return array('Consumer','AccessToken');
     }
     
     /**

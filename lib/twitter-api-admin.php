@@ -86,7 +86,7 @@ function twitter_api_admin_render_login( $consumer_key, $consumer_secret ){
     // Remember request token and render link to authorize
     // we're storing permanently - not using session here, because WP provides no session API.
     _twitter_api_config( array( 'request_secret' => $Token->secret ) );
-    $href = TWITTER_OAUTH_AUTHORIZE_URL.'?oauth_token='.rawurlencode($Token->key);
+    $href = $Token->get_authorization_url();
     echo '<p><a class="button-primary" href="',esc_html($href),'">Connect to Twitter</a></p>';
     echo '<p>&nbsp;</p>';
 }

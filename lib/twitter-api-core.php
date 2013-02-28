@@ -361,12 +361,16 @@ class TwitterOAuthToken {
     public $key;
     public $secret;
 
-    function __construct( $key, $secret = '' ){
+    public function __construct( $key, $secret = '' ){
         if( ! $key ){
            throw new Exception( __('Invalid OAuth token').' - '.__('Key required even if secret is empty') );
         }
         $this->key = $key;
         $this->secret = $secret;
+    }
+    
+    public function get_authorization_url(){
+        return TWITTER_OAUTH_AUTHORIZE_URL.'?oauth_token='.rawurlencode($this->key);
     }
 
 }

@@ -8,6 +8,14 @@ This library exposes a fully authenticated Twitter API client for developing Wor
 * OAuth flow connects your Twitter account via Wordpress admin
 * Access to a common Twitter API client that any plugin can use
 * Caching of API responses - currently only supports APC.
+ 
+
+## Example plugin 
+
+One example plugin is included (a widget that displays latest tweets), but this repo is primarily for developing
+the library under `lib/` and aimed at developers who are building their own plugins.
+
+A fuller featured version of the Latest Tweets widget can be [downloaded from wordpress.org](http://wordpress.org/extend/plugins/latest-tweets-widget/)
 
 
 ## Installation

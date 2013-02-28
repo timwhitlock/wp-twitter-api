@@ -288,7 +288,7 @@ class TwitterApiClient {
      * Perform an OAuth request - these differ somewhat from regular API calls
      * @internal
      */
-    function oauth_exchange( $endpoint, array $args ){
+    public function oauth_exchange( $endpoint, array $args ){
         // build a post request and authenticate via OAuth header
         $params = new TwitterOAuthParams( $args );
         $params->set_consumer( $this->Consumer );
@@ -301,7 +301,7 @@ class TwitterApiClient {
             'redirection' => 0,
             'headers' => array( 'Authorization' => $params->oauth_header() ),
         );
-        $http = self::http_request( $endpoint, $conf, 200 );
+        $http = self::http_request( $endpoint, $conf );
         $body = trim( $http['body'] );
         $stat = $http['response']['code'];
         if( 200 !== $stat ){

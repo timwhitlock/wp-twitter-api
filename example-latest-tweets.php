@@ -119,5 +119,10 @@ class Latest_Tweets_Widget extends WP_Widget {
  
 
 
-add_action( 'widgets_init',  function(){ return register_widget('Latest_Tweets_Widget'); } );
+
+function latest_tweets_register_widget(){
+    return register_widget('Latest_Tweets_Widget');
+}
+
+add_action( 'widgets_init', 'latest_tweets_register_widget' );
 

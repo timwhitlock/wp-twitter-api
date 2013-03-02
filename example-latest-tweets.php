@@ -104,9 +104,8 @@ class Latest_Tweets_Widget extends WP_Widget {
 
     /** @see WP_Widget::widget */
     public function widget( array $args, $instance ) {
-        $title = apply_filters('widget_title', $instance['title']);
-        echo $args['before_widget'], '<div class="latest-tweets">';  
-        echo $args['before_title'], $title, $args['after_title'];
+        $title = $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+        echo $args['before_widget'], $title, '<div class="latest-tweets">';
         echo '<ul class="latest-tweets">';
         foreach( latest_tweets_render( $instance['screen_name'], $instance['num'] ) as $tweet ){
             echo '<li class="latest-tweet">',$tweet,'</li>';

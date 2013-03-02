@@ -15,6 +15,8 @@ define('TWITTER_OAUTH_AUTHORIZE_URL', 'https://twitter.com/oauth/authorize');
 define('TWITTER_OAUTH_AUTHENTICATE_URL', 'https://twitter.com/oauth/authenticate');
 
 define('TWITTER_OAUTH_ACCESS_TOKEN_URL', 'https://twitter.com/oauth/access_token');
+
+define('TWITTER_CACHE_APC', function_exists('apc_fetch') );
  
 
  
@@ -45,6 +47,45 @@ function _twitter_api_config( array $update = array() ){
     }
     return $conf;
 }
+
+
+
+
+/**
+ * abstraction of cache fetching, using apc where possible
+ * @return mixed 
+ */
+function _twitter_api_cache_get( $key ){
+    if( TWITTER_CACHE_APC ){
+        return apc_fetch( $key );
+    }
+    if( isset($key{45}) ){
+        $key = 'twcache_'.md5($key);
+    }
+    return get_transient( $key );
+} 
+
+
+
+/**
+ * abstraction of cache setting, using apc where possible
+ * @internal
+ * @return void
+ */
+function _twitter_api_cache_set( $key, $value, $ttl ){
+    if( TWITTER_CACHE_APC ){
+        apc_store( $key, $value, $ttl );
+        return;
+    }
+    if( isset($key{45}) ){
+        $key = 'twcache_'.md5($key);
+    }
+    if( ! $ttl ){
+        // WP will expire immediately as opposed to never, setting to ten days.
+        $ttl = 864000;
+    }
+    set_transient( $key, $value, $ttl );
+} 
 
 
 
@@ -124,13 +165,9 @@ class TwitterApiClient {
      * @return TwitterApiClient
      */
     public function enable_cache( $ttl = 0, $namespace = 'wp_twitter_api_' ){
-       if( function_exists('apc_store') ){
-          $this->cache_ttl = (int) $ttl;
-          $this->cache_ns  = $namespace;
-          return $this;
-       }
-       trigger_error( __('Cannot enable Twitter API cache without APC extension') );
-       return $this->disable_cache();
+       $this->cache_ttl = (int) $ttl;
+       $this->cache_ns  = $namespace;
+       return $this;
     }
     
     /**
@@ -218,7 +255,7 @@ class TwitterApiClient {
            if( preg_match('/^(\d+)-/', $this->AccessToken->key, $reg ) ){
               $cachekey .= '_'.$reg[1];
            }
-           $data = apc_fetch( $cachekey );
+           $data = _twitter_api_cache_get( $cachekey );
            if( is_array($data) ){
                return $data;
            }
@@ -268,7 +305,7 @@ class TwitterApiClient {
             }
         }
         if( isset($cachekey) ){
-           apc_store( $cachekey, $data, $this->cache_ttl );
+           _twitter_api_cache_set( $cachekey, $data, $this->cache_ttl );
         }
         // remember current rate limits for this endpoint
         $this->last_call = $path;

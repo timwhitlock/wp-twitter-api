@@ -70,7 +70,7 @@ As above, but POSTs data to the Twitter API.
 
 #### twitter_api_enable_cache
 `TwitterApiClient twitter_api_enable_cache( int $ttl )`  
-Enable caching of Twitter response data for `$ttl` seconds. Requires the APC PHP extension.
+Enable caching of Twitter response data for `$ttl` seconds.
 
 #### twitter_api_disable_cache
 `TwitterApiClient twitter_api_disable_cache( )`  

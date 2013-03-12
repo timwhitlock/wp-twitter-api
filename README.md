@@ -7,7 +7,8 @@ This library exposes a fully authenticated Twitter API client for developing Wor
 * Compatible with the new Twitter API 1.1
 * OAuth flow connects your Twitter account via Wordpress admin
 * Access to a common Twitter API client that any plugin can use
-* Caching of API responses - currently only supports APC.
+* Caching of API responses
+* Light-weight: uses Wordpress utilities where possible
  
 
 ## Example plugin 
@@ -69,7 +70,7 @@ As above, but POSTs data to the Twitter API.
 
 #### twitter_api_enable_cache
 `TwitterApiClient twitter_api_enable_cache( int $ttl )`  
-Enable caching of Twitter response data for `$ttl` seconds. Requires the APC PHP extension.
+Enable caching of Twitter response data for `$ttl` seconds.
 
 #### twitter_api_disable_cache
 `TwitterApiClient twitter_api_disable_cache( )`  

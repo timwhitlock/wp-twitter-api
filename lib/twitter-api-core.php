@@ -430,6 +430,14 @@ class TwitterOAuthParams {
         return str_replace( '%7E', '~', rawurlencode($val) );
     }    
     
+    private static function urlencode_params( array $args ){
+        $pairs = array();
+        foreach( $args as $key => $val ){
+            $pairs[] = rawurlencode($key).'='.rawurlencode($val);
+        }
+        return str_replace( '%7E', '~', implode( '&', $pairs ) );
+    }
+    
     public function __construct( array $args = array() ){
         $this->args = $args + array ( 
             'oauth_version' => '1.0',
@@ -458,9 +466,7 @@ class TwitterOAuthParams {
     }
     
     public function serialize(){
-        $str = http_build_query( $this->args );
-        $str = str_replace( '%7E', '~', $str );
-        return $str;
+        return self::urlencode_params( $this->args );
     }
 
     public function sign_hmac( $http_method, $http_rsc ){

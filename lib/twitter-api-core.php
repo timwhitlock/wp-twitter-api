@@ -283,6 +283,15 @@ class TwitterApiClient {
         $http = self::http_request( $endpoint, $conf );
         $data = json_decode( $http['body'], true );
         $status = $http['response']['code'];
+        // remember current rate limits for this endpoint
+        $this->last_call = $path;
+        if( isset($http['headers']['x-rate-limit-limit']) ) {
+            $this->last_rate[$path] = array (
+                'limit'     => (int) $http['headers']['x-rate-limit-limit'],
+                'remaining' => (int) $http['headers']['x-rate-limit-remaining'],
+                'reset'     => (int) $http['headers']['x-rate-limit-reset'],
+            );
+        }
         // unserializable array assumed to be serious error
         if( ! is_array($data) ){
             $err = array( 
@@ -306,15 +315,6 @@ class TwitterApiClient {
         }
         if( isset($cachekey) ){
            _twitter_api_cache_set( $cachekey, $data, $this->cache_ttl );
-        }
-        // remember current rate limits for this endpoint
-        $this->last_call = $path;
-        if( isset($http['headers']['x-rate-limit-limit']) ) {
-            $this->last_rate[$path] = array (
-                'limit'     => (int) $http['headers']['x-rate-limit-limit'],
-                'remaining' => (int) $http['headers']['x-rate-limit-remaining'],
-                'reset'     => (int) $http['headers']['x-rate-limit-reset'],
-            );
         }
         return $data;
     }

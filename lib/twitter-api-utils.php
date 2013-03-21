@@ -106,3 +106,26 @@ function twitter_api_date_format( $f, $t ){
     return $dt->format( $f );
 }
 
+
+
+/**
+ * Clean Emoji icons out of tweet text.
+ * Wordpress isn't escaping these strings properly for database insertion.
+ */
+function twitter_api_strip_emoji( $text ){
+    // replace all control and private use unicode sequences
+    return preg_replace_callback('/\p{C}/u', '_twitter_api_strip_emoji_replace', $text );
+}
+
+
+
+/**
+ * @internal
+ */
+function _twitter_api_strip_emoji_replace( array $r ){
+    // emoticons start at U+1F601 (\xF0\x9F\x98\x81)
+    // @todo plain text mappings for common smileys 
+    return '';
+}
+
+

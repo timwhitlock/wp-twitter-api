@@ -137,3 +137,25 @@ function twitter_api_oauth_access_token( $consumer_key, $consumer_secret, $reque
 if( is_admin() ){
     twitter_api_include('core','admin');
 }
+
+
+
+/**
+ * Enable localisation with static list of available translations.
+ * Messages merged into default domain.
+ */
+function _twitter_api_init_l10n(){
+    static $map = array (
+        'pt_BR' => 'pt_BR',
+    );
+    if( preg_match('/^([a-z]{2})[\-_\s]([a-z]{2})$/i', get_locale(), $r ) ){
+        $locale = strtolower($r[1]).'_'.strtoupper($r[2]);
+        if( isset($map[$locale]) ){
+            $locale = $map[$locale];
+            $mofile = twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo';
+            load_textdomain( 'default', $mofile );
+        }
+    }
+}
+
+add_action( 'init', '_twitter_api_init_l10n' );

@@ -60,7 +60,7 @@ function twitter_api_relative_date( $strdate ){
     // within last hour? X minutes ago
     if( $tdiff < 3600 ){
         $idiff = (int) floor( $tdiff / 60 );
-        return sprintf( _n( '%u minute ago', '%u minutes ago', $idiff ), $idiff );
+        return sprintf( _n( '1 minute ago', '%u minutes ago', $idiff ), $idiff );
     }
     // within same day? About X hours ago
     $samey = ($y === $yy) and
@@ -68,11 +68,11 @@ function twitter_api_relative_date( $strdate ){
     $samed = ($d === $dd);
     if( ! empty($samed) ){
         $hdiff = (int) floor( $tdiff / 3600 );
-        return sprintf( _n( 'About %u hour ago', 'About %u hours ago', $hdiff ), $hdiff );
+        return sprintf( _n( 'About an hour ago', 'About %u hours ago', $hdiff ), $hdiff );
     }
     // within 24 hours?
     if( $tdiff < 86400 ){
-        return __('Yesterday at ').twitter_api_date_format('g:i A', $tt );
+        return __('Yesterday at').twitter_api_date_format(' g:i A', $tt );
     }
     // else return formatted date, e.g. "Oct 20th 2008 9:27 PM GMT" */
     return twitter_api_date_format('M jS Y g:i A', $tt );

@@ -595,24 +595,23 @@ class TwitterApiRateLimitException extends TwitterApiException {
 
 
 /**
- * Enable localisation when ready.
- * Currently merging into default domain. 
- * This works, but no translations available yet.
- *
+ * Enable localisation with static list of available translations.
+ * Messages merged into default domain.
+ */
 function _twitter_api_init_l10n(){
-    $locales = array( get_locale(), 'en_GB' );
-    while( $locale = array_shift($locales) ){
-        $mo = twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo';
-        if( file_exists($mo) ){
-            load_textdomain( 'default', $mo );
-            return;
+    static $map = array (
+        'pt_BR' => 'pt_BR',
+    );
+    if( preg_match('/^([a-z]{2})[\-_\s]([a-z]{2})$/i', get_locale(), $r ) ){
+        $locale = strtolower($r[1]).'_'.strtoupper($r[2]);
+        if( isset($map[$locale]) ){
+            $locale = $map[$locale];
+            $mofile = twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo';
+            load_textdomain( 'default', $mofile );
         }
     }
 }
 
 add_action( 'init', '_twitter_api_init_l10n' );
-*/
-
-
 
 

@@ -71,27 +71,27 @@ class Latest_Tweets_Widget extends WP_Widget {
         $this->options = array(
             array (
                 'name'  => 'title',
-                'label' => 'Widget title',
+                'label' => __('Widget title'),
                 'type'  => 'text'
             ),
             array (
                 'name'  => 'screen_name',
-                'label' => 'Twitter handle',
+                'label' => __('Twitter handle'),
                 'type'  => 'text'
             ),
             array (
                 'name'  => 'num',
-                'label' => 'Number of tweets',
+                'label' => __('Number of tweets'),
                 'type'  => 'text'
             ),
         );
-        parent::__construct( $id_base, $name, $widget_options, $control_options );  
+        parent::__construct( $id_base, __($name), $widget_options, $control_options );  
     }    
     
     /** @see WP_Widget::form */
     public function form( $instance ) {
         if ( empty($instance) ) {
-            $instance['title']  = 'Latest Tweets';
+            $instance['title']  = __('Latest Tweets');
             $instance['screen_name'] = '';
             $instance['num'] = '5';
         }

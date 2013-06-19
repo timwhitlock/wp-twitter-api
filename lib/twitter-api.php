@@ -147,10 +147,7 @@ if( is_admin() ){
 function _twitter_api_init_l10n(){
     static $map = array (
         'pt_BR' => 'pt_BR',
-<<<<<<< HEAD
         'de_DE' => 'de_DE',
-=======
->>>>>>> b81d60060416eb7b75b857495d6193d83e8200d6
     );
     if( preg_match('/^([a-z]{2})[\-_\s]([a-z]{2})$/i', get_locale(), $r ) ){
         $locale = strtolower($r[1]).'_'.strtoupper($r[2]);

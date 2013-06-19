@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: Wed, 19 Jun 2013 15:13:26 +0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: English (UK)\n"
+"Language: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,23 +14,24 @@ msgstr ""
 "X-Generator: Loco http://localise.biz \n"
 "X-Loco-Author: Tim Whitlock\n"
 "X-Loco-Source-Locale: en_GB\n" 
+"X-Loco-Target-Locale: de_DE\n" 
 "X-Poedit-SourceCharset: UTF-8\n"
  
 #: Asset admin-fatal-denied 
 msgid "You don't have permission to manage Twitter API settings" 
-msgstr "" 
+msgstr "Dir fehlen die Rechte, um die Twitter API Einstellungen zu verwalten" 
  
 #: Asset admin-notice-authenticated 
 msgid "Authenticated as @%s" 
-msgstr "" 
+msgstr "Authentifiziert als @%s" 
  
 #: Asset admin-notice-unauthed 
 msgid "Plugin not yet authenticated with Twitter" 
-msgstr "" 
+msgstr "Das Plugin wurde noch nicht bei Twitter authentifiziert" 
  
 #: Asset admin-notice-unconfigured 
 msgid "Twitter application not fully configured" 
-msgstr "" 
+msgstr "Die Twitter Anwendung ist nicht vollständig konfiguriert" 
  
 #: Asset error-oauth-empty-key 
 msgid "Key required even if secret is empty" 
@@ -38,15 +39,15 @@ msgstr ""
  
 #: Asset error-oauth-invalid-token 
 msgid "Invalid OAuth token" 
-msgstr "" 
+msgstr "Ungültiger OAuth token" 
  
 #: Asset error-twitter-generic 
 msgid "Twitter error #%d" 
-msgstr "" 
+msgstr "Twitter Fehler #%d" 
  
 #: Asset error-twitter-invalid-param 
 msgid "Invalid Twitter parameter" 
-msgstr "" 
+msgstr "Ungültiger Twitter Parameter" 
  
 #: Asset error-twitter-malformed 
 msgid "Malformed response from Twitter" 
@@ -59,12 +60,12 @@ msgstr ""
 #: Asset hours-ago-singular 
 msgid "About an hour ago" 
 msgid_plural "About %u hours ago" 
-msgstr[0] "" 
-msgstr[1] "" 
+msgstr[0] "Vor ungefähr 1 Stunde" 
+msgstr[1] "Vor ungefähr %u Stunden" 
  
 #: Asset http-status-100 
 msgid "Continue" 
-msgstr "" 
+msgstr "Weiter" 
  
 #: Asset http-status-101 
 msgid "Switching Protocols" 
@@ -72,15 +73,15 @@ msgstr ""
  
 #: Asset http-status-200 
 msgid "OK" 
-msgstr "" 
+msgstr "OK" 
  
 #: Asset http-status-201 
 msgid "Created" 
-msgstr "" 
+msgstr "Erstellt" 
  
 #: Asset http-status-202 
 msgid "Accepted" 
-msgstr "" 
+msgstr "Akzeptiert" 
  
 #: Asset http-status-203 
 msgid "Non-Authoritative Information" 
@@ -88,7 +89,7 @@ msgstr ""
  
 #: Asset http-status-204 
 msgid "No Content" 
-msgstr "" 
+msgstr "Kein Inhalt" 
  
 #: Asset http-status-205 
 msgid "Reset Content" 
@@ -108,7 +109,7 @@ msgstr ""
  
 #: Asset http-status-302 
 msgid "Found" 
-msgstr "" 
+msgstr "Gefunden" 
  
 #: Asset http-status-303 
 msgid "See Other" 
@@ -116,7 +117,7 @@ msgstr ""
  
 #: Asset http-status-304 
 msgid "Not Modified" 
-msgstr "" 
+msgstr "Nicht modifiziert" 
  
 #: Asset http-status-305 
 msgid "Use Proxy" 
@@ -204,15 +205,15 @@ msgstr ""
  
 #: Asset http-status-500 
 msgid "Twitter server error" 
-msgstr "" 
+msgstr "Twitter Server Fehler" 
  
 #: Asset http-status-501 
 msgid "Not Implemented" 
-msgstr "" 
+msgstr "Nicht implementiert" 
  
 #: Asset http-status-502 
 msgid "Twitter is not responding" 
-msgstr "" 
+msgstr "Twitter antwortet nicht" 
  
 #: Asset http-status-503 
 msgid "Twitter is too busy to respond" 
@@ -224,74 +225,74 @@ msgstr ""
  
 #: Asset http-status-505 
 msgid "HTTP Version not supported" 
-msgstr "" 
+msgstr "HTTP Version wird nicht unterstützt" 
  
 #: Asset just-now 
 msgid "Just now" 
-msgstr "" 
+msgstr "Gerade eben" 
  
 #: Asset label-details-available-in 
 msgid "These details are available in" 
-msgstr "" 
+msgstr "Diese Informationen findest du in" 
  
 #: Asset label-twitter-api 
 msgid "Twitter API" 
-msgstr "" 
+msgstr "Twitter API" 
  
 #: Asset label-your-twitter-dashboard 
 msgid "your Twitter dashboard" 
-msgstr "" 
+msgstr "deinem Twitter Dashboard" 
  
 #: Asset latest-tweets 
 msgid "Latest Tweets" 
-msgstr "" 
+msgstr "Neueste Tweets" 
  
 #: Asset minutes-ago-singular 
 msgid "%u minute ago" 
 msgid_plural "%u minutes ago" 
-msgstr[0] "" 
-msgstr[1] "" 
+msgstr[0] "Vor 1 Minute" 
+msgstr[1] "Vor %u Minuten" 
  
 #: Asset notice-unconfigured 
 msgid "Twitter application is not fully configured" 
-msgstr "" 
+msgstr "Die Twitter Anwendung ist nicht vollständig konfiguriert" 
  
 #: Asset number-of-tweets 
 msgid "Number of tweets" 
-msgstr "" 
+msgstr "Anzahl an Tweets" 
  
 #: Asset save-settings 
 msgid "Save settings" 
-msgstr "" 
+msgstr "Einstellungen speichern" 
  
 #: Asset show-replies 
 msgid "Show Replies" 
-msgstr "" 
+msgstr "Antworten anzeigen" 
  
 #: Asset show-retweets 
 msgid "Show Retweets" 
-msgstr "" 
+msgstr "Retweets anzeigen" 
  
 #: Asset twitter-api-authentication-settings 
 msgid "Twitter API Authentication Settings" 
-msgstr "" 
+msgstr "Einstellungen zur Twitter API Authentifizierung" 
  
 #: Asset twitter-handle 
 msgid "Twitter handle" 
-msgstr "" 
+msgstr "Twitter Handle" 
  
 #: Asset warning-no-apc 
 msgid "Cannot enable Twitter API cache without APC extension" 
-msgstr "" 
+msgstr "Der Twitter API Cache kann ohne APC Erweiterung nicht aktiviert werden" 
  
 #: Asset warning-unauthed 
 msgid "Twitter client not authenticated" 
-msgstr "" 
+msgstr "Twitter Client nicht authentifiziert" 
  
 #: Asset widget-title 
 msgid "Widget title" 
-msgstr "" 
+msgstr "Titel" 
  
 #: Asset yesterday-at 
 msgid "Yesterday at " 
-msgstr "" 
+msgstr "Gestern um" 

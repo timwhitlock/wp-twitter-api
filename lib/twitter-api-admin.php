@@ -57,7 +57,7 @@ function twitter_api_admin_render_form(){
             <input type="text" size="64" name="saf_twitter[access_secret]" id="twitter-api--access-secret" value="<?php echo esc_html($access_secret)?>" />
         </p>
         <p class="submit">
-            <input type="submit" class="button-primary" value="Save settings" />
+            <input type="submit" class="button-primary" value="<?php echo esc_html__('Save settings')?>" />
         </p>
         <small>
             <?php echo esc_html__('These details are available in')?> 
@@ -87,7 +87,7 @@ function twitter_api_admin_render_login( $consumer_key, $consumer_secret ){
     // we're storing permanently - not using session here, because WP provides no session API.
     _twitter_api_config( array( 'request_secret' => $Token->secret ) );
     $href = $Token->get_authorization_url();
-    echo '<p><a class="button-primary" href="',esc_html($href),'">Connect to Twitter</a></p>';
+    echo '<p><a class="button-primary" href="',esc_html($href),'">'.esc_html__('Connect to Twitter').'</a></p>';
     echo '<p>&nbsp;</p>';
 }
  

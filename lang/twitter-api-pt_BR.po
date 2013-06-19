@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: Wed, 19 Jun 2013 15:13:26 +0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: English (UK)\n"
+"Language: Portuguese (Brazil)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,23 +14,24 @@ msgstr ""
 "X-Generator: Loco http://localise.biz \n"
 "X-Loco-Author: Tim Whitlock\n"
 "X-Loco-Source-Locale: en_GB\n" 
+"X-Loco-Target-Locale: pt_BR\n" 
 "X-Poedit-SourceCharset: UTF-8\n"
  
 #: Asset admin-fatal-denied 
 msgid "You don't have permission to manage Twitter API settings" 
-msgstr "" 
+msgstr "Você não tem permissão para gerenciar a API do Twitter" 
  
 #: Asset admin-notice-authenticated 
 msgid "Authenticated as @%s" 
-msgstr "" 
+msgstr "Autenticado como @%s" 
  
 #: Asset admin-notice-unauthed 
 msgid "Plugin not yet authenticated with Twitter" 
-msgstr "" 
+msgstr "Plugin ainda não autenticado com o Twitter" 
  
 #: Asset admin-notice-unconfigured 
 msgid "Twitter application not fully configured" 
-msgstr "" 
+msgstr "Aplicação do Twitter não totalmente configurada" 
  
 #: Asset error-oauth-empty-key 
 msgid "Key required even if secret is empty" 
@@ -59,64 +60,64 @@ msgstr ""
 #: Asset hours-ago-singular 
 msgid "About an hour ago" 
 msgid_plural "About %u hours ago" 
-msgstr[0] "" 
-msgstr[1] "" 
+msgstr[0] "Cerca de uma hora atrás" 
+msgstr[1] "Cerca de %u horas atrás" 
  
 #: Asset http-status-100 
 msgid "Continue" 
-msgstr "" 
+msgstr "Continuar" 
  
 #: Asset http-status-101 
 msgid "Switching Protocols" 
-msgstr "" 
+msgstr "Trocando protocolos" 
  
 #: Asset http-status-200 
 msgid "OK" 
-msgstr "" 
+msgstr "OK" 
  
 #: Asset http-status-201 
 msgid "Created" 
-msgstr "" 
+msgstr "Criado" 
  
 #: Asset http-status-202 
 msgid "Accepted" 
-msgstr "" 
+msgstr "Aceito" 
  
 #: Asset http-status-203 
 msgid "Non-Authoritative Information" 
-msgstr "" 
+msgstr "Informação não-autoritativa" 
  
 #: Asset http-status-204 
 msgid "No Content" 
-msgstr "" 
+msgstr "Sem conteúdo" 
  
 #: Asset http-status-205 
 msgid "Reset Content" 
-msgstr "" 
+msgstr "Resetar conteúdo" 
  
 #: Asset http-status-206 
 msgid "Partial Content" 
-msgstr "" 
+msgstr "Conteúdo parcial" 
  
 #: Asset http-status-300 
 msgid "Multiple Choices" 
-msgstr "" 
+msgstr "Múltipla escolha" 
  
 #: Asset http-status-301 
 msgid "Moved Permanently" 
-msgstr "" 
+msgstr "Movido permanentemente" 
  
 #: Asset http-status-302 
 msgid "Found" 
-msgstr "" 
+msgstr "Encontrado(a)" 
  
 #: Asset http-status-303 
 msgid "See Other" 
-msgstr "" 
+msgstr "Ver outros" 
  
 #: Asset http-status-304 
 msgid "Not Modified" 
-msgstr "" 
+msgstr "Não modificado" 
  
 #: Asset http-status-305 
 msgid "Use Proxy" 
@@ -228,19 +229,19 @@ msgstr ""
  
 #: Asset just-now 
 msgid "Just now" 
-msgstr "" 
+msgstr "Agora mesmo" 
  
 #: Asset label-details-available-in 
 msgid "These details are available in" 
-msgstr "" 
+msgstr "Detalhes disponíveis em" 
  
 #: Asset label-twitter-api 
 msgid "Twitter API" 
-msgstr "" 
+msgstr "API do Twitter" 
  
 #: Asset label-your-twitter-dashboard 
 msgid "your Twitter dashboard" 
-msgstr "" 
+msgstr "seu painel do Twitter" 
  
 #: Asset latest-tweets 
 msgid "Latest Tweets" 
@@ -249,8 +250,8 @@ msgstr ""
 #: Asset minutes-ago-singular 
 msgid "%u minute ago" 
 msgid_plural "%u minutes ago" 
-msgstr[0] "" 
-msgstr[1] "" 
+msgstr[0] "1 minuto atrás" 
+msgstr[1] "%u minutos atrás" 
  
 #: Asset notice-unconfigured 
 msgid "Twitter application is not fully configured" 
@@ -262,7 +263,7 @@ msgstr ""
  
 #: Asset save-settings 
 msgid "Save settings" 
-msgstr "" 
+msgstr "Salvar" 
  
 #: Asset show-replies 
 msgid "Show Replies" 
@@ -294,4 +295,4 @@ msgstr ""
  
 #: Asset yesterday-at 
 msgid "Yesterday at " 
-msgstr "" 
+msgstr "Ontem às" 

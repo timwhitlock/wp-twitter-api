@@ -283,6 +283,15 @@ class TwitterApiClient {
         $http = self::http_request( $endpoint, $conf );
         $data = json_decode( $http['body'], true );
         $status = $http['response']['code'];
+        // remember current rate limits for this endpoint
+        $this->last_call = $path;
+        if( isset($http['headers']['x-rate-limit-limit']) ) {
+            $this->last_rate[$path] = array (
+                'limit'     => (int) $http['headers']['x-rate-limit-limit'],
+                'remaining' => (int) $http['headers']['x-rate-limit-remaining'],
+                'reset'     => (int) $http['headers']['x-rate-limit-reset'],
+            );
+        }
         // unserializable array assumed to be serious error
         if( ! is_array($data) ){
             $err = array( 
@@ -306,15 +315,6 @@ class TwitterApiClient {
         }
         if( isset($cachekey) ){
            _twitter_api_cache_set( $cachekey, $data, $this->cache_ttl );
-        }
-        // remember current rate limits for this endpoint
-        $this->last_call = $path;
-        if( isset($http['headers']['x-rate-limit-limit']) ) {
-            $this->last_rate[$path] = array (
-                'limit'     => (int) $http['headers']['x-rate-limit-limit'],
-                'remaining' => (int) $http['headers']['x-rate-limit-remaining'],
-                'reset'     => (int) $http['headers']['x-rate-limit-reset'],
-            );
         }
         return $data;
     }
@@ -430,6 +430,14 @@ class TwitterOAuthParams {
         return str_replace( '%7E', '~', rawurlencode($val) );
     }    
     
+    private static function urlencode_params( array $args ){
+        $pairs = array();
+        foreach( $args as $key => $val ){
+            $pairs[] = rawurlencode($key).'='.rawurlencode($val);
+        }
+        return str_replace( '%7E', '~', implode( '&', $pairs ) );
+    }
+    
     public function __construct( array $args = array() ){
         $this->args = $args + array ( 
             'oauth_version' => '1.0',
@@ -458,9 +466,7 @@ class TwitterOAuthParams {
     }
     
     public function serialize(){
-        $str = http_build_query( $this->args );
-        $str = str_replace( '%7E', '~', $str );
-        return $str;
+        return self::urlencode_params( $this->args );
     }
 
     public function sign_hmac( $http_method, $http_rsc ){
@@ -584,29 +590,6 @@ class TwitterApiNotFoundException extends TwitterApiException {
 class TwitterApiRateLimitException extends TwitterApiException {
     
 }
-
-
-
-
-/**
- * Enable localisation when ready.
- * Currently merging into default domain. 
- * This works, but no translations available yet.
- *
-function _twitter_api_init_l10n(){
-    $locales = array( get_locale(), 'en_GB' );
-    while( $locale = array_shift($locales) ){
-        $mo = twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo';
-        if( file_exists($mo) ){
-            load_textdomain( 'default', $mo );
-            return;
-        }
-    }
-}
-
-add_action( 'init', '_twitter_api_init_l10n' );
-*/
-
 
 
 

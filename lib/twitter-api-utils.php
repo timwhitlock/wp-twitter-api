@@ -60,7 +60,7 @@ function twitter_api_relative_date( $strdate ){
     // within last hour? X minutes ago
     if( $tdiff < 3600 ){
         $idiff = (int) floor( $tdiff / 60 );
-        return sprintf( _n( '1 minute ago', '%u minutes ago', $idiff ), $idiff );
+        return sprintf( _n( '%u minute ago', '%u minutes ago', $idiff ), $idiff );
     }
     // within same day? About X hours ago
     $samey = ($y === $yy) and

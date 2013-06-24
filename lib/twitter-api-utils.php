@@ -18,14 +18,31 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
     if( ! $alreadyhtml ){
         $src = esc_html( $src );
     }
-    // linkify URLs    
-    $src = preg_replace('!https?://\S+!', '<a href="\\0" target="'.$target.'">\\0</a>', $src );
+    // linkify URLs (restricting to 30 chars as per twitter.com)
+    $src = preg_replace_callback('!https?://(\S+)!', 'twitter_api_html_linkify_callback', $src );
+    if( '_blank' !== $target ){
+        $src = str_replace( '"_blank"', '"'.$target.'"', $src );
+    }
     // linkify @names
     $src = preg_replace('!@([a-z0-9_]{1,15})!i', '<a class="twitter-screen-name" href="https://twitter.com/\\1" target="'.$target.'">\\0</a>', $src );
     // linkify #hashtags
     $src = preg_replace('/(?<!&)#(\w+)/i', '<a class="twitter-hashtag" href="https://twitter.com/search?q=%23\\1&amp;src=hash" target="'.$target.'">\\0</a>', $src );
     return $src;
 } 
+
+
+
+/**
+ * @internal
+ */
+function twitter_api_html_linkify_callback( array $r ){
+    list( $href, $text ) = $r;
+    if( isset($text{30}) ){
+        $text = substr_replace( $text, '&hellip;', 30 );
+    }
+    return '<a href="'.$href.'" target="_blank">'.$text.'</a>';
+}
+
 
 
 
@@ -101,5 +118,31 @@ function _twitter_api_strip_emoji_replace( array $r ){
     // @todo plain text mappings for common smileys 
     return '';
 }
+
+
+
+/**
+ * Resolve shortened url fields via entities
+ * @return string
+ */ 
+function twitter_api_expand_urls( $text, array $entities ){
+    if( isset($entities['urls']) && is_array($entities['urls']) ){
+        foreach( $entities['urls'] as $r ){
+            $text = str_replace( $r['url'], $r['expanded_url'], $text );
+        }
+    }
+    if( isset($entities['media']) && is_array($entities['media']) ){
+        foreach( $entities['media'] as $r ){
+            if( 0 === strpos($r['display_url'], 'pic.twitter.com' ) ) {
+                $text = str_replace( $r['url'], 'https://'.$r['display_url'], $text );
+            }
+            else {
+                $text = str_replace( $r['url'], $r['expanded_url'], $text );
+            }
+        }
+    }
+    return $text;
+}        
+
 
 

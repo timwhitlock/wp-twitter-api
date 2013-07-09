@@ -19,7 +19,7 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
         $src = esc_html( $src );
     }
     // linkify URLs (restricting to 30 chars as per twitter.com)
-    $src = preg_replace_callback('!https?://(\S+)!', 'twitter_api_html_linkify_callback', $src );
+    $src = preg_replace_callback('!(https?://)(\S+)!', 'twitter_api_html_linkify_callback', $src );
     if( '_blank' !== $target ){
         $src = str_replace( '"_blank"', '"'.$target.'"', $src );
     }
@@ -36,11 +36,13 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
  * @internal
  */
 function twitter_api_html_linkify_callback( array $r ){
-    list( $href, $text ) = $r;
-    if( isset($text{30}) ){
-        $text = substr_replace( $text, '&hellip;', 30 );
+    list( , $proto, $label ) = $r;
+    $label = str_replace( '#', '&#35;', $label );
+    $href = $proto.$label;
+    if( isset($label{30}) ){
+        $label = substr_replace( $label, '&hellip;', 30 );
     }
-    return '<a href="'.$href.'" target="_blank">'.$text.'</a>';
+    return '<a href="'.$href.'" target="_blank">'.$label.'</a>';
 }
 
 

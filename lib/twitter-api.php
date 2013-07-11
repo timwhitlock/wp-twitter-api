@@ -56,7 +56,7 @@ function twitter_api_enable_cache( $ttl ){
  * Disable caching of Twitter API responses
  * @return TwitterApiClient
  */
-function twitter_api_disable_cache( $ttl ){
+function twitter_api_disable_cache(){
     $Client = twitter_api_client();
     return $Client->disable_cache();
 }

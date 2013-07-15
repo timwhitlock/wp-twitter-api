@@ -3,296 +3,296 @@ msgstr ""
 "Project-Id-Version: Twitter API Wordpress plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Fri, 22 Feb 2013 17:50:38 +0000\n"
-"PO-Revision-Date: 2013-06-21 10:00-0000\n"
-"Last-Translator: Tim Whitlock <tim@timwhitlock.info>\n"
-"Language-Team: \n"
+"PO-Revision-Date: Mon, 15 Jul 2013 20:56:47 +0100\n"
+"Last-Translator: Tim Whitlock\n"
+"Language-Team: Sample Account (free tier)\n"
 "Language: Portuguese (Brazil)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.3\n"
-"X-Loco-Author: Tim Whitlock\n"
+"X-Generator: Loco http://localise.biz\n"
 "X-Loco-Source-Locale: en_GB\n"
 "X-Loco-Target-Locale: pt_BR\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Tagged: \n"
+"X-Poedit-SourceCharset: UTF-8"
 
-#: Asset admin-fatal-denied
+#. asset: admin-fatal-denied
 msgid "You don't have permission to manage Twitter API settings"
 msgstr "Você não tem permissão para gerenciar a API do Twitter"
 
-#: Asset admin-notice-authenticated
+#. asset: admin-notice-authenticated
 msgid "Authenticated as @%s"
 msgstr "Autenticado como @%s"
 
-#: Asset admin-notice-unauthed
+#. asset: admin-notice-unauthed
 msgid "Plugin not yet authenticated with Twitter"
 msgstr "Plugin ainda não autenticado com o Twitter"
 
-#: Asset admin-notice-unconfigured
+#. asset: admin-notice-unconfigured
 msgid "Twitter application not fully configured"
 msgstr "Aplicação do Twitter não totalmente configurada"
 
-#: Asset error-oauth-empty-key
+#. asset: error-oauth-empty-key
 msgid "Key required even if secret is empty"
 msgstr "Chave exigida mesmo se o secret estiver vazio"
 
-#: Asset error-oauth-invalid-token
+#. asset: error-oauth-invalid-token
 msgid "Invalid OAuth token"
 msgstr "Token OAuth inválido"
 
-#: Asset error-twitter-generic
+#. asset: error-twitter-generic
 msgid "Twitter error #%d"
 msgstr "Erro no Twitter #%d"
 
-#: Asset error-twitter-invalid-param
+#. asset: error-twitter-invalid-param
 msgid "Invalid Twitter parameter"
 msgstr "Parâmetro do Twitter inválido"
 
-#: Asset error-twitter-malformed
+#. asset: error-twitter-malformed
 msgid "Malformed response from Twitter"
 msgstr "Resposta \"malformed\" do Twitter"
 
-#: Asset error-wordpress-http
+#. asset: error-wordpress-http
 msgid "Wordpress HTTP request failure"
 msgstr "Falha no HTTP request do Wordpress"
 
-#: Asset hours-ago-singular
+#. asset: hours-ago-singular
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
-msgstr[0] "Cerca de uma hora atrás"
+msgstr[0]  "Cerca de uma hora atrás"
 msgstr[1] "Cerca de %u horas atrás"
 
-#: Asset http-status-100
+#. asset: http-status-100
 msgid "Continue"
 msgstr "Continuar"
 
-#: Asset http-status-101
+#. asset: http-status-101
 msgid "Switching Protocols"
 msgstr "Trocando protocolos"
 
-#: Asset http-status-200
+#. asset: http-status-200
 msgid "OK"
 msgstr "OK"
 
-#: Asset http-status-201
+#. asset: http-status-201
 msgid "Created"
 msgstr "Criado"
 
-#: Asset http-status-202
+#. asset: http-status-202
 msgid "Accepted"
 msgstr "Aceito"
 
-#: Asset http-status-203
+#. asset: http-status-203
 msgid "Non-Authoritative Information"
 msgstr "Informação não-autoritativa"
 
-#: Asset http-status-204
+#. asset: http-status-204
 msgid "No Content"
 msgstr "Sem conteúdo"
 
-#: Asset http-status-205
+#. asset: http-status-205
 msgid "Reset Content"
 msgstr "Resetar conteúdo"
 
-#: Asset http-status-206
+#. asset: http-status-206
 msgid "Partial Content"
 msgstr "Conteúdo parcial"
 
-#: Asset http-status-300
+#. asset: http-status-300
 msgid "Multiple Choices"
 msgstr "Múltipla escolha"
 
-#: Asset http-status-301
+#. asset: http-status-301
 msgid "Moved Permanently"
 msgstr "Movido permanentemente"
 
-#: Asset http-status-302
+#. asset: http-status-302
 msgid "Found"
 msgstr "Encontrado(a)"
 
-#: Asset http-status-303
+#. asset: http-status-303
 msgid "See Other"
 msgstr "Ver outros"
 
-#: Asset http-status-304
+#. asset: http-status-304
 msgid "Not Modified"
 msgstr "Não modificado"
 
-#: Asset http-status-305
+#. asset: http-status-305
 msgid "Use Proxy"
 msgstr "Usar Proxy"
 
-#: Asset http-status-307
+#. asset: http-status-307
 msgid "Temporary Redirect"
 msgstr "Redirecionamento Temporário"
 
-#: Asset http-status-400
+#. asset: http-status-400
 msgid "Bad Request"
 msgstr "Bad Request"
 
-#: Asset http-status-401
+#. asset: http-status-401
 msgid "Authorization Required"
 msgstr "Autorização exigida"
 
-#: Asset http-status-402
+#. asset: http-status-402
 msgid "Payment Required"
 msgstr "Pagamento Exigido"
 
-#: Asset http-status-403
+#. asset: http-status-403
 msgid "Forbidden"
 msgstr "Proibido"
 
-#: Asset http-status-404
+#. asset: http-status-404
 msgid "Not Found"
 msgstr "Não Encontrado"
 
-#: Asset http-status-405
+#. asset: http-status-405
 msgid "Method Not Allowed"
 msgstr "Método Não Permitido"
 
-#: Asset http-status-406
+#. asset: http-status-406
 msgid "Not Acceptable"
 msgstr "Não Aceitável"
 
-#: Asset http-status-407
+#. asset: http-status-407
 msgid "Proxy Authentication Required"
 msgstr "Autenticação Proxy Exigida"
 
-#: Asset http-status-408
+#. asset: http-status-408
 msgid "Request Time-out"
 msgstr "Request Time-out"
 
-#: Asset http-status-409
+#. asset: http-status-409
 msgid "Conflict"
 msgstr "Conflito"
 
-#: Asset http-status-410
+#. asset: http-status-410
 msgid "Gone"
 msgstr "Já era"
 
-#: Asset http-status-411
+#. asset: http-status-411
 msgid "Length Required"
 msgstr "Comprimento exigido"
 
-#: Asset http-status-412
+#. asset: http-status-412
 msgid "Precondition Failed"
 msgstr "Falha na pré-condição"
 
-#: Asset http-status-413
+#. asset: http-status-413
 msgid "Request Entity Too Large"
 msgstr "Entidade do request muito grande"
 
-#: Asset http-status-414
+#. asset: http-status-414
 msgid "Request-URI Too Large"
 msgstr "URI de Request muito grande"
 
-#: Asset http-status-415
+#. asset: http-status-415
 msgid "Unsupported Media Type"
 msgstr "Tipo de mídia não suportado"
 
-#: Asset http-status-416
+#. asset: http-status-416
 msgid "Requested range not satisfiable"
 msgstr "Range solicitado não satisfatório"
 
-#: Asset http-status-417
+#. asset: http-status-417
 msgid "Expectation Failed"
 msgstr "Falha na expectativa"
 
-#: Asset http-status-429
+#. asset: http-status-429
 msgid "Twitter API rate limit exceeded"
 msgstr "Taxa de limite da API do Twitter excedida"
 
-#: Asset http-status-500
+#. asset: http-status-500
 msgid "Twitter server error"
 msgstr "Erro no Servidor do Twitter"
 
-#: Asset http-status-501
+#. asset: http-status-501
 msgid "Not Implemented"
 msgstr "Não Implementado"
 
-#: Asset http-status-502
+#. asset: http-status-502
 msgid "Twitter is not responding"
 msgstr "Twitter não está respondendo"
 
-#: Asset http-status-503
+#. asset: http-status-503
 msgid "Twitter is too busy to respond"
 msgstr "Twitter muito ocupado para responder"
 
-#: Asset http-status-504
+#. asset: http-status-504
 msgid "Gateway Time-out"
 msgstr "Timeout no Gateway"
 
-#: Asset http-status-505
+#. asset: http-status-505
 msgid "HTTP Version not supported"
 msgstr "Versão HTTP não suportada"
 
-#: Asset just-now
+#. asset: just-now
 msgid "Just now"
 msgstr "Agora mesmo"
 
-#: Asset label-details-available-in
+#. asset: label-details-available-in
 msgid "These details are available in"
 msgstr "Detalhes disponíveis em"
 
-#: Asset label-twitter-api
+#. asset: label-twitter-api
 msgid "Twitter API"
 msgstr "API do Twitter"
 
-#: Asset label-your-twitter-dashboard
+#. asset: label-your-twitter-dashboard
 msgid "your Twitter dashboard"
 msgstr "seu painel do Twitter"
 
-#: Asset latest-tweets
+#. asset: latest-tweets
 msgid "Latest Tweets"
 msgstr "Últimos Tweets"
 
-#: Asset minutes-ago-singular
+#. asset: minutes-ago-singular
 msgid "%u minute ago"
 msgid_plural "%u minutes ago"
-msgstr[0] "1 minuto atrás"
+msgstr[0]  "1 minuto atrás"
 msgstr[1] "%u minutos atrás"
 
-#: Asset notice-unconfigured
+#. asset: notice-unconfigured
 msgid "Twitter application is not fully configured"
 msgstr "Aplicação do Twitter não está totalmente configurada"
 
-#: Asset number-of-tweets
+#. asset: number-of-tweets
 msgid "Number of tweets"
 msgstr "Número de tweets"
 
-#: Asset save-settings
+#. asset: save-settings
 msgid "Save settings"
 msgstr "Salvar"
 
-#: Asset show-replies
+#. asset: show-replies
 msgid "Show Replies"
 msgstr "Mostrar Replies"
 
-#: Asset show-retweets
+#. asset: show-retweets
 msgid "Show Retweets"
 msgstr "Mostrar RTs"
 
-#: Asset twitter-api-authentication-settings
+#. asset: twitter-api-authentication-settings
 msgid "Twitter API Authentication Settings"
 msgstr "Configurações de Autenticação da API do Twitter"
 
-#: Asset twitter-handle
+#. asset: twitter-handle
 msgid "Twitter handle"
 msgstr "Login no Twitter"
 
-#: Asset warning-no-apc
+#. asset: warning-no-apc
 msgid "Cannot enable Twitter API cache without APC extension"
 msgstr "Não é possível habilitar o cache da API do Twiiter sem APC..."
 
-#: Asset warning-unauthed
+#. asset: warning-unauthed
 msgid "Twitter client not authenticated"
 msgstr "Cliente do Twitter não autenticado"
 
-#: Asset widget-title
+#. asset: widget-title
 msgid "Widget title"
 msgstr "Título do Widget"
 
-#: Asset yesterday-at
+#. asset: yesterday-at
 msgid "Yesterday at "
 msgstr "Ontem às"

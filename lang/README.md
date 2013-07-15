@@ -11,4 +11,4 @@ Messages here are for the admin screens plus common Twitter-related phrases you 
 Many thanks to the following translators:
 
 * **pt_BR** [Leandro Dimitrio](http://wordpress.org/support/profile/leandrodimitrio)
-* **de_DE** [Florian Felsing](https://twitter.com/FlorianFelsing)
+* **de_DE** [Florian Felsing](https://twitter.com/FlorianFelsing) and [David Noh](http://wordpress.org/support/profile/david_noh)

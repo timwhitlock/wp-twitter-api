@@ -4,7 +4,7 @@
 # Note that the API key is reset between releases.
 #
 
-APIKEY="15ea063b810890b543da407e81003ce1";
+APIKEY="";
 
 cd "`dirname $0`"
 

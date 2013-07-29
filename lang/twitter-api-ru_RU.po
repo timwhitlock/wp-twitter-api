@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API (Wordpress)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Mon, 29 Jul 2013 10:55:29 +0100\n"
-"PO-Revision-Date: Mon, 29 Jul 2013 11:07:47 +0100\n"
+"PO-Revision-Date: Mon, 29 Jul 2013 11:30:02 +0100\n"
 "Last-Translator: Tim Whitlock\n"
 "Language-Team: Sample Account (free tier)\n"
 "Language: Russian\n"
@@ -297,7 +297,7 @@ msgstr[1] "%u минуты назад"
 msgstr[2] ""
 
 #. asset: yesterday-at
-msgid "Yesterday at "
+msgid "Yesterday at"
 msgstr "Вчера в "
 
 #. asset: you-dont-have-permission-to-manage-twitter-api-set

@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Script pulls down latest translations from Loco system.
+# Script pulls down latest translations from Loco.
 # Note that the API key is reset between releases.
 #
 
-APIKEY="f81c647f83248b38348c23304b6027a4";
+APIKEY="15ea063b810890b543da407e81003ce1";
 
 cd "`dirname $0`"
 
@@ -20,4 +20,5 @@ function loco {
 loco en GB
 loco pt BR
 loco de DE
+loco ru RU
 

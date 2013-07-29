@@ -2,9 +2,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Twitter API Wordpress plugin\n"
+"Project-Id-Version: Twitter API (Wordpress)\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: Mon, 15 Jul 2013 20:56:47 +0100\n"
+"POT-Creation-Date: Mon, 29 Jul 2013 11:07:47 +0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
 "Language-Team: \n"
@@ -16,252 +16,186 @@ msgstr ""
 "X-Generator: Loco http://localise.biz\n"
 "X-Poedit-SourceCharset: UTF-8"
 
-#. asset: admin-fatal-denied
-msgid "You don't have permission to manage Twitter API settings"
+#. asset: Accepted
+msgid "Accepted"
 msgstr ""
 
-#. asset: admin-notice-authenticated
-msgid "Authenticated as @%s"
+#. asset: Conflict
+msgid "Conflict"
 msgstr ""
 
-#. asset: admin-notice-unauthed
-msgid "Plugin not yet authenticated with Twitter"
+#. asset: Continue
+msgid "Continue"
 msgstr ""
 
-#. asset: admin-notice-unconfigured
-msgid "Twitter application not fully configured"
+#. asset: Created
+msgid "Created"
 msgstr ""
 
-#. asset: error-oauth-empty-key
-msgid "Key required even if secret is empty"
+#. asset: Forbidden
+msgid "Forbidden"
 msgstr ""
 
-#. asset: error-oauth-invalid-token
-msgid "Invalid OAuth token"
+#. asset: Found
+msgid "Found"
 msgstr ""
 
-#. asset: error-twitter-generic
-msgid "Twitter error #%d"
+#. asset: Gone
+msgid "Gone"
 msgstr ""
 
-#. asset: error-twitter-invalid-param
-msgid "Invalid Twitter parameter"
+#. asset: OK
+msgid "OK"
 msgstr ""
 
-#. asset: error-twitter-malformed
-msgid "Malformed response from Twitter"
-msgstr ""
-
-#. asset: error-wordpress-http
-msgid "Wordpress HTTP request failure"
-msgstr ""
-
-#. asset: hours-ago-singular
+#. asset: about-an-hour-ago
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
 msgstr[0]  ""
 msgstr[1] ""
 
-#. asset: http-status-100
-msgid "Continue"
+#. asset: authenticated-as-x
+msgid "Authenticated as @%s"
 msgstr ""
 
-#. asset: http-status-101
-msgid "Switching Protocols"
-msgstr ""
-
-#. asset: http-status-200
-msgid "OK"
-msgstr ""
-
-#. asset: http-status-201
-msgid "Created"
-msgstr ""
-
-#. asset: http-status-202
-msgid "Accepted"
-msgstr ""
-
-#. asset: http-status-203
-msgid "Non-Authoritative Information"
-msgstr ""
-
-#. asset: http-status-204
-msgid "No Content"
-msgstr ""
-
-#. asset: http-status-205
-msgid "Reset Content"
-msgstr ""
-
-#. asset: http-status-206
-msgid "Partial Content"
-msgstr ""
-
-#. asset: http-status-300
-msgid "Multiple Choices"
-msgstr ""
-
-#. asset: http-status-301
-msgid "Moved Permanently"
-msgstr ""
-
-#. asset: http-status-302
-msgid "Found"
-msgstr ""
-
-#. asset: http-status-303
-msgid "See Other"
-msgstr ""
-
-#. asset: http-status-304
-msgid "Not Modified"
-msgstr ""
-
-#. asset: http-status-305
-msgid "Use Proxy"
-msgstr ""
-
-#. asset: http-status-307
-msgid "Temporary Redirect"
-msgstr ""
-
-#. asset: http-status-400
-msgid "Bad Request"
-msgstr ""
-
-#. asset: http-status-401
+#. asset: authorization-required
 msgid "Authorization Required"
 msgstr ""
 
-#. asset: http-status-402
-msgid "Payment Required"
+#. asset: bad-request
+msgid "Bad Request"
 msgstr ""
 
-#. asset: http-status-403
-msgid "Forbidden"
+#. asset: cannot-enable-twitter-api-cache-without-apc-extens
+msgid "Cannot enable Twitter API cache without APC extension"
 msgstr ""
 
-#. asset: http-status-404
-msgid "Not Found"
-msgstr ""
-
-#. asset: http-status-405
-msgid "Method Not Allowed"
-msgstr ""
-
-#. asset: http-status-406
-msgid "Not Acceptable"
-msgstr ""
-
-#. asset: http-status-407
-msgid "Proxy Authentication Required"
-msgstr ""
-
-#. asset: http-status-408
-msgid "Request Time-out"
-msgstr ""
-
-#. asset: http-status-409
-msgid "Conflict"
-msgstr ""
-
-#. asset: http-status-410
-msgid "Gone"
-msgstr ""
-
-#. asset: http-status-411
-msgid "Length Required"
-msgstr ""
-
-#. asset: http-status-412
-msgid "Precondition Failed"
-msgstr ""
-
-#. asset: http-status-413
-msgid "Request Entity Too Large"
-msgstr ""
-
-#. asset: http-status-414
-msgid "Request-URI Too Large"
-msgstr ""
-
-#. asset: http-status-415
-msgid "Unsupported Media Type"
-msgstr ""
-
-#. asset: http-status-416
-msgid "Requested range not satisfiable"
-msgstr ""
-
-#. asset: http-status-417
+#. asset: expectation-failed
 msgid "Expectation Failed"
 msgstr ""
 
-#. asset: http-status-429
-msgid "Twitter API rate limit exceeded"
-msgstr ""
-
-#. asset: http-status-500
-msgid "Twitter server error"
-msgstr ""
-
-#. asset: http-status-501
-msgid "Not Implemented"
-msgstr ""
-
-#. asset: http-status-502
-msgid "Twitter is not responding"
-msgstr ""
-
-#. asset: http-status-503
-msgid "Twitter is too busy to respond"
-msgstr ""
-
-#. asset: http-status-504
+#. asset: gateway-time-out
 msgid "Gateway Time-out"
 msgstr ""
 
-#. asset: http-status-505
+#. asset: http-version-not-supported
 msgid "HTTP Version not supported"
+msgstr ""
+
+#. asset: invalid-oauth-token
+msgid "Invalid OAuth token"
+msgstr ""
+
+#. asset: invalid-twitter-parameter
+msgid "Invalid Twitter parameter"
 msgstr ""
 
 #. asset: just-now
 msgid "Just now"
 msgstr ""
 
-#. asset: label-details-available-in
-msgid "These details are available in"
-msgstr ""
-
-#. asset: label-twitter-api
-msgid "Twitter API"
-msgstr ""
-
-#. asset: label-your-twitter-dashboard
-msgid "your Twitter dashboard"
+#. asset: key-required-even-if-secret-is-empty
+msgid "Key required even if secret is empty"
 msgstr ""
 
 #. asset: latest-tweets
 msgid "Latest Tweets"
 msgstr ""
 
-#. asset: minutes-ago-singular
-msgid "%u minute ago"
-msgid_plural "%u minutes ago"
-msgstr[0]  ""
-msgstr[1] ""
+#. asset: length-required
+msgid "Length Required"
+msgstr ""
 
-#. asset: notice-unconfigured
-msgid "Twitter application is not fully configured"
+#. asset: malformed-response-from-twitter
+msgid "Malformed response from Twitter"
+msgstr ""
+
+#. asset: method-not-allowed
+msgid "Method Not Allowed"
+msgstr ""
+
+#. asset: moved-permanently
+msgid "Moved Permanently"
+msgstr ""
+
+#. asset: multiple-choices
+msgid "Multiple Choices"
+msgstr ""
+
+#. asset: no-content
+msgid "No Content"
+msgstr ""
+
+#. asset: non-authoritative-information
+msgid "Non-Authoritative Information"
+msgstr ""
+
+#. asset: not-acceptable
+msgid "Not Acceptable"
+msgstr ""
+
+#. asset: not-found
+msgid "Not Found"
+msgstr ""
+
+#. asset: not-implemented
+msgid "Not Implemented"
+msgstr ""
+
+#. asset: not-modified
+msgid "Not Modified"
 msgstr ""
 
 #. asset: number-of-tweets
 msgid "Number of tweets"
 msgstr ""
 
+#. asset: partial-content
+msgid "Partial Content"
+msgstr ""
+
+#. asset: payment-required
+msgid "Payment Required"
+msgstr ""
+
+#. asset: plugin-not-yet-authenticated-with-twitter
+msgid "Plugin not yet authenticated with Twitter"
+msgstr ""
+
+#. asset: precondition-failed
+msgid "Precondition Failed"
+msgstr ""
+
+#. asset: proxy-authentication-required
+msgid "Proxy Authentication Required"
+msgstr ""
+
+#. asset: request-entity-too-large
+msgid "Request Entity Too Large"
+msgstr ""
+
+#. asset: request-time-out
+msgid "Request Time-out"
+msgstr ""
+
+#. asset: request-uri-too-large
+msgid "Request-URI Too Large"
+msgstr ""
+
+#. asset: requested-range-not-satisfiable
+msgid "Requested range not satisfiable"
+msgstr ""
+
+#. asset: reset-content
+msgid "Reset Content"
+msgstr ""
+
 #. asset: save-settings
 msgid "Save settings"
+msgstr ""
+
+#. asset: see-other
+msgid "See Other"
 msgstr ""
 
 #. asset: show-replies
@@ -272,26 +206,92 @@ msgstr ""
 msgid "Show Retweets"
 msgstr ""
 
+#. asset: switching-protocols
+msgid "Switching Protocols"
+msgstr ""
+
+#. asset: temporary-redirect
+msgid "Temporary Redirect"
+msgstr ""
+
+#. asset: these-details-are-available-in
+msgid "These details are available in"
+msgstr ""
+
+#. asset: twitter-api
+msgid "Twitter API"
+msgstr ""
+
 #. asset: twitter-api-authentication-settings
 msgid "Twitter API Authentication Settings"
+msgstr ""
+
+#. asset: twitter-api-rate-limit-exceeded
+msgid "Twitter API rate limit exceeded"
+msgstr ""
+
+#. asset: twitter-application-is-not-fully-configured
+msgid "Twitter application is not fully configured"
+msgstr ""
+
+#. asset: twitter-application-not-fully-configured
+msgid "Twitter application not fully configured"
+msgstr ""
+
+#. asset: twitter-client-not-authenticated
+msgid "Twitter client not authenticated"
+msgstr ""
+
+#. asset: twitter-error-x
+msgid "Twitter error #%d"
 msgstr ""
 
 #. asset: twitter-handle
 msgid "Twitter handle"
 msgstr ""
 
-#. asset: warning-no-apc
-msgid "Cannot enable Twitter API cache without APC extension"
+#. asset: twitter-is-not-responding
+msgid "Twitter is not responding"
 msgstr ""
 
-#. asset: warning-unauthed
-msgid "Twitter client not authenticated"
+#. asset: twitter-is-too-busy-to-respond
+msgid "Twitter is too busy to respond"
+msgstr ""
+
+#. asset: twitter-server-error
+msgid "Twitter server error"
+msgstr ""
+
+#. asset: unsupported-media-type
+msgid "Unsupported Media Type"
+msgstr ""
+
+#. asset: use-proxy
+msgid "Use Proxy"
 msgstr ""
 
 #. asset: widget-title
 msgid "Widget title"
 msgstr ""
 
+#. asset: wordpress-http-request-failure
+msgid "Wordpress HTTP request failure"
+msgstr ""
+
+#. asset: x-minute-ago
+msgid "%u minute ago"
+msgid_plural "%u minutes ago"
+msgstr[0]  ""
+msgstr[1] ""
+
 #. asset: yesterday-at
 msgid "Yesterday at "
+msgstr ""
+
+#. asset: you-dont-have-permission-to-manage-twitter-api-set
+msgid "You don't have permission to manage Twitter API settings"
+msgstr ""
+
+#. asset: your-twitter-dashboard
+msgid "your Twitter dashboard"
 msgstr ""

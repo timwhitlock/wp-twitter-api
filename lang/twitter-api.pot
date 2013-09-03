@@ -2,9 +2,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Twitter API (Wordpress)\n"
+"Project-Id-Version: Twitter API WordPress plugin\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: Mon, 29 Jul 2013 11:30:02 +0100\n"
+"POT-Creation-Date: Tue, 03 Sep 2013 12:02:18 +0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco http://localise.biz\n"
+"X-Generator: Loco https://localise.biz\n"
 "X-Poedit-SourceCharset: UTF-8"
 
 #. asset: Accepted

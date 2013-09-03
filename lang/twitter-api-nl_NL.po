@@ -1,0 +1,298 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Twitter API Wordpress plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Fri, 22 Feb 2013 17:50:38 +0000\n"
+"PO-Revision-Date: 2013-07-30 16:48+0100\n"
+"Last-Translator: Tim Whitlock\n"
+"Language-Team: Sample Account (free tier)\n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Loco-Source-Locale: en_GB\n"
+"X-Loco-Target-Locale: de_DE\n"
+"X-Loco-Tagged: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. asset: admin-fatal-denied
+msgid "You don't have permission to manage Twitter API settings"
+msgstr "Je hebt geen rechten om de Twitter API instellingen aan te passen"
+
+#. asset: admin-notice-authenticated
+msgid "Authenticated as @%s"
+msgstr "Authorizeren als @%s"
+
+#. asset: admin-notice-unauthed
+msgid "Plugin not yet authenticated with Twitter"
+msgstr "Plugin nog niet geauthoriseerd bij Twitter"
+
+#. asset: admin-notice-unconfigured
+msgid "Twitter application not fully configured"
+msgstr "Twitter apllicatie is niet volledig geconfigureerd"
+
+#. asset: error-oauth-empty-key
+msgid "Key required even if secret is empty"
+msgstr "Key vereist ook al is secret leeg"
+
+#. asset: error-oauth-invalid-token
+msgid "Invalid OAuth token"
+msgstr "Ongeldige OAuth token"
+
+#. asset: error-twitter-generic
+msgid "Twitter error #%d"
+msgstr "Twitter fout #%d"
+
+#. asset: error-twitter-invalid-param
+msgid "Invalid Twitter parameter"
+msgstr "Ongeldige Twitter Parameter"
+
+#. asset: error-twitter-malformed
+msgid "Malformed response from Twitter"
+msgstr "Onjuiste response vanTwitter"
+
+#. asset: error-wordpress-http
+msgid "Wordpress HTTP request failure"
+msgstr "Wordpress HTTP Request fout"
+
+#. asset: hours-ago-singular
+msgid "About an hour ago"
+msgid_plural "About %u hours ago"
+msgstr[0] "Ongeveer 1 uur geleden"
+msgstr[1] "Ongeveer %u uur geleden"
+
+#. asset: http-status-100
+msgid "Continue"
+msgstr "Ga verder"
+
+#. asset: http-status-101
+msgid "Switching Protocols"
+msgstr "Protocol wisselen"
+
+#. asset: http-status-200
+msgid "OK"
+msgstr "Ok"
+
+#. asset: http-status-201
+msgid "Created"
+msgstr "Gemaakt"
+
+#. asset: http-status-202
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+#. asset: http-status-203
+msgid "Non-Authoritative Information"
+msgstr "Niet-geauthoriseerde informatie"
+
+#. asset: http-status-204
+msgid "No Content"
+msgstr "Geen inhoud"
+
+#. asset: http-status-205
+msgid "Reset Content"
+msgstr "Content resetten"
+
+#. asset: http-status-206
+msgid "Partial Content"
+msgstr "Gedeeltelijke content"
+
+#. asset: http-status-300
+msgid "Multiple Choices"
+msgstr "Multiple keuzes"
+
+#. asset: http-status-301
+msgid "Moved Permanently"
+msgstr "Permanent verhuisd"
+
+#. asset: http-status-302
+msgid "Found"
+msgstr "Gevonden"
+
+#. asset: http-status-303
+msgid "See Other"
+msgstr "Bekijk andere"
+
+#. asset: http-status-304
+msgid "Not Modified"
+msgstr "Niet aangepast"
+
+#. asset: http-status-305
+msgid "Use Proxy"
+msgstr "Gebruik proxy"
+
+#. asset: http-status-307
+msgid "Temporary Redirect"
+msgstr "TIjdelijke omleiding"
+
+#. asset: http-status-400
+msgid "Bad Request"
+msgstr "Foute request"
+
+#. asset: http-status-401
+msgid "Authorization Required"
+msgstr "Authorizatie vereist"
+
+#. asset: http-status-402
+msgid "Payment Required"
+msgstr "Betaling vereist"
+
+#. asset: http-status-403
+msgid "Forbidden"
+msgstr "Verboden"
+
+#. asset: http-status-404
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+#. asset: http-status-405
+msgid "Method Not Allowed"
+msgstr "Methode niet toegestaan"
+
+#. asset: http-status-406
+msgid "Not Acceptable"
+msgstr "Niet acceptabel"
+
+#. asset: http-status-407
+msgid "Proxy Authentication Required"
+msgstr "Proxy authenticatie vereist"
+
+#. asset: http-status-408
+msgid "Request Time-out"
+msgstr "Request time-out"
+
+#. asset: http-status-409
+msgid "Conflict"
+msgstr "Conflict"
+
+#. asset: http-status-410
+msgid "Gone"
+msgstr "Weg"
+
+#. asset: http-status-411
+msgid "Length Required"
+msgstr "Lengte vereist"
+
+#. asset: http-status-412
+msgid "Precondition Failed"
+msgstr "Precondition fout"
+
+#. asset: http-status-413
+msgid "Request Entity Too Large"
+msgstr "Request entiteit te groot"
+
+#. asset: http-status-414
+msgid "Request-URI Too Large"
+msgstr "Request-URI te groot"
+
+#. asset: http-status-415
+msgid "Unsupported Media Type"
+msgstr "Ongeldige media type"
+
+#. asset: http-status-416
+msgid "Requested range not satisfiable"
+msgstr "Gevraagd bereik niet voldoende"
+
+#. asset: http-status-417
+msgid "Expectation Failed"
+msgstr "Verwachting fout"
+
+#. asset: http-status-429
+msgid "Twitter API rate limit exceeded"
+msgstr "Twitter API limiet bereikt"
+
+#. asset: http-status-500
+msgid "Twitter server error"
+msgstr "Twitter server fout"
+
+#. asset: http-status-501
+msgid "Not Implemented"
+msgstr "Niet geimplementeerd"
+
+#. asset: http-status-502
+msgid "Twitter is not responding"
+msgstr "Twitter antwoord niet"
+
+#. asset: http-status-503
+msgid "Twitter is too busy to respond"
+msgstr "Twitter is te druk om te antwoorden"
+
+#. asset: http-status-504
+msgid "Gateway Time-out"
+msgstr "Gateway time-out"
+
+#. asset: http-status-505
+msgid "HTTP Version not supported"
+msgstr "HTTP Versie niet ondersteund"
+
+#. asset: just-now
+msgid "Just now"
+msgstr "Zojuist"
+
+#. asset: label-details-available-in
+msgid "These details are available in"
+msgstr "Deze details zijn beschikbaar in"
+
+#. asset: label-twitter-api
+msgid "Twitter API"
+msgstr "Twitter API"
+
+#. asset: label-your-twitter-dashboard
+msgid "your Twitter dashboard"
+msgstr "Twitter Dashboard"
+
+#. asset: latest-tweets
+msgid "Latest Tweets"
+msgstr "Laatste tweets"
+
+#. asset: minutes-ago-singular
+msgid "%u minute ago"
+msgid_plural "%u minutes ago"
+msgstr[0] "1 minuut"
+msgstr[1] "%u minuten"
+
+#. asset: notice-unconfigured
+msgid "Twitter application is not fully configured"
+msgstr "Twitter applicatie is niet volledig geconfigureerd"
+
+#. asset: number-of-tweets
+msgid "Number of tweets"
+msgstr "Aantal tweets"
+
+#. asset: save-settings
+msgid "Save settings"
+msgstr "Instellingen opslaan"
+
+#. asset: show-replies
+msgid "Show Replies"
+msgstr "Replys laten zien"
+
+#. asset: show-retweets
+msgid "Show Retweets"
+msgstr "Retweets laten zien"
+
+#. asset: twitter-api-authentication-settings
+msgid "Twitter API Authentication Settings"
+msgstr "Twitter API authenticatie instellingen"
+
+#. asset: twitter-handle
+msgid "Twitter handle"
+msgstr "Twitter naam"
+
+#. asset: warning-no-apc
+msgid "Cannot enable Twitter API cache without APC extension"
+msgstr "Kan de Twitter API Cache niet activeren zonder de APC extensie"
+
+#. asset: warning-unauthed
+msgid "Twitter client not authenticated"
+msgstr "Twitter Client niet geauthoriseerd"
+
+#. asset: widget-title
+msgid "Widget title"
+msgstr "Titel"
+
+#. asset: yesterday-at
+msgid "Yesterday at "
+msgstr "Gisteren om"

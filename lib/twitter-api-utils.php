@@ -102,23 +102,12 @@ function twitter_api_relative_date( $strdate ){
 
 
 /**
- * Clean Emoji icons out of tweet text.
- * Wordpress isn't escaping these strings properly for database insertion.
+ * Clean four-byte Emoji icons out of tweet text.
+ * MySQL utf8 columns cannot store four byte Unicode sequences
  */
 function twitter_api_strip_emoji( $text ){
-    // replace all control and private use unicode sequences
-    return preg_replace_callback('/\p{C}/u', '_twitter_api_strip_emoji_replace', $text );
-}
-
-
-
-/**
- * @internal
- */
-function _twitter_api_strip_emoji_replace( array $r ){
-    // emoticons start at U+1F601 (\xF0\x9F\x98\x81)
-    // @todo plain text mappings for common smileys 
-    return '';
+    // four byte utf8: 11110www 10xxxxxx 10yyyyyy 10zzzzzz
+    return preg_replace('/[\xF0-\xF7][\x80-\xBF]{3}/', '', $text );
 }
 
 

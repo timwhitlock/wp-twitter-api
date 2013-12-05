@@ -16,7 +16,7 @@ define('TWITTER_OAUTH_AUTHENTICATE_URL', 'https://twitter.com/oauth/authenticate
 
 define('TWITTER_OAUTH_ACCESS_TOKEN_URL', 'https://twitter.com/oauth/access_token');
 
-define('TWITTER_CACHE_APC', function_exists('apc_fetch') );
+define('TWITTER_CACHE_APC', (bool) ini_get('apc.enabled') );
  
 
  

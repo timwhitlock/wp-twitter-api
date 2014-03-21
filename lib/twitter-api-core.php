@@ -313,6 +313,13 @@ class TwitterApiClient {
                 }
             }
         }
+        // some errors appear to use a single key and have no code
+        // e.g. not authorized to view specific content.
+        if( isset($data['error']) ){
+            $code = isset($data['code']) ? $data['code'] : $status;
+            $message = sprintf( __('Twitter error #%d'), $code ).' "'.$data['error'].'"';
+            TwitterApiException::chuck( compact('message','code'), $status );
+        }
         if( isset($cachekey) ){
            _twitter_api_cache_set( $cachekey, $data, $this->cache_ttl );
         }

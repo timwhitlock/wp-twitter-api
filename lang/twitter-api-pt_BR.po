@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Mon, 29 Jul 2013 10:55:29 +0100\n"
-"PO-Revision-Date: Fri, 06 Dec 2013 18:36:39 +0000\n"
+"PO-Revision-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
 "Last-Translator: Tim Whitlock\n"
 "Language-Team: Wordpress\n"
 "Language: Portuguese (Brazil)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: about-an-hour-ago
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
-msgstr[0]  "Cerca de uma hora atrás"
+msgstr[0] "Cerca de uma hora atrás"
 msgstr[1] "Cerca de %u horas atrás"
 
 #: accepted
@@ -282,7 +282,7 @@ msgstr "Falha no HTTP request do Wordpress"
 #: x-minute-ago
 msgid "%u minute ago"
 msgid_plural "%u minutes ago"
-msgstr[0]  "1 minuto atrás"
+msgstr[0] "1 minuto atrás"
 msgstr[1] "%u minutos atrás"
 
 #: yesterday-at

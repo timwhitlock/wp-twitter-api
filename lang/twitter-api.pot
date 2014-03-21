@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: Fri, 06 Dec 2013 18:36:38 +0000\n"
+"POT-Creation-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 #: about-an-hour-ago
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
-msgstr[0]  ""
+msgstr[0] ""
 msgstr[1] ""
 
 #: accepted
@@ -281,7 +281,7 @@ msgstr ""
 #: x-minute-ago
 msgid "%u minute ago"
 msgid_plural "%u minutes ago"
-msgstr[0]  ""
+msgstr[0] ""
 msgstr[1] ""
 
 #: yesterday-at

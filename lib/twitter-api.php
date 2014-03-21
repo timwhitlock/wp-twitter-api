@@ -88,6 +88,16 @@ function twitter_api_basedir(){
 
 
 
+/**
+ * Test if system-configured client is authed and ready to use
+ */
+function twitter_api_configured(){
+    function_exists('_twitter_api_config') or twitter_api_include('core');
+    extract( _twitter_api_config() );
+    return $consumer_key && $consumer_secret && $access_key && $access_secret;
+} 
+
+
 
 /**
  * Get fully configured and authenticated Twitter API client.
@@ -141,27 +151,54 @@ if( is_admin() ){
 
 
 /**
- * Enable localisation with static list of available translations.
- * Messages merged into default domain.
+ * Enable localisation
+ * @internal
  */
-function _twitter_api_init_l10n(){
-    static $map = array (
-        'pt_BR' => 'pt_BR',
-        'de'    => 'de_DE', 'de_DE' => 'de_DE',
-        'ru'    => 'ru_RU', 'ru_RU' => 'ru_RU',
-        'nl'    => 'nl_NL', 'nl_NL' => 'nl_NL',
-    );
-    if( preg_match('/^([a-z]{2})(?:[\-_\s]([a-z]{2}))?$/i', get_locale(), $r ) ){
-        $locale = strtolower($r[1]);
-        if( isset($r[2]) ){
-            $locale .= '_'.strtoupper($r[2]);
-        }
-        if( isset($map[$locale]) ){
-            $locale = $map[$locale];
-            $mofile = twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo';
-            load_textdomain( 'default', $mofile );
+function twitter_api_load_textdomain( $locale = null ){
+    static $current_locale;
+    if( is_null($locale) ){
+        $locale = get_locale();
+    }
+    if( ! $locale || 0 === strpos($locale,'en') ){
+        $current_locale and unload_textdomain( 'twitter-api' );
+        $locale = 'en_US';
+    }
+    else if( $current_locale !== $locale ){
+        // purposefully not calling load_plugin_textdomain, due to symlinking 
+        // and not knowing what plugin this could be called from.
+        $mofile = realpath( twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo' );
+        if( ! load_textdomain( 'twitter-api', $mofile ) ){
+            $mofile = WP_LANG_DIR . '/plugins/twitter-api-'.$locale.'.mo';
+            load_textdomain( 'twitter-api', $mofile );
         }
     }
+    // detect changes in plugin locale, binding once only
+    if( ! isset($current_locale) ){
+        add_filter( 'plugin_locale', '_twitter_api_filter_plugin_locale', 10 , 2 );
+    }
+    $current_locale = $locale;
 }
 
-add_action( 'init', '_twitter_api_init_l10n' );
+
+
+/**
+ * Support locale switching mid execution
+ * @internal
+ */
+function _twitter_api_filter_plugin_locale( $locale, $domain ){
+    if( $domain === 'twitter-api' ){
+        twitter_api_load_textdomain( $locale );
+    }
+    return $locale;
+}
+
+
+
+/**
+ * legacy function call
+ * @ignore
+ */
+function _twitter_api_init_l10n( $locale = null ){
+    return twitter_api_load_textdomain( $locale );
+}
+

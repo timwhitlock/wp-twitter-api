@@ -18,11 +18,8 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
     if( ! $alreadyhtml ){
         $src = esc_html( $src );
     }
-    // linkify URLs (restricting to 30 chars as per twitter.com)
-    $src = preg_replace_callback('!(https?://)(\S+)!', 'twitter_api_html_linkify_callback', $src );
-    if( '_blank' !== $target ){
-        $src = str_replace( '"_blank"', '"'.$target.'"', $src );
-    }
+    // linkify URLs
+    $src = twitter_api_html_linkify_urls( $src, $target );
     // linkify @names
     $src = preg_replace('!@([a-z0-9_]{1,15})!i', '<a class="twitter-screen-name" href="https://twitter.com/\\1" target="'.$target.'">\\0</a>', $src );
     // linkify #hashtags
@@ -33,15 +30,96 @@ function twitter_api_html( $src, $target = '_blank', $alreadyhtml = false ){
 
 
 /**
+ * Utility for rendering tweet text as clickable links, from *original* tweet text with entity data.
+ * If you don't have entity data, then use twitter_api_html
+ * @param string plain text tweet
+ * @param array optionally pass known tweet entities to save string parsing
+ * @param string optional target for links, defaults to _blank
+ * @return string HTML source of tweet text
+ */
+function twitter_api_html_with_entities( $src, array $entities, $target = '_blank' ){
+
+    // Raw tweet not expected to be encoded
+    $src = esc_html( $src );
+    
+    // purposefully not using indicies, due to weird inaccuracies and chances previous filtering
+    $replace = array();
+    
+    // Expand URLs, like twitter.com except using actual links
+    if( isset($entities['urls']) && is_array($entities['urls']) ){
+        foreach( $entities['urls'] as $r ){
+            $find = esc_html( $r['url'] );
+            $replace[ $find ] = twitter_api_html_linkify_urls($r['expanded_url']);
+        }
+    }
+    if( isset($entities['media']) && is_array($entities['media']) ){
+        foreach( $entities['media'] as $r ){
+            $find = esc_html( $r['url'] );
+            if( 0 === strpos($r['display_url'], 'pic.twitter.com' ) ) {
+                $replace[ $find ] = twitter_api_html_linkify_urls( 'https://'.$r['display_url'] );
+            }
+            else {
+                $replace[ $find ] = twitter_api_html_linkify_urls( $r['expanded_url'] );
+            }
+        }
+    }
+    // linkify @names using known mentions from twitter if passed
+    if( isset($entities['user_mentions']) ){
+        foreach( (array) $entities['user_mentions'] as $entity ){
+            if( ! empty($entity['screen_name']) && isset($entity['indices']) ){
+                $name = $entity['screen_name'];
+                $find = '@'.$name;
+                $repl = '&#x40;'.$name;
+                $replace[$find] = '<a class="twitter-screen-name" href="https://twitter.com/'.$name.'" target="'.$target.'">'.$repl.'</a>';
+            }
+        }
+    }
+    // linkify #hashtags using known entities from twitter if passed
+    if( isset($entities['hashtags']) ){
+        foreach( (array) $entities['hashtags'] as $entity ){
+            if( ! empty($entity['text']) && isset($entity['indices']) ){
+                $query = array( 'q' => '#'.$entity['text'], 'src' => 'hash' );
+                $href = 'https://twitter.com/search?'.http_build_query($query);
+                $html = esc_html( $entity['text'] );
+                $find = '#'.$html;
+                $repl = '&#x23;'.$html;
+                $replace[$find] = '<a class="twitter-hashtag" href="'.$href.'" target="'.$target.'">'.$repl.'</a>';
+            }
+        }
+    }
+    // perform final replacement on encoded text
+    if( $replace ){
+        return str_replace( array_keys($replace), array_values($replace), $src );
+    }    
+    return $src;
+} 
+
+
+
+
+/**
+ * linkify URLs (restricting to 30 chars as per twitter.com)
+ */
+function twitter_api_html_linkify_urls( $src, $target = '_blank' ){
+    $src = preg_replace_callback('!(https?://)(\S+)!', 'twitter_api_html_linkify_callback', $src );
+    if( '_blank' !== $target ){
+        $src = str_replace( '"_blank"', '"'.$target.'"', $src );
+    }
+    return $src;
+}
+
+
+
+/**
  * @internal
  */
 function twitter_api_html_linkify_callback( array $r ){
     list( , $proto, $label ) = $r;
-    $label = str_replace( '#', '&#35;', $label );
-    $href = $proto.$label;
+    $href = $proto.html_entity_decode( $label );
     if( isset($label{30}) ){
         $label = substr_replace( $label, '&hellip;', 30 );
     }
+    $label = str_replace( '#', '&#35;', $label );
     return '<a href="'.$href.'" target="_blank">'.$label.'</a>';
 }
 

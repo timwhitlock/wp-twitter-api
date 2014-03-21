@@ -13,7 +13,7 @@
 function twitter_api_admin_render_header( $subheader, $css = '' ){
     ?>
      <div class="wrap">
-        <h2><?php echo esc_html__('Twitter API Authentication Settings')?></h2>
+        <h2><?php echo esc_html__('Twitter API Authentication Settings','twitter-api')?></h2>
         <div class="<?php echo $css?>">
             <h3><?php echo esc_html($subheader)?></h3>
         </div>
@@ -57,11 +57,11 @@ function twitter_api_admin_render_form(){
             <input type="text" size="64" name="saf_twitter[access_secret]" id="twitter-api--access-secret" value="<?php echo esc_html($access_secret)?>" />
         </p>
         <p class="submit">
-            <input type="submit" class="button-primary" value="<?php echo esc_html__('Save settings')?>" />
+            <input type="submit" class="button-primary" value="<?php echo esc_html__('Save settings','twitter-api')?>" />
         </p>
         <small>
-            <?php echo esc_html__('These details are available in')?> 
-            <a href="https://dev.twitter.com/apps"><?php echo esc_html__('your Twitter dashboard')?></a>
+            <?php echo esc_html__('These details are available in','twitter-api')?> 
+            <a href="https://dev.twitter.com/apps"><?php echo esc_html__('your Twitter dashboard','twitter-api')?></a>
         </small>
     </form>
     <?php
@@ -87,7 +87,7 @@ function twitter_api_admin_render_login( $consumer_key, $consumer_secret ){
     // we're storing permanently - not using session here, because WP provides no session API.
     _twitter_api_config( array( 'request_secret' => $Token->secret ) );
     $href = $Token->get_authorization_url();
-    echo '<p><a class="button-primary" href="',esc_html($href),'">'.esc_html__('Connect to Twitter').'</a></p>';
+    echo '<p><a class="button-primary" href="',esc_html($href),'">'.esc_html__('Connect to Twitter','twitter-api').'</a></p>';
     echo '<p>&nbsp;</p>';
 }
  
@@ -99,7 +99,7 @@ function twitter_api_admin_render_login( $consumer_key, $consumer_secret ){
  */ 
 function twitter_api_admin_render_page(){
     if ( ! current_user_can('manage_options') ){
-        twitter_api_admin_render_header( __("You don't have permission to manage Twitter API settings"),'error');
+        twitter_api_admin_render_header( __("You don't have permission to manage Twitter API settings",'twitter-api'),'error');
         twitter_api_admin_render_footer();
         return;
     }
@@ -118,7 +118,7 @@ function twitter_api_admin_render_page(){
         // check whether we have any OAuth params
         extract( $conf );
         if( ! $consumer_key || ! $consumer_secret ){
-            throw new Exception( __('Twitter application not fully configured') );
+            throw new Exception( __('Twitter application not fully configured','twitter-api') );
         }
 
         // else exchange access token if callback // request secret saved as option
@@ -136,14 +136,14 @@ function twitter_api_admin_render_page(){
 
         // else administrator needs to connect / authenticate with Twitter.
         if( ! $access_key || ! $access_secret ){
-            twitter_api_admin_render_header( __('Plugin not yet authenticated with Twitter'), 'error' );
+            twitter_api_admin_render_header( __('Plugin not yet authenticated with Twitter','twitter-api'), 'error' );
             twitter_api_admin_render_login( $consumer_key, $consumer_secret );
         }
 
         // else we have auth - verify that tokens are all still valid
         else {
             $me = twitter_api_get('account/verify_credentials');
-            twitter_api_admin_render_header( sprintf( __('Authenticated as @%s'), $me['screen_name'] ), 'updated' );
+            twitter_api_admin_render_header( sprintf( __('Authenticated as @%s','twitter-api'), $me['screen_name'] ), 'updated' );
         }
 
     }
@@ -186,7 +186,8 @@ function twitter_api_admin_base_uri(){
  * Admin menu registration callback
  */
 function twitter_api_admin_menu() {
-    add_options_page( __('Twitter API'), __('Twitter API'), 'manage_options', 'twitter-api-admin', 'twitter_api_admin_render_page');
+    $title = __('Twitter API','twitter-api');
+    add_options_page( $title, $title, 'manage_options', 'twitter-api-admin', 'twitter_api_admin_render_page');
 }
 
 

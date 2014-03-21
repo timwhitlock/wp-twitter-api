@@ -82,7 +82,7 @@ function twitter_api_include(){
  */
 function twitter_api_basedir(){
     static $dir;
-    isset($dir) or $dir = dirname(__FILE__).'/..';
+    isset($dir) or $dir = dirname(__FILE__);
     return $dir;    
 }    
 

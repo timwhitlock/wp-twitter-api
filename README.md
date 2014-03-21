@@ -13,33 +13,28 @@ This library exposes a fully authenticated Twitter API client for developing Wor
 
 ## Example plugin 
 
-One example plugin is included (a widget that displays latest tweets), but this repo is primarily for developing
-the library under `lib/` and aimed at developers who are building their own plugins.
-
-A fuller featured version of the Latest Tweets widget can be [downloaded from wordpress.org](http://wordpress.org/extend/plugins/latest-tweets-widget/)
+See the [Latest Tweets Widget](http://wordpress.org/extend/plugins/latest-tweets-widget/) for an example plugin using this library.
 
 
 ## Installation
 
-Copy this repo to where you will develop your plugin. e.g. `wp-content/plugins/my-twitter-api-plugin/`
+Clone this repo to where you will develop your plugin. e.g. 
 
-To expose the library and its admin functions, create your plugin file in the root and bootstrap the library as follows:
+    git submodule add https://github.com/timwhitlock/wp-twitter-api.git wp-content/plugins/my-twitter-plugin/api
+
+To expose the library and its admin functions, bootstrap the library from your own plugin as follows:
 
     <?php
     /*
      * Plugin Name: My Twitter Plugin
      */
     if( ! function_exists('twitter_api_get') ){
-        require dirname(__FILE__).'/lib/twitter-api.php';
+        require dirname(__FILE__).'/api/twitter-api.php';
     }
-
-Once you enable this plugin you'll have an admin screen from where you can authenticate your system.
-
-
 
 ## Authentication
 
-Once the plugin is installed and enabled you can bind it to a Twitter account as follows:
+Once the plugin is installed and enabled, you can bind it to a Twitter account as follows:
 
 * Register a Twitter application at https://dev.twitter.com/apps
 * Note the Consumer key and Consumer secret under *OAuth settings*

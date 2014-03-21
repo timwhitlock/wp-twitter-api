@@ -20,17 +20,18 @@ See the [Latest Tweets Widget](http://wordpress.org/extend/plugins/latest-tweets
 
 Clone this repo to where you will develop your plugin. e.g. 
 
-    git submodule add https://github.com/timwhitlock/wp-twitter-api.git wp-content/plugins/my-twitter-plugin/api
+    git submodule add https://github.com/timwhitlock/wp-twitter-api.git \
+      wp-content/plugins/my-twitter-plugin/api
 
 To expose the library and its admin functions, bootstrap the library from your own plugin as follows:
-
-    <?php
-    /*
-     * Plugin Name: My Twitter Plugin
-     */
-    if( ! function_exists('twitter_api_get') ){
-        require dirname(__FILE__).'/api/twitter-api.php';
-    }
+```php
+/*
+ * Plugin Name: My Twitter Plugin
+ */
+if( ! function_exists('twitter_api_get') ){
+    require dirname(__FILE__).'/api/twitter-api.php';
+}
+```   
 
 ## Authentication
 
@@ -91,7 +92,8 @@ Exhanges a verified request token for an access token: e.g. `{ key: 'your access
 
 Once you have your own authentication credentials you can work directly with the API client.
 This example shows the main methods you might use:
-    
+
+```php    
     try {
        $Client = twitter_api_client('some client');
        $Client->set_oauth( 'my consumer key', 'my consumer secret', 'their access key', 'their access secret' );
@@ -108,3 +110,4 @@ This example shows the main methods you might use:
     catch( Exception $Ex ){
         wp_die( 'Fatal error, '. $Ex->getMessage() );
     }
+```

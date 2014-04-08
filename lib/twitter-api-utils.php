@@ -119,7 +119,7 @@ function twitter_api_html_linkify_callback( array $r ){
     if( isset($label{30}) ){
         $label = substr_replace( $label, '&hellip;', 30 );
     }
-    $label = str_replace( '#', '&#35;', $label );
+    $label = rtrim( str_replace( '#', '&#35;', $label ), '/#?');
     return '<a href="'.$href.'" target="_blank">'.$label.'</a>';
 }
 

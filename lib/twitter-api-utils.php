@@ -191,6 +191,92 @@ function twitter_api_strip_emoji( $text ){
 
 
 /**
+ * Replace Emoji characters with embedded images.
+ * Should be run after htmlifying tweet.
+ */
+function twitter_api_replace_emoji( $text, $callback = '_twitter_api_replace_emoji_callback' ){
+    return preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
+}
+
+
+
+/**
+ * Convert array of unicodes to hex string for use in URLs or class names
+ */
+function twitter_api_implode_unicode( array $codes, $glue = '-' ){
+    foreach( $codes as $i => $n ){
+        $codes[$i] = sprintf('%04x', $n );
+    }
+    return implode( $glue, $codes );
+}
+
+
+
+/**
+ * Utility resolves UTF-8 bytes to array of code points
+ */
+function twitter_api_utf8_array( $s ){
+    $a = array();
+    $len = strlen($s);
+    for( $i = 0; $i < $len; $i++ ){
+        $c = $s{ $i };
+        $n = ord( $c );
+        // 7-bit ASCII
+        if( 0 === ( $n & 128 ) ){
+            $a[] = $n;
+            unset( $t );
+        }
+        // Subsequent 10xxxxxx character
+        else if( isset($t) && ( $n & 192 ) === 128 ){
+            $t <<= 6;
+            $t |= ( $n & 63 ); 
+        }
+        // Leading char in 2 byte sequence "110xxxxx"
+        else if( ( $n & 224 ) === 192 ){
+            isset( $t ) and $a [] = $t;
+            $t = ( $n & 31 );
+        }
+        // Leading char in 3 byte sequence "1110xxxx"
+        else if( ( $n & 240 ) === 224 ){
+            isset( $t ) and $a [] = $t;
+            $t = ( $n & 15 ); 
+        }
+        // Leading char in 4 byte sequence "11110xxx"
+        else if( ( $n & 248 ) === 240 ){
+            isset( $t ) and $a [] = $t;
+            $t = ( $n & 7 );
+        }
+        else {
+            throw new Exception('Invalid utf8 string, unexpected character at offset '.$i);
+        }
+    }
+    // left over
+    isset( $t ) and $a [] = $t;
+    return $a;
+}
+
+
+
+/**
+ * Default Emoji replacement callback
+ * @internal
+ */
+function _twitter_api_replace_emoji_callback( array $match ){
+    try {
+        $codes = twitter_api_utf8_array( $match[0] );
+        $class = twitter_api_implode_unicode( $codes );
+        $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$class.'.png" style="font-size:1em;" class="emoji emoji-'.$class.'" />';
+        return $html;
+    }
+    catch( Exception $e ){
+        WP_DEBUG and trigger_error( $e->getMessage(), E_USER_WARNING );
+        return '';
+    }
+}
+
+
+
+/**
  * Resolve shortened url fields via entities
  * @return string
  */ 

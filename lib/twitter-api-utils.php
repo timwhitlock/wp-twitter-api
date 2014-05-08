@@ -180,10 +180,10 @@ function twitter_api_relative_date( $strdate ){
 
 
 /**
- * Clean four-byte Emoji icons out of tweet text.
+ * Clean four-byte characters out of tweet text, includes some emoji.
  * MySQL utf8 columns cannot store four byte Unicode sequences
  */
-function twitter_api_strip_emoji( $text ){
+function twitter_api_strip_quadruple_bytes( $text ){
     // four byte utf8: 11110www 10xxxxxx 10yyyyyy 10zzzzzz
     return preg_replace('/[\xF0-\xF7][\x80-\xBF]{3}/', '', $text );
 }
@@ -192,9 +192,9 @@ function twitter_api_strip_emoji( $text ){
 
 /**
  * Replace Emoji characters with embedded images.
- * Should be run after htmlifying tweet.
+ * Should be run after htmlifying tweet and before stripping quadruple bytes
  */
-function twitter_api_replace_emoji( $text, $callback = '_twitter_api_replace_emoji_callback' ){
+function twitter_api_replace_emoji( $text, $callback = 'twitter_api_replace_emoji_callback' ){
     return preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
 }
 
@@ -261,11 +261,11 @@ function twitter_api_utf8_array( $s ){
  * Default Emoji replacement callback
  * @internal
  */
-function _twitter_api_replace_emoji_callback( array $match ){
+function twitter_api_replace_emoji_callback( array $match ){
     try {
         $codes = twitter_api_utf8_array( $match[0] );
         $class = twitter_api_implode_unicode( $codes );
-        $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$class.'.png" style="font-size:1em;" class="emoji emoji-'.$class.'" />';
+        $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$class.'.png" style="width:1em;" class="emoji emoji-'.$class.'" />';
         return $html;
     }
     catch( Exception $e ){

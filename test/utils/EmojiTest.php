@@ -61,7 +61,7 @@ class EmojiTest extends PHPUnit_Framework_TestCase {
     public function testDefaultUrlReplacement(){
         foreach( $this->get_all() as $key => $raw ){
             $html = twitter_api_replace_emoji( $raw );
-            $want = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$key.'.png" style="font-size:1em;" class="emoji emoji-'.$key.'" />';
+            $want = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$key.'.png" style="width:1em;" class="emoji emoji-'.$key.'" />';
             $this->assertEquals( $want, $html );
         }
     }    

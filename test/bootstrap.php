@@ -15,4 +15,4 @@ function esc_html( $text ){
 
 require __DIR__.'/../twitter-api.php';
 
-twitter_api_include('utils','core');
+twitter_api_include('utils','core','unicode');

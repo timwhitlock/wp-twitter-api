@@ -195,85 +195,7 @@ function twitter_api_strip_quadruple_bytes( $text ){
  * Should be run after htmlifying tweet and before stripping quadruple bytes
  */
 function twitter_api_replace_emoji( $text, $callback = 'twitter_api_replace_emoji_callback' ){
-    // do a quick sniff to save most tweets from any replacement
-    // these codes are common to the first byte in all emoji that *might* be matched
-    if( ! preg_match('/[\xF0\xE2-\xE3\x23-\x39]/', $text ) ){
-        return $text;
-    }
-    // To keep regexp simpler, protect common multibyte characters we want to keep
-    static $protect_keys, $protect_vals;
-    if( ! isset($protect_keys) ){
-        $protect = array (
-            '\\u2017' => "\xE2\x80\x98", // lsquo
-            '\\u2018' => "\xE2\x80\x99", // rsquo
-            '\\u201C' => "\xE2\x80\x9C", // ldquo
-            '\\u201D' => "\xE2\x80\x9D", // rdquo
-        );
-        $protect_keys = array_keys( $protect );
-        $protect_vals = array_values( $protect );
-    }
-    $text = str_replace( $protect_vals, $protect_keys, $text );
-    // Do Emoji replacement ad replace protected characters afterwards
-    $text = preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
-    $text = str_replace( $protect_keys, $protect_vals, $text );
-    return $text;
-}
-
-
-
-/**
- * Convert array of unicodes to hex string for use in URLs or class names
- */
-function twitter_api_implode_unicode( array $codes, $glue = '-' ){
-    foreach( $codes as $i => $n ){
-        $codes[$i] = sprintf('%04x', $n );
-    }
-    return implode( $glue, $codes );
-}
-
-
-
-/**
- * Utility resolves UTF-8 bytes to array of code points
- */
-function twitter_api_utf8_array( $s ){
-    $a = array();
-    $len = strlen($s);
-    for( $i = 0; $i < $len; $i++ ){
-        $c = $s{ $i };
-        $n = ord( $c );
-        // 7-bit ASCII
-        if( 0 === ( $n & 128 ) ){
-            $a[] = $n;
-            unset( $t );
-        }
-        // Subsequent 10xxxxxx character
-        else if( isset($t) && ( $n & 192 ) === 128 ){
-            $t <<= 6;
-            $t |= ( $n & 63 ); 
-        }
-        // Leading char in 2 byte sequence "110xxxxx"
-        else if( ( $n & 224 ) === 192 ){
-            isset( $t ) and $a [] = $t;
-            $t = ( $n & 31 );
-        }
-        // Leading char in 3 byte sequence "1110xxxx"
-        else if( ( $n & 240 ) === 224 ){
-            isset( $t ) and $a [] = $t;
-            $t = ( $n & 15 ); 
-        }
-        // Leading char in 4 byte sequence "11110xxx"
-        else if( ( $n & 248 ) === 240 ){
-            isset( $t ) and $a [] = $t;
-            $t = ( $n & 7 );
-        }
-        else {
-            throw new Exception('Invalid utf8 string, unexpected character at offset '.$i);
-        }
-    }
-    // left over
-    isset( $t ) and $a [] = $t;
-    return $a;
+    return preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
 }
 
 
@@ -284,14 +206,33 @@ function twitter_api_utf8_array( $s ){
  */
 function twitter_api_replace_emoji_callback( array $match ){
     try {
-        $codes = twitter_api_utf8_array( $match[0] );
-        $class = twitter_api_implode_unicode( $codes );
-        $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$class.'.png" style="width:1em;" class="emoji emoji-'.$class.'" />';
+        if( empty($match[0]) ){
+            return '';
+        }
+        $ref = twitter_api_emoji_ref( $match[0] );
+        $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$ref.'.png" style="width:1em;" class="emoji emoji-'.$ref.'" />';
         return $html;
     }
     catch( Exception $e ){
         WP_DEBUG and trigger_error( $e->getMessage(), E_USER_WARNING );
         return '';
+    }
+}
+
+
+
+/**
+ * Get a hex name for a single emoji symbol
+ * @param string raw bytes, e.g. "\xF0\x9F\x98\x81"
+ * @return string hex name suitable for creating a class or ID e.g. "1f601" or "1f1ec-1f1e7" for compound symbols
+ */
+function twitter_api_emoji_ref( $raw ){
+    static $emoji;
+    if( ! isset($emoji) ){
+        $emoji = include twitter_api_basedir().'/inc/return-emoji.php';
+    }
+    if( isset($emoji[$raw]) ){
+        return $emoji[$raw];
     }
 }
 

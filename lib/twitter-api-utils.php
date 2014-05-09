@@ -195,7 +195,28 @@ function twitter_api_strip_quadruple_bytes( $text ){
  * Should be run after htmlifying tweet and before stripping quadruple bytes
  */
 function twitter_api_replace_emoji( $text, $callback = 'twitter_api_replace_emoji_callback' ){
-    return preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
+    // do a quick sniff to save most tweets from any replacement
+    // these codes are common to the first byte in all emoji that *might* be matched
+    if( ! preg_match('/[\xF0\xE2-\xE3\x23-\x39]/', $text ) ){
+        return $text;
+    }
+    // To keep regexp simpler, protect common multibyte characters we want to keep
+    static $protect_keys, $protect_vals;
+    if( ! isset($protect_keys) ){
+        $protect = array (
+            '\\u2017' => "\xE2\x80\x98", // lsquo
+            '\\u2018' => "\xE2\x80\x99", // rsquo
+            '\\u201C' => "\xE2\x80\x9C", // ldquo
+            '\\u201D' => "\xE2\x80\x9D", // rdquo
+        );
+        $protect_keys = array_keys( $protect );
+        $protect_vals = array_values( $protect );
+    }
+    $text = str_replace( $protect_vals, $protect_keys, $text );
+    // Do Emoji replacement ad replace protected characters afterwards
+    $text = preg_replace_callback('/(?:\xF0\x9F\x87[\xA6-\xBA]\xF0\x9F\x87[\xA6-\xBA]|\xF0\x9F[\x80\x83\x85-\x86\x88-\x89\x8C-\x95\x97-\x9B][\x80-\xBF]|[\xE2-\xE3][\x80\x81\x84\x86\x8A\x8C\x8F\x93\x96-\x9E\xA4\xAC-\xAD][\x80-\x82\x84-\x9D\xA0-\xA6\xA8-\xAC\xB0\xB2-\xB6\xB9-\xBF]|[\x23-\x39]\xE2\x83\xA3)/', $callback, $text );
+    $text = str_replace( $protect_keys, $protect_vals, $text );
+    return $text;
 }
 
 

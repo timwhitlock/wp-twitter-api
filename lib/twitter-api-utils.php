@@ -210,6 +210,9 @@ function twitter_api_replace_emoji_callback( array $match ){
             return '';
         }
         $ref = twitter_api_emoji_ref( $match[0] );
+        if( ! $ref ){
+            return $match[0];
+        }
         $html  = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$ref.'.png" style="width:1em;" class="emoji emoji-'.$ref.'" />';
         return $html;
     }

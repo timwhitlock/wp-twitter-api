@@ -1,14 +1,14 @@
-# Twitter API Wordpress Library
+# Twitter API WordPress Library
 
-This library exposes a fully authenticated Twitter API client for developing Wordpress plugins.
+This library exposes a fully authenticated Twitter API client for developing WordPress plugins.
 
 ## Features
 
 * Compatible with the new Twitter API 1.1
-* OAuth flow connects your Twitter account via Wordpress admin
+* OAuth flow connects your Twitter account via WordPress admin
 * Access to a common Twitter API client that any plugin can use
 * Caching of API responses
-* Light-weight: uses Wordpress utilities where possible
+* Light-weight: uses WordPress utilities where possible
  
 
 ## Example plugin 
@@ -39,11 +39,11 @@ Once the plugin is installed and enabled, you can bind it to a Twitter account a
 
 * Register a Twitter application at https://dev.twitter.com/apps
 * Note the Consumer key and Consumer secret under *OAuth settings*
-* Log into Wordpress admin and go to *Settings > Twitter API*
+* Log into WordPress admin and go to *Settings > Twitter API*
 * Enter the consumer key and secret and click 'Save settings'
 * Click the 'Connect to Twitter' button and follow the prompts.
 
-Any Wordpress plugin can now make fully authenticated calls to the Twitter API. The functions are documented below.
+Any WordPress plugin can now make fully authenticated calls to the Twitter API. The functions are documented below.
 
 
 ## Twitter Client

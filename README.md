@@ -31,7 +31,7 @@ To expose the library and its admin functions, bootstrap the library from your o
 if( ! function_exists('twitter_api_get') ){
     require dirname(__FILE__).'/api/twitter-api.php';
 }
-```   
+```
 
 ## Authentication
 
@@ -47,6 +47,13 @@ Any WordPress plugin can now make fully authenticated calls to the Twitter API. 
 
 
 ## Twitter Client
+
+To check whether the user has authenticated the plugin and configured the oAuth tokens you can use the following function.
+
+#### twitter_api_configured
+`bool twitter_api_configured ()`
+Returns True if the user has authenticated the plugin and configured oAuth tokens
+
 
 The following functions are available from anywhere as soon as the plugin is authenticated.
 They all operate as the Twitter account you connected in your admin area.
@@ -93,12 +100,14 @@ Exhanges a verified request token for an access token: e.g. `{ key: 'your access
 Once you have your own authentication credentials you can work directly with the API client.
 This example shows the main methods you might use:
 
-```php    
+```php
     try {
-       $Client = twitter_api_client('some client');
-       $Client->set_oauth( 'my consumer key', 'my consumer secret', 'their access key', 'their access secret' );
-       $user = $Client->call( 'users/show', array( 'screen_name' => 'timwhitlock' ), 'GET' );
-       var_dump( $user );
+        if ( twitter_api_configured() ) {
+            $Client = twitter_api_client('some client');
+            $Client->set_oauth( 'my consumer key', 'my consumer secret', 'their access key', 'their access secret' );
+            $user = $Client->call( 'users/show', array( 'screen_name' => 'timwhitlock' ), 'GET' );
+            var_dump( $user );
+        }
     }
     catch( TwitterApiRateLimitException $Ex ){
         $info = $Client->last_rate_limit();

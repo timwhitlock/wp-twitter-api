@@ -16,6 +16,7 @@ function twitter_api_utf8_array( $s ){
         $n = ord( $c );
         // 7-bit ASCII
         if( 0 === ( $n & 128 ) ){
+            isset( $t ) and $a [] = $t;
             $a[] = $n;
             unset( $t );
         }

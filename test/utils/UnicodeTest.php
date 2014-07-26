@@ -7,12 +7,12 @@ class UnicodeTest extends PHPUnit_Framework_TestCase {
     
     public function testAsciiPassThrough(){
         $ints = twitter_api_utf8_array( 'abc' );
-        $this->assertEquals( array(97,98,99), $ints );
+        $this->assertSame( array(97,98,99), $ints );
     }
     
     public function testAsciiPassthroughReverse(){
         $chr = twitter_api_utf8_chr( 97 );
-        $this->assertEquals( 'a', $chr );
+        $this->assertSame( 'a', $chr );
     }
     
 
@@ -21,13 +21,13 @@ class UnicodeTest extends PHPUnit_Framework_TestCase {
         $text = "\xC2\xA9";
         $ints = twitter_api_utf8_array( $text );
         $this->assertCount( 1, $ints );
-        $this->assertEquals( 0x00A9, $ints[0] );
+        $this->assertSame( 0x00A9, $ints[0] );
     }    
     
     
     public function testTwoByteCharacterReverse(){
         $chr = twitter_api_utf8_chr( 0x00A9 );
-        $this->assertEquals( "\xC2\xA9", $chr );
+        $this->assertSame( "\xC2\xA9", $chr );
     }
 
 
@@ -36,14 +36,34 @@ class UnicodeTest extends PHPUnit_Framework_TestCase {
         $text = "\xE2\x84\xA2";
         $ints = twitter_api_utf8_array( $text );
         $this->assertCount( 1, $ints );
-        $this->assertEquals( 0x2122, $ints[0] );
+        $this->assertSame( 0x2122, $ints[0] );
     }    
     
 
     public function testThreeByteCharacterReverse(){
         $chr = twitter_api_utf8_chr( 0x2122 );
-        $this->assertEquals( "\xE2\x84\xA2", $chr );
+        $this->assertSame( "\xE2\x84\xA2", $chr );
     }
     
+    
+    public function testFourByteCharacter(){
+        // mahjong tile red dragon
+        $text = "\xF0\x9F\x80\x84";
+        $ints = twitter_api_utf8_array( $text );
+        $this->assertCount( 1, $ints );
+        $this->assertSame( 0x1F004, $ints[0] );
+    }
+    
+    
+    public function testFourByteCharacterReverse(){
+        $chr = twitter_api_utf8_chr( 0x1F004 );
+        $this->assertSame( "\xF0\x9F\x80\x84", $chr );
+    }
+
+
+    public function testVariableByteLengthMixed(){
+        $ints = twitter_api_utf8_array("A\xC2\xA9B\xE2\x84\xA2C\xF0\x9F\x80\x84D");
+        $this->assertSame( array( ord('A'), 0xA9, ord('B'), 0x2122, ord('C'), 0x1F004, ord('D') ), $ints );
+    }
     
 }

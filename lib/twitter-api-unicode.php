@@ -104,7 +104,12 @@ function twitter_api_utf8_chr( $u ){
  */
 function twitter_api_unicode_implode( array $codes, $glue = '-' ){
     foreach( $codes as $i => $n ){
-        $codes[$i] = sprintf('%04x', $n );
+        if( $n > 0x7F ){
+            $codes[$i] = sprintf('%04x', $n );
+        }
+        else {
+            $codes[$i] = sprintf('%02x', $n );
+        }
     }
     return implode( $glue, $codes );
 }

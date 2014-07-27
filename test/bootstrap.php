@@ -1,8 +1,7 @@
 <?php
 /**
  * Unit test bootstrapper.
- * This is nothing close to an accurate simulation of Wordpress environment, it's just for testing utils.
- * @usage phpunit --colors --bootstrap bootstrap.php .
+ * This is nothing close to an accurate simulation of WordPress environment, it's just for testing utils.
  */
  
 function is_admin(){

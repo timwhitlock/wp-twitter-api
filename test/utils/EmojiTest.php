@@ -16,6 +16,10 @@ class EmojiTest extends PHPUnit_Framework_TestCase {
         return $ref ? 'valid' : 'invalid';
     }
     
+    public function _replace_hexref( array $match ){
+        return $ref = twitter_api_emoji_ref( $match[0] );
+    }
+    
     
     private function get_all(){
         static $emoji;
@@ -70,7 +74,19 @@ class EmojiTest extends PHPUnit_Framework_TestCase {
             $want = '<img src="https://abs.twimg.com/emoji/v1/72x72/'.$key.'.png" style="width:1em;" class="emoji emoji-'.$key.'" />';
             $this->assertEquals( $want, $html );
         }
-    }    
+    }
+
+
+    /**
+     * Twitter emoji image files are lower case hex with ascii characters reduced to two characters 
+     */
+    public function testCorrectFormatHex(){
+        $replacer = array( $this, '_replace_hexref' );
+        // TM / Grinning Cat / GB flag / Enclosed 6 
+        $text = "\xE2\x84\xA2 \xF0\x9F\x98\xB8 \xF0\x9F\x87\xAC\xF0\x9F\x87\xA7 \x36\xE2\x83\xA3";
+        $want = '2122 1f638 1f1ec-1f1e7 36-20e3';
+        $this->assertEquals( $want, twitter_api_replace_emoji( $text, $replacer ) );
+    }     
 
 
     /**
@@ -93,5 +109,15 @@ class EmojiTest extends PHPUnit_Framework_TestCase {
         }
     }
     
-
+    
+    /**
+     * Test identification of enclosed characters
+     */
+    public function testEnclosingNumericsReplace(){
+        $blanker = array( $this, '_replace_blank' );
+        $text = "o0\xE2\x83\xA31\xE2\x83\xA3k"; 
+        $text = twitter_api_replace_emoji( $text, $blanker );
+        $this->assertEquals( 'ok', $text );
+    }
+    
 }

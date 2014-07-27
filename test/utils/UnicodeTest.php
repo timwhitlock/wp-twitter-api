@@ -66,4 +66,11 @@ class UnicodeTest extends PHPUnit_Framework_TestCase {
         $this->assertSame( array( ord('A'), 0xA9, ord('B'), 0x2122, ord('C'), 0x1F004, ord('D') ), $ints );
     }
     
+    
+    public function testHexCodesCorrectLengthAndCase(){
+        $text = twitter_api_unicode_implode( array( 0x97, 0xA9, 0x2122, 0x1F004 ) );
+        $this->assertSame( '0097-00a9-2122-1f004', $text );
+    }
+    
+    
 }

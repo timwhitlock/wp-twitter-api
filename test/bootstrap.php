@@ -12,6 +12,10 @@ function esc_html( $text ){
     return htmlspecialchars( $text, ENT_COMPAT, 'UTF-8' );
 }
 
+function esc_attr( $text ){
+    return esc_html( $text );
+}
+
 require __DIR__.'/../twitter-api.php';
 
 twitter_api_include('utils','core','unicode');

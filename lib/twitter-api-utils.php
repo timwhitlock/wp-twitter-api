@@ -70,7 +70,7 @@ function twitter_api_html_with_entities( $src, array $entities, $target = '_blan
                 $name = $entity['screen_name'];
                 $find = '@'.$name;
                 $repl = '&#x40;'.$name;
-                $replace[$find] = '<a class="twitter-screen-name" href="https://twitter.com/'.$name.'" target="'.$target.'">'.$repl.'</a>';
+                $replace[$find] = '<a class="twitter-screen-name" href="https://twitter.com/'.$name.'" target="'.$target.'" rel="nofollow">'.$repl.'</a>';
             }
         }
     }
@@ -79,11 +79,11 @@ function twitter_api_html_with_entities( $src, array $entities, $target = '_blan
         foreach( (array) $entities['hashtags'] as $entity ){
             if( ! empty($entity['text']) && isset($entity['indices']) ){
                 $query = array( 'q' => '#'.$entity['text'], 'src' => 'hash' );
-                $href = 'https://twitter.com/search?'.http_build_query($query);
+                $href = esc_attr('https://twitter.com/search?'.http_build_query($query) );
                 $html = esc_html( $entity['text'] );
                 $find = '#'.$html;
                 $repl = '&#x23;'.$html;
-                $replace[$find] = '<a class="twitter-hashtag" href="'.$href.'" target="'.$target.'">'.$repl.'</a>';
+                $replace[$find] = '<a class="twitter-hashtag" href="'.$href.'" target="'.$target.'" rel="nofollow">'.$repl.'</a>';
             }
         }
     }

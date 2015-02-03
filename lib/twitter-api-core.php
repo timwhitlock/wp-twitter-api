@@ -142,7 +142,7 @@ class TwitterApiClient {
         extract( _twitter_api_config() );
         if( $default ){
             if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-                trigger_error( __('Twitter application is not fully configured') );
+                trigger_error( __('Twitter application is not fully configured','twitter-api') );
             }
             $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret ); 
         }       
@@ -227,7 +227,7 @@ class TwitterApiClient {
     public function call( $path, array $_args, $http_method ){
         // all calls must be authenticated in API 1.1
         if( ! $this->has_auth() ){
-            throw new TwitterApiException( __('Twitter client not authenticated'), 0, 401 );
+            throw new TwitterApiException( __('Twitter client not authenticated','twitter-api'), 0, 401 );
         }
         // transform some arguments and ensure strings
         // no further validation is performed
@@ -243,7 +243,7 @@ class TwitterApiClient {
                  $args[$key] = 'false';
             }
             else if( ! is_scalar($val) ){
-                throw new TwitterApiException( __('Invalid Twitter parameter').' ('.gettype($val).') '.$key.' in '.$path, -1 );
+                throw new TwitterApiException( __('Invalid Twitter parameter','twitter-api').' ('.gettype($val).') '.$key.' in '.$path, -1 );
             }
             else {
                 $args[$key] = (string) $val;
@@ -303,9 +303,9 @@ class TwitterApiClient {
         // else could be well-formed error
         if( isset( $data['errors'] ) ) {
             while( $err = array_shift($data['errors']) ){
-                $err['message'] = __( $err['message'] );
+                $err['message'] = __( $err['message'], 'twitter-api' );
                 if( $data['errors'] ){
-                    $message = sprintf( __('Twitter error #%d'), $err['code'] ).' "'.$err['message'].'"';
+                    $message = sprintf( __('Twitter error #%d','twitter-api'), $err['code'] ).' "'.$err['message'].'"';
                     trigger_error( $message, E_USER_WARNING );
                 }
                 else {
@@ -317,7 +317,7 @@ class TwitterApiClient {
         // e.g. not authorized to view specific content.
         if( isset($data['error']) ){
             $code = isset($data['code']) ? $data['code'] : $status;
-            $message = sprintf( __('Twitter error #%d'), $code ).' "'.$data['error'].'"';
+            $message = sprintf( __('Twitter error #%d','twitter-api'), $code ).' "'.$data['error'].'"';
             TwitterApiException::chuck( compact('message','code'), $status );
         }
         if( isset($cachekey) ){
@@ -353,7 +353,7 @@ class TwitterApiClient {
         }
         parse_str( $body, $params );
         if( ! is_array($params) || ! isset($params['oauth_token']) || ! isset($params['oauth_token_secret']) ){
-            throw new TwitterApiException( __('Malformed response from Twitter'), -1, $stat );
+            throw new TwitterApiException( __('Malformed response from Twitter','twitter-api'), -1, $stat );
         }
         return $params;   
     }
@@ -372,7 +372,7 @@ class TwitterApiClient {
             }
         }
         if( empty($http['response']) ){
-            throw new TwitterApiException( __('Wordpress HTTP request failure'), -1 );
+            throw new TwitterApiException( __('Wordpress HTTP request failure','twitter-api'), -1 );
         }
         return $http;
     }
@@ -407,7 +407,7 @@ class TwitterOAuthToken {
 
     public function __construct( $key, $secret = '' ){
         if( ! $key ){
-           throw new Exception( __('Invalid OAuth token').' - '.__('Key required even if secret is empty') );
+           throw new Exception( __('Invalid OAuth token','twitter-api').' - '.__('Key required even if secret is empty','twitter-api') );
         }
         $this->key = $key;
         $this->secret = $secret;
@@ -511,22 +511,22 @@ class TwitterOAuthParams {
  * @return string HTTP status text
  */
 function _twitter_api_http_status_text( $s ){
-    static $codes = array (
-        429 => 'Twitter API rate limit exceeded',
-        500 => 'Twitter server error',
-        502 => 'Twitter is not responding',
-        503 => 'Twitter is too busy to respond',
+    $codes = array (
+        429 => __('Twitter API rate limit exceeded','twitter-api'),
+        500 => __('Twitter server error','twitter-api'),
+        502 => __('Twitter is not responding','twitter-api'),
+        503 => __('Twitter is too busy to respond','twitter-api'),
     );
     if( isset($codes[$s]) ){
-        return __( $codes[$s] );
+        return $codes[$s];
     }
     // fall back to Wordpress registry to save bloat
     $text = get_status_header_desc( $s );
     if( $text ){
-        return __( $text );
+        return __( $text, 'twitter-api' );
     }
     // unknown status    
-    return sprintf( __('Status %u from Twitter'), $s );
+    return sprintf( __('Status %u from Twitter','twitter-api'), $s );
 }
 
 

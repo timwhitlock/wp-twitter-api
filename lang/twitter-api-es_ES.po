@@ -3,36 +3,43 @@ msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
 "POT-Creation-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
-"PO-Revision-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
-"Last-Translator: Tim Whitlock\n"
+"PO-Revision-Date: Sun Mar 15 2015 14:38:17 GMT+0000 (GMT)\n"
+"Last-Translator: admin <support@localise.biz>\n"
 "Language-Team: \n"
-"Language: German\n"
+"Language: Spanish (Spain)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Loco https://localise.biz\n"
-"X-Loco-Source-Locale: en_GB\n"
-"X-Loco-Target-Locale: de_DE\n"
-"X-Loco-Tagged: \n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Source-Locale: en_GB\n"
+"X-Loco-Target-Locale: es_ES\n"
+"X-Loco-Tagged: \n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 
 #: ../../latest-tweets.php:44
 #, fuzzy
 msgid "Plugin not fully configured"
-msgstr "Die Twitter Anwendung ist nicht vollständig konfiguriert"
+msgstr "Aplicación de Twitter no totalmente configurada"
 
 #: ../../latest-tweets.php:202
 msgid "Widget title"
-msgstr "Titel"
+msgstr "Título del Widget"
 
 #: ../../latest-tweets.php:207
 msgid "Twitter handle"
-msgstr "Twitter Handle"
+msgstr "Nombre de Usuario de Twitter"
 
 #: ../../latest-tweets.php:212
 msgid "Number of tweets"
-msgstr "Anzahl an Tweets"
+msgstr "Número de tweets"
 
 #: ../../latest-tweets.php:217
 msgid "Minimum popularity"
@@ -40,15 +47,15 @@ msgstr ""
 
 #: ../../latest-tweets.php:222
 msgid "Show Retweets"
-msgstr "Retweets anzeigen"
+msgstr "Mostrar RTs"
 
 #: ../../latest-tweets.php:227
 msgid "Show Replies"
-msgstr "Antworten anzeigen"
+msgstr "Mostrar Respuestas"
 
 #: ../../latest-tweets.php:231 ../../latest-tweets.php:241
 msgid "Latest Tweets"
-msgstr "Neueste Tweets"
+msgstr "Últimos Tweets"
 
 #: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90
 msgid "Connect to Twitter"
@@ -56,28 +63,28 @@ msgstr ""
 
 #: ../../api/lang/extra-strings.php:7
 msgid "Twitter API rate limit exceeded"
-msgstr ""
+msgstr "Tasa de limite de la API de Twitter excedida"
 
 #: ../../api/lang/extra-strings.php:8
 msgid "Twitter server error"
-msgstr "Twitter Server Fehler"
+msgstr "Error del Servidor de Twitter"
 
 #: ../../api/lang/extra-strings.php:9
 msgid "Twitter is not responding"
-msgstr "Twitter antwortet nicht"
+msgstr "Twitter no está respondiendo"
 
 #: ../../api/lang/extra-strings.php:10
 msgid "Twitter is too busy to respond"
-msgstr ""
+msgstr "Twitter está muy ocupado para responder"
 
 #. HTTP status codes from get_status_header_desc
 #: ../../api/lang/extra-strings.php:13
 msgid "Continue"
-msgstr "Weiter"
+msgstr "Continuar"
 
 #: ../../api/lang/extra-strings.php:14
 msgid "Switching Protocols"
-msgstr "Protokoll wird gewechselt"
+msgstr "Intercambiar protocolos"
 
 #: ../../api/lang/extra-strings.php:15
 msgid "Processing"
@@ -89,27 +96,27 @@ msgstr "OK"
 
 #: ../../api/lang/extra-strings.php:17
 msgid "Created"
-msgstr "Erstellt"
+msgstr "Creado"
 
 #: ../../api/lang/extra-strings.php:18
 msgid "Accepted"
-msgstr "Akzeptiert"
+msgstr "Aceptado"
 
 #: ../../api/lang/extra-strings.php:19
 msgid "Non-Authoritative Information"
-msgstr ""
+msgstr "Información no autorizada"
 
 #: ../../api/lang/extra-strings.php:20
 msgid "No Content"
-msgstr "Kein Inhalt"
+msgstr "Sin contenido"
 
 #: ../../api/lang/extra-strings.php:21
 msgid "Reset Content"
-msgstr ""
+msgstr "Volver a la configuración de contenido inicial"
 
 #: ../../api/lang/extra-strings.php:22
 msgid "Partial Content"
-msgstr ""
+msgstr "Contenido parcial"
 
 #: ../../api/lang/extra-strings.php:23
 msgid "Multi-Status"
@@ -121,27 +128,27 @@ msgstr ""
 
 #: ../../api/lang/extra-strings.php:25
 msgid "Multiple Choices"
-msgstr ""
+msgstr "Múltiples elecciones"
 
 #: ../../api/lang/extra-strings.php:26
 msgid "Moved Permanently"
-msgstr ""
+msgstr "Movido permanentemente"
 
 #: ../../api/lang/extra-strings.php:27
 msgid "Found"
-msgstr "Gefunden"
+msgstr "Encontrado"
 
 #: ../../api/lang/extra-strings.php:28
 msgid "See Other"
-msgstr ""
+msgstr "Ver otro"
 
 #: ../../api/lang/extra-strings.php:29
 msgid "Not Modified"
-msgstr "Nicht modifiziert"
+msgstr "No modificado"
 
 #: ../../api/lang/extra-strings.php:30
 msgid "Use Proxy"
-msgstr ""
+msgstr "Usar Proxy"
 
 #: ../../api/lang/extra-strings.php:31
 msgid "Reserved"
@@ -149,79 +156,79 @@ msgstr ""
 
 #: ../../api/lang/extra-strings.php:32
 msgid "Temporary Redirect"
-msgstr ""
+msgstr "Redireccionamiento Temporal"
 
 #: ../../api/lang/extra-strings.php:33
 msgid "Bad Request"
-msgstr ""
+msgstr "Solicitud Incorrecta"
 
 #: ../../api/lang/extra-strings.php:34
 msgid "Unauthorized"
-msgstr ""
+msgstr "Autorización exigida"
 
 #: ../../api/lang/extra-strings.php:35
 msgid "Payment Required"
-msgstr ""
+msgstr "Pago Exigido"
 
 #: ../../api/lang/extra-strings.php:36
 msgid "Forbidden"
-msgstr ""
+msgstr "Prohibido"
 
 #: ../../api/lang/extra-strings.php:37
 msgid "Not Found"
-msgstr ""
+msgstr "No encontrado"
 
 #: ../../api/lang/extra-strings.php:38
 msgid "Method Not Allowed"
-msgstr ""
+msgstr "Método no Permitido"
 
 #: ../../api/lang/extra-strings.php:39
 msgid "Not Acceptable"
-msgstr ""
+msgstr "No aceptable"
 
 #: ../../api/lang/extra-strings.php:40
 msgid "Proxy Authentication Required"
-msgstr ""
+msgstr "Autenticación de proxy requerida"
 
 #: ../../api/lang/extra-strings.php:41
 msgid "Request Timeout"
-msgstr ""
+msgstr "Petición fuera de tiempo"
 
 #: ../../api/lang/extra-strings.php:42
 msgid "Conflict"
-msgstr ""
+msgstr "Conflicto"
 
 #: ../../api/lang/extra-strings.php:43
 msgid "Gone"
-msgstr ""
+msgstr "Ido"
 
 #: ../../api/lang/extra-strings.php:44
 msgid "Length Required"
-msgstr ""
+msgstr "Longitud requerida"
 
 #: ../../api/lang/extra-strings.php:45
 msgid "Precondition Failed"
-msgstr ""
+msgstr "Precondición fallida"
 
 #: ../../api/lang/extra-strings.php:46
 msgid "Request Entity Too Large"
-msgstr ""
+msgstr "Entidad solicitada demasiado grande"
 
 #: ../../api/lang/extra-strings.php:47
 msgid "Request-URI Too Long"
-msgstr ""
+msgstr "URI de la Petición demasiado larga"
 
 #: ../../api/lang/extra-strings.php:48
 msgid "Unsupported Media Type"
-msgstr ""
+msgstr "Tipo de Medio no suportado"
 
 #: ../../api/lang/extra-strings.php:49
 msgid "Requested Range Not Satisfiable"
-msgstr ""
+msgstr "Rango solicitado no satisfactorio"
 
 #: ../../api/lang/extra-strings.php:50
 msgid "Expectation Failed"
-msgstr ""
+msgstr "La expectativa ha fallado"
 
 #: ../../api/lang/extra-strings.php:52
 msgid "Unprocessable Entity"
@@ -237,28 +244,27 @@ msgstr ""
 
 #: ../../api/lang/extra-strings.php:55
 msgid "Upgrade Required"
-msgstr ""
+msgstr "Pago Exigido"
 
 #: ../../api/lang/extra-strings.php:56
 msgid "Precondition Required"
-msgstr ""
+msgstr "Precondición fallida"
 
 #: ../../api/lang/extra-strings.php:57
 msgid "Too Many Requests"
-msgstr ""
+msgstr "Solicitud Incorrecta"
 
 #: ../../api/lang/extra-strings.php:58
 msgid "Request Header Fields Too Large"
-msgstr ""
+msgstr "Entidad solicitada demasiado grande"
 
 #: ../../api/lang/extra-strings.php:59
-#, fuzzy
 msgid "Internal Server Error"
-msgstr "Twitter Server Fehler"
+msgstr "Error del Servidor de Twitter"
 
 #: ../../api/lang/extra-strings.php:60
 msgid "Not Implemented"
-msgstr "Nicht implementiert"
+msgstr "No implementado"
 
 #: ../../api/lang/extra-strings.php:61
 msgid "Bad Gateway"
@@ -270,12 +276,11 @@ msgstr ""
 
 #: ../../api/lang/extra-strings.php:63
 msgid "Gateway Timeout"
-msgstr ""
+msgstr "Puerta de enlace fuera de tiempo"
 
 #: ../../api/lang/extra-strings.php:64
-#, fuzzy
 msgid "HTTP Version Not Supported"
-msgstr "HTTP Version wird nicht unterstützt"
+msgstr "Versión HTTP no soportada"
 
 #: ../../api/lang/extra-strings.php:65
 msgid "Variant Also Negotiates"
@@ -290,77 +295,77 @@ msgid "Not Extended"
 msgstr ""
 
 #: ../../api/lang/extra-strings.php:68
-#, fuzzy
 msgid "Network Authentication Required"
-msgstr "Einstellungen zur Twitter API Authentifizierung"
+msgstr "Autenticación de proxy requerida"
 
 #: ../../api/lib/twitter-api-admin.php:16
 msgid "Twitter API Authentication Settings"
-msgstr "Einstellungen zur Twitter API Authentifizierung"
+msgstr "Configuración de Autenticación de la API de Twitter"
 
 #: ../../api/lib/twitter-api-admin.php:60
 msgid "Save settings"
-msgstr "Einstellungen speichern"
+msgstr "Salvar"
 
 #: ../../api/lib/twitter-api-admin.php:63
 msgid "These details are available in"
-msgstr "Diese Informationen findest du in"
+msgstr "Detalles disponibles en"
 
 #: ../../api/lib/twitter-api-admin.php:64
 msgid "your Twitter dashboard"
-msgstr "deinem Twitter Dashboard"
+msgstr "su panel de control de Twitter"
 
 #: ../../api/lib/twitter-api-admin.php:102
 msgid "You don't have permission to manage Twitter API settings"
-msgstr "Dir fehlen die Rechte, um die Twitter API Einstellungen zu verwalten"
+msgstr ""
+"Usted no tiene permisos para manejar los parametros de la API de Twitter"
 
 #: ../../api/lib/twitter-api-admin.php:121
 #: ../../api/lib/twitter-api-core.php:145
 msgid "Twitter application not fully configured"
-msgstr "Die Twitter Anwendung ist nicht vollständig konfiguriert"
+msgstr "Aplicación de Twitter no totalmente configurada"
 
 #: ../../api/lib/twitter-api-admin.php:139
 msgid "Plugin not yet authenticated with Twitter"
-msgstr "Das Plugin wurde noch nicht bei Twitter authentifiziert"
+msgstr "El plugin no se autenticado aún en Twitter"
 
 #: ../../api/lib/twitter-api-admin.php:146
 #, php-format
 msgid "Authenticated as @%s"
-msgstr "Authentifiziert als @%s"
+msgstr "Autenticado como @%s"
 
 #: ../../api/lib/twitter-api-admin.php:189
 msgid "Twitter API"
-msgstr "Twitter API"
+msgstr "API de Twitter"
 
 #: ../../api/lib/twitter-api-core.php:230
 msgid "Twitter client not authenticated"
-msgstr "Twitter Client nicht authentifiziert"
+msgstr "Cliente de Twitter no autenticado"
 
 #: ../../api/lib/twitter-api-core.php:246
 msgid "Invalid Twitter parameter"
-msgstr "Ungültiger Twitter Parameter"
+msgstr "Parámetro de Twitter inválido"
 
 #: ../../api/lib/twitter-api-core.php:308
 #: ../../api/lib/twitter-api-core.php:320
 #, php-format
 msgid "Twitter error #%d"
-msgstr "Twitter Fehler #%d"
+msgstr "Error de Twitter #%d"
 
 #: ../../api/lib/twitter-api-core.php:356
 msgid "Malformed response from Twitter"
-msgstr ""
+msgstr "Respuesta de Twitter: malformed"
 
 #: ../../api/lib/twitter-api-core.php:375
 msgid "Wordpress HTTP request failure"
-msgstr "Wordpress HTTP Request Fehler"
+msgstr "Error en la solicitud de HTTP de Wordpress"
 
 #: ../../api/lib/twitter-api-core.php:410
 msgid "Invalid OAuth token"
-msgstr "Ungültiger OAuth token"
+msgstr "Token OAuth inválido"
 
 #: ../../api/lib/twitter-api-core.php:410
 msgid "Key required even if secret is empty"
-msgstr ""
+msgstr "Clave exigida incluso si secreto está vacío"
 
 #: ../../api/lib/twitter-api-core.php:532
 #, php-format
@@ -369,29 +374,22 @@ msgstr ""
 
 #: ../../api/lib/twitter-api-utils.php:155
 msgid "Just now"
-msgstr "Gerade eben"
+msgstr "Ahora mismo"
 
 #: ../../api/lib/twitter-api-utils.php:160
 #, php-format
 msgid "%u minute ago"
 msgid_plural "%u minutes ago"
-msgstr[0] "Vor 1 Minute"
-msgstr[1] "Vor %u Minuten"
+msgstr[0] "Hace %u minuto"
+msgstr[1] "Hace %u minutos"
 
 #: ../../api/lib/twitter-api-utils.php:168
 #, php-format
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
-msgstr[0] "Vor ungefähr 1 Stunde"
-msgstr[1] "Vor ungefähr %u Stunden"
+msgstr[0] "Hace cerca de una hora"
+msgstr[1] "Hace cerca de %u horas"
 
 #: ../../api/lib/twitter-api-utils.php:173
 msgid "Yesterday at"
-msgstr "Gestern um"
-
-#~ msgid "Cannot enable Twitter API cache without APC extension"
-#~ msgstr ""
-#~ "Der Twitter API Cache kann ohne APC Erweiterung nicht aktiviert werden"
-
-#~ msgid "Twitter application is not fully configured"
-#~ msgstr "Die Twitter Anwendung ist nicht vollständig konfiguriert"
+msgstr "Ayer a las"

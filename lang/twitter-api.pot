@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: 2015-03-15 17:15+0000\n"
+"POT-Creation-Date: 2015-03-15 17:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -30,7 +30,7 @@ msgstr[1] ""
 msgid "Authenticated as @%s"
 msgstr ""
 
-#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90 loco:5505af2214d725a5068b4573
+#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90 loco:#: 5505af2214d725a5068b4573
 msgid "Connect to Twitter"
 msgstr ""
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Key required even if secret is empty"
 msgstr ""
 
-#: ../../latest-tweets.php:231 ../../latest-tweets.php:241 loco:#: 5505af2214d725a5068b4572
+#: ../../latest-tweets.php:231 ../../latest-tweets.php:241 572 loco:#: 5505af2214d725a5068b4572
 msgid "Latest Tweets"
 msgstr ""
 
@@ -64,6 +64,22 @@ msgstr ""
 
 #: ../../latest-tweets.php:212 loco:5505af2214d725a5068b456e
 msgid "Number of tweets"
+msgstr ""
+
+#: ../api/lib/twitter-api-admin.php:56 loco:5505c1b514d72528128b456a
+msgid "OAuth Access Secret"
+msgstr ""
+
+#: ../api/lib/twitter-api-admin.php:52 loco:5505c1b514d72528128b4569
+msgid "OAuth Access Token"
+msgstr ""
+
+#: ../api/lib/twitter-api-admin.php:44 loco:5505c1b514d72528128b4567
+msgid "OAuth Consumer Key"
+msgstr ""
+
+#: ../api/lib/twitter-api-admin.php:48 loco:5505c1b514d72528128b4568
+msgid "OAuth Consumer Secret"
 msgstr ""
 
 #: ../../latest-tweets.php:44 loco:5505af2214d725a5068b456b

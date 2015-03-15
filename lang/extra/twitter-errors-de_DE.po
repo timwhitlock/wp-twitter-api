@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-29 10:55+0100\n"
-"PO-Revision-Date: 2015-03-15 17:15+0000\n"
+"PO-Revision-Date: 2015-03-15 17:42+0000\n"
 "Last-Translator: Tim Whitlock\n"
 "Language-Team: Wordpress\n"
 "Language: German\n"
@@ -92,7 +92,6 @@ msgid "Gateway Timeout"
 msgstr ""
 
 #: ../../../api/lang/extra-strings.php:64 loco:5505af7214d72572078b457c
-#, fuzzy
 msgid "HTTP Version Not Supported"
 msgstr "HTTP Version wird nicht unterstützt"
 
@@ -105,7 +104,6 @@ msgid "Insufficient Storage"
 msgstr ""
 
 #: ../../../api/lang/extra-strings.php:59 loco:5505af7214d72572078b457a
-#, fuzzy
 msgid "Internal Server Error"
 msgstr "Twitter Server Fehler"
 
@@ -126,7 +124,6 @@ msgid "Multiple Choices"
 msgstr ""
 
 #: ../../../api/lang/extra-strings.php:68 loco:5505af7214d72572078b457d
-#, fuzzy
 msgid "Network Authentication Required"
 msgstr "Einstellungen zur Twitter API Authentifizierung"
 

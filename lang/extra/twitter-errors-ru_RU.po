@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-29 10:55+0100\n"
-"PO-Revision-Date: 2015-03-15 17:15+0000\n"
+"PO-Revision-Date: 2015-03-15 17:42+0000\n"
 "Last-Translator: Tim Whitlock\n"
 "Language-Team: Wordpress\n"
 "Language: Russian\n"
@@ -185,7 +185,6 @@ msgid "Request Header Fields Too Large"
 msgstr "Запаршиваемый объект слишком большой"
 
 #: ../../../api/lang/extra-strings.php:41 loco:5505af7214d72572078b4573
-#, fuzzy
 msgid "Request Timeout"
 msgstr "Запрос Time-out"
 

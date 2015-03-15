@@ -41,19 +41,19 @@ function twitter_api_admin_render_form(){
     ?>
     <form action="<?php echo twitter_api_admin_base_uri()?>" method="post">
         <p>
-            <label for="twitter-api--consumer-key">OAuth Consumer Key:</label><br />
+            <label for="twitter-api--consumer-key"><?php echo __('OAuth Consumer Key','twitter-api');?>:</label><br />
             <input type="text" size="64" name="saf_twitter[consumer_key]" id="twitter-api--consumer-key" value="<?php echo esc_html($consumer_key)?>" />
         </p>
         <p>
-            <label for="twitter-api--consumer-secret">OAuth Consumer Secret:</label><br />
+            <label for="twitter-api--consumer-secret"><?php echo __('OAuth Consumer Secret','twitter-api');?>:</label><br />
             <input type="text" size="64" name="saf_twitter[consumer_secret]" id="twitter-api--consumer-secret" value="<?php echo esc_html($consumer_secret)?>" />
         </p>
         <p>
-            <label for="twitter-api--access-key">OAuth Access Token:</label><br />
+            <label for="twitter-api--access-key"><?php echo __('OAuth Access Token','twitter-api');?>:</label><br />
             <input type="text" size="64" name="saf_twitter[access_key]" id="twitter-api--access-key" value="<?php echo esc_html($access_key)?>" />
         </p>
         <p>
-            <label for="twitter-api--access-secret">OAuth Access Secret:</label><br />
+            <label for="twitter-api--access-secret"><?php echo __('OAuth Access Secret','twitter-api');?>:</label><br />
             <input type="text" size="64" name="saf_twitter[access_secret]" id="twitter-api--access-secret" value="<?php echo esc_html($access_secret)?>" />
         </p>
         <p class="submit">

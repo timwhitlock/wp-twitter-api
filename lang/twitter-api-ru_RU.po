@@ -1,312 +1,401 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon, 29 Jul 2013 10:55:29 +0100\n"
-"PO-Revision-Date: Fri, 21 Mar 2014 14:49:34 +0000\n"
-"Last-Translator: Tim Whitlock\n"
+"Report-Msgid-Bugs-To: Tim Whitlock\n"
+"POT-Creation-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
+"PO-Revision-Date: Sun Mar 15 2015 14:58:21 GMT+0000 (GMT)\n"
+"Last-Translator: admin <support@localise.biz>\n"
 "Language-Team: Wordpress\n"
 "Language: Russian\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
-"&& (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Loco-Source-Locale: en_GB\n"
 "X-Loco-Target-Locale: ru_RU\n"
 "X-Loco-Tagged: \n"
-"X-Poedit-SourceCharset: UTF-8"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2"
 
-#: about-an-hour-ago
-msgid "About an hour ago"
-msgid_plural "About %u hours ago"
-msgstr[0] "Около часа назад"
-msgstr[1] "Около %u часов назад"
-msgstr[2] ""
-
-#: accepted
-msgid "Accepted"
-msgstr "Принято"
-
-#: authenticated-as-x
-msgid "Authenticated as @%s"
-msgstr "Авторизован как @%s"
-
-#: authorization-required
-msgid "Authorization Required"
-msgstr "Требуется Авторизация"
-
-#: bad-request
-msgid "Bad Request"
-msgstr "Плохой Запрос"
-
-#: cannot-enable-twitter-api-cache-without-apc-extens
-msgid "Cannot enable Twitter API cache without APC extension"
+#: ../../latest-tweets.php:217
+msgid "Minimum popularity"
 msgstr ""
-"Не удается включить Twitter API кэш, без "
-"расширения APC"
 
-#: conflict
-msgid "Conflict"
-msgstr "Конфликт"
-
-#: continue
-msgid "Continue"
-msgstr "Продолжить"
-
-#: created
-msgid "Created"
-msgstr "Создано"
-
-#: expectation-failed
-msgid "Expectation Failed"
-msgstr "Ожидание не удалось"
-
-#: forbidden
-msgid "Forbidden"
-msgstr "Запрещено"
-
-#: found
-msgid "Found"
-msgstr "Найдено"
-
-#: gateway-time-out
-msgid "Gateway Time-out"
-msgstr "Шлюз Time-out"
-
-#: gone
-msgid "Gone"
-msgstr "Отправляется"
-
-#: http-version-not-supported
-msgid "HTTP Version not supported"
-msgstr "Не поддерживаемая Версия HTTP"
-
-#: invalid-oauth-token
-msgid "Invalid OAuth token"
-msgstr "Неправильный OAuth token"
-
-#: invalid-twitter-parameter
-msgid "Invalid Twitter parameter"
-msgstr "Не верный параметр Твиттера"
-
-#: just-now
-msgid "Just now"
-msgstr "Только что"
-
-#: key-required-even-if-secret-is-empty
-msgid "Key required even if secret is empty"
+#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90
+msgid "Connect to Twitter"
 msgstr ""
-"Требуется Ключ, даже если секретный ключ "
-"пуст"
 
-#: latest-tweets
-msgid "Latest Tweets"
-msgstr "Latest Tweets (Поледние твиты)"
+#: ../../api/lang/extra-strings.php:15
+msgid "Processing"
+msgstr ""
 
-#: length-required
-msgid "Length Required"
-msgstr "Требуемая Длина"
+#: ../../api/lang/extra-strings.php:23
+msgid "Multi-Status"
+msgstr ""
 
-#: malformed-response-from-twitter
-msgid "Malformed response from Twitter"
-msgstr "Ошибочный ответ от Твиттера"
+#: ../../api/lang/extra-strings.php:24
+msgid "IM Used"
+msgstr ""
 
-#: method-not-allowed
-msgid "Method Not Allowed"
-msgstr "Запрещенный метод"
+#: ../../api/lang/extra-strings.php:31
+msgid "Reserved"
+msgstr ""
 
-#: moved-permanently
-msgid "Moved Permanently"
-msgstr "Перемещено на постоянно"
+#: ../../api/lang/extra-strings.php:52
+msgid "Unprocessable Entity"
+msgstr ""
 
-#: multiple-choices
-msgid "Multiple Choices"
-msgstr "Множественный выбор"
+#: ../../api/lang/extra-strings.php:53
+msgid "Locked"
+msgstr ""
 
-#: no-content
-msgid "No Content"
-msgstr "Нет подключения"
+#: ../../api/lang/extra-strings.php:54
+msgid "Failed Dependency"
+msgstr ""
 
-#: non-authoritative-information
-msgid "Non-Authoritative Information"
-msgstr "Не авторитетная Информация"
+#: ../../api/lang/extra-strings.php:61
+msgid "Bad Gateway"
+msgstr ""
 
-#: not-acceptable
-msgid "Not Acceptable"
-msgstr "Не Приемлемый"
+#: ../../api/lang/extra-strings.php:62
+msgid "Service Unavailable"
+msgstr ""
 
-#: not-found
-msgid "Not Found"
-msgstr "Не Найдено"
+#: ../../api/lang/extra-strings.php:65
+msgid "Variant Also Negotiates"
+msgstr ""
 
-#: not-implemented
-msgid "Not Implemented"
-msgstr "Не выполнено"
+#: ../../api/lang/extra-strings.php:66
+msgid "Insufficient Storage"
+msgstr ""
 
-#: not-modified
-msgid "Not Modified"
-msgstr "Не Изменяется"
+#: ../../api/lang/extra-strings.php:67
+msgid "Not Extended"
+msgstr ""
 
-#: number-of-tweets
-msgid "Number of tweets"
-msgstr "Количество твитов"
+#: ../../api/lib/twitter-api-core.php:532
+#, php-format
+msgid "Status %u from Twitter"
+msgstr ""
 
-#: ok
-msgid "OK"
-msgstr "OK"
+#: ../../latest-tweets.php:44
+#, fuzzy
+msgid "Plugin not fully configured"
+msgstr "Приложение в Твиттере не полностью настроено"
 
-#: partial-content
-msgid "Partial Content"
-msgstr "Частичное Содержимое"
-
-#: payment-required
-msgid "Payment Required"
-msgstr "Требуется Оплата"
-
-#: plugin-not-yet-authenticated-with-twitter
-msgid "Plugin not yet authenticated with Twitter"
-msgstr "Плагин еще не получил доступ к Твиттеру"
-
-#: precondition-failed
-msgid "Precondition Failed"
-msgstr "Предварительное условие потерпело неудачу"
-
-#: proxy-authentication-required
-msgid "Proxy Authentication Required"
-msgstr "Требуется Идентификация Proxy"
-
-#: request-entity-too-large
-msgid "Request Entity Too Large"
-msgstr "Запаршиваемый объект слишком большой"
-
-#: request-time-out
-msgid "Request Time-out"
+#: ../../api/lang/extra-strings.php:41
+#, fuzzy
+msgid "Request Timeout"
 msgstr "Запрос Time-out"
 
-#: request-uri-too-large
-msgid "Request-URI Too Large"
+#: ../../api/lang/extra-strings.php:47
+#, fuzzy
+msgid "Request-URI Too Long"
 msgstr "Запаршиваемый URI слишком большой"
 
-#: requested-range-not-satisfiable
-msgid "Requested range not satisfiable"
+#: ../../api/lang/extra-strings.php:49
+msgid "Requested Range Not Satisfiable"
 msgstr "Запрошен не выполнимый ряд"
 
-#: reset-content
-msgid "Reset Content"
-msgstr "Повторите подключение"
+#: ../../api/lang/extra-strings.php:55
+msgid "Upgrade Required"
+msgstr "Требуется Оплата"
 
-#: save-settings
-msgid "Save settings"
-msgstr "Сохранить настройки"
+#: ../../api/lang/extra-strings.php:56
+msgid "Precondition Required"
+msgstr "Предварительное условие потерпело неудачу"
 
-#: see-other
-msgid "See Other"
-msgstr "Посмотрите Другой"
+#: ../../api/lang/extra-strings.php:57
+msgid "Too Many Requests"
+msgstr "Плохой Запрос"
 
-#: show-replies
-msgid "Show Replies"
-msgstr "Показывать Ответы"
+#: ../../api/lang/extra-strings.php:58
+msgid "Request Header Fields Too Large"
+msgstr "Запаршиваемый объект слишком большой"
 
-#: show-retweets
-msgid "Show Retweets"
-msgstr "Показывать Ретвиты"
-
-#: switching-protocols
-msgid "Switching Protocols"
-msgstr "Переключающиеся Протоколы"
-
-#: temporary-redirect
-msgid "Temporary Redirect"
-msgstr "Временное перенаправление"
-
-#: these-details-are-available-in
-msgid "These details are available in"
-msgstr "Эти данные доступны в"
-
-#: twitter-api
-msgid "Twitter API"
-msgstr "API Твиттера"
-
-#: twitter-api-authentication-settings
-msgid "Twitter API Authentication Settings"
-msgstr "Настройка подключения к API Твиттера"
-
-#: twitter-api-rate-limit-exceeded
-msgid "Twitter API rate limit exceeded"
-msgstr "API Твиттера превышает норму"
-
-#: twitter-application-is-not-fully-configured
-msgid "Twitter application is not fully configured"
-msgstr ""
-"Приложение Твиттера полностью не "
-"настроено"
-
-#: twitter-application-not-fully-configured
-msgid "Twitter application not fully configured"
-msgstr ""
-"Приложение в Твиттере не полностью "
-"настроено"
-
-#: twitter-client-not-authenticated
-msgid "Twitter client not authenticated"
-msgstr "Пользователь Твиттера не аутентифицирован"
-
-#: twitter-error-x
-msgid "Twitter error #%d"
-msgstr "Ошибка Твиттера #%d"
-
-#: twitter-handle
-msgid "Twitter handle"
-msgstr "Логин в Твиттере"
-
-#: twitter-is-not-responding
-msgid "Twitter is not responding"
-msgstr "Твиттер не отвечает"
-
-#: twitter-is-too-busy-to-respond
-msgid "Twitter is too busy to respond"
-msgstr "Твиттер слишком перегружен, чтобы ответить"
-
-#: twitter-server-error
-msgid "Twitter server error"
+#: ../../api/lang/extra-strings.php:59
+msgid "Internal Server Error"
 msgstr "Ошибка сервера на стороне Твиттера"
 
-#: unsupported-media-type
-msgid "Unsupported Media Type"
-msgstr "Тип Медиа не поддерживается"
+#: ../../api/lang/extra-strings.php:63
+msgid "Gateway Timeout"
+msgstr "Шлюз Time-out"
 
-#: use-proxy
-msgid "Use Proxy"
-msgstr "Используйте Proxy"
+#: ../../api/lang/extra-strings.php:64
+msgid "HTTP Version Not Supported"
+msgstr "Не поддерживаемая Версия HTTP"
 
-#: widget-title
+#: ../../api/lang/extra-strings.php:68
+msgid "Network Authentication Required"
+msgstr "Требуется Идентификация Proxy"
+
+#: ../../latest-tweets.php:202
 msgid "Widget title"
 msgstr "Заголовок виджета"
 
-#: wordpress-http-request-failure
+#: ../../latest-tweets.php:207
+msgid "Twitter handle"
+msgstr "Логин в Твиттере"
+
+#: ../../latest-tweets.php:212
+msgid "Number of tweets"
+msgstr "Количество твитов"
+
+#: ../../latest-tweets.php:222
+msgid "Show Retweets"
+msgstr "Показывать Ретвиты"
+
+#: ../../latest-tweets.php:227
+msgid "Show Replies"
+msgstr "Показывать Ответы"
+
+#: ../../latest-tweets.php:231 ../../latest-tweets.php:241
+msgid "Latest Tweets"
+msgstr "Latest Tweets (Поледние твиты)"
+
+#: ../../api/lang/extra-strings.php:7
+msgid "Twitter API rate limit exceeded"
+msgstr "API Твиттера превышает норму"
+
+#: ../../api/lang/extra-strings.php:8
+msgid "Twitter server error"
+msgstr "Ошибка сервера на стороне Твиттера"
+
+#: ../../api/lang/extra-strings.php:9
+msgid "Twitter is not responding"
+msgstr "Твиттер не отвечает"
+
+#: ../../api/lang/extra-strings.php:10
+msgid "Twitter is too busy to respond"
+msgstr "Твиттер слишком перегружен, чтобы ответить"
+
+#. HTTP status codes from get_status_header_desc
+#: ../../api/lang/extra-strings.php:13
+msgid "Continue"
+msgstr "Продолжить"
+
+#: ../../api/lang/extra-strings.php:14
+msgid "Switching Protocols"
+msgstr "Переключающиеся Протоколы"
+
+#: ../../api/lang/extra-strings.php:16
+msgid "OK"
+msgstr "OK"
+
+#: ../../api/lang/extra-strings.php:17
+msgid "Created"
+msgstr "Создано"
+
+#: ../../api/lang/extra-strings.php:18
+msgid "Accepted"
+msgstr "Принято"
+
+#: ../../api/lang/extra-strings.php:19
+msgid "Non-Authoritative Information"
+msgstr "Не авторитетная Информация"
+
+#: ../../api/lang/extra-strings.php:20
+msgid "No Content"
+msgstr "Нет подключения"
+
+#: ../../api/lang/extra-strings.php:21
+msgid "Reset Content"
+msgstr "Повторите подключение"
+
+#: ../../api/lang/extra-strings.php:22
+msgid "Partial Content"
+msgstr "Частичное Содержимое"
+
+#: ../../api/lang/extra-strings.php:25
+msgid "Multiple Choices"
+msgstr "Множественный выбор"
+
+#: ../../api/lang/extra-strings.php:26
+msgid "Moved Permanently"
+msgstr "Перемещено на постоянно"
+
+#: ../../api/lang/extra-strings.php:27
+msgid "Found"
+msgstr "Найдено"
+
+#: ../../api/lang/extra-strings.php:28
+msgid "See Other"
+msgstr "Посмотрите Другой"
+
+#: ../../api/lang/extra-strings.php:29
+msgid "Not Modified"
+msgstr "Не Изменяется"
+
+#: ../../api/lang/extra-strings.php:30
+msgid "Use Proxy"
+msgstr "Используйте Proxy"
+
+#: ../../api/lang/extra-strings.php:32
+msgid "Temporary Redirect"
+msgstr "Временное перенаправление"
+
+#: ../../api/lang/extra-strings.php:33
+msgid "Bad Request"
+msgstr "Плохой Запрос"
+
+#: ../../api/lang/extra-strings.php:34
+msgid "Unauthorized"
+msgstr "Требуется Авторизация"
+
+#: ../../api/lang/extra-strings.php:35
+msgid "Payment Required"
+msgstr "Требуется Оплата"
+
+#: ../../api/lang/extra-strings.php:36
+msgid "Forbidden"
+msgstr "Запрещено"
+
+#: ../../api/lang/extra-strings.php:37
+msgid "Not Found"
+msgstr "Не Найдено"
+
+#: ../../api/lang/extra-strings.php:38
+msgid "Method Not Allowed"
+msgstr "Запрещенный метод"
+
+#: ../../api/lang/extra-strings.php:39
+msgid "Not Acceptable"
+msgstr "Не Приемлемый"
+
+#: ../../api/lang/extra-strings.php:40
+msgid "Proxy Authentication Required"
+msgstr "Требуется Идентификация Proxy"
+
+#: ../../api/lang/extra-strings.php:42
+msgid "Conflict"
+msgstr "Конфликт"
+
+#: ../../api/lang/extra-strings.php:43
+msgid "Gone"
+msgstr "Отправляется"
+
+#: ../../api/lang/extra-strings.php:44
+msgid "Length Required"
+msgstr "Требуемая Длина"
+
+#: ../../api/lang/extra-strings.php:45
+msgid "Precondition Failed"
+msgstr "Предварительное условие потерпело неудачу"
+
+#: ../../api/lang/extra-strings.php:46
+msgid "Request Entity Too Large"
+msgstr "Запаршиваемый объект слишком большой"
+
+#: ../../api/lang/extra-strings.php:48
+msgid "Unsupported Media Type"
+msgstr "Тип Медиа не поддерживается"
+
+#: ../../api/lang/extra-strings.php:50
+msgid "Expectation Failed"
+msgstr "Ожидание не удалось"
+
+#: ../../api/lang/extra-strings.php:60
+msgid "Not Implemented"
+msgstr "Не выполнено"
+
+#: ../../api/lib/twitter-api-admin.php:16
+msgid "Twitter API Authentication Settings"
+msgstr "Настройка подключения к API Твиттера"
+
+#: ../../api/lib/twitter-api-admin.php:60
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+#: ../../api/lib/twitter-api-admin.php:63
+msgid "These details are available in"
+msgstr "Эти данные доступны в"
+
+#: ../../api/lib/twitter-api-admin.php:64
+msgid "your Twitter dashboard"
+msgstr "Вашей панеле  в Твиттере"
+
+#: ../../api/lib/twitter-api-admin.php:102
+msgid "You don't have permission to manage Twitter API settings"
+msgstr ""
+"Вы не имеете разрешения управлять настроечными параметрами программного API "
+"Твиттера"
+
+#: ../../api/lib/twitter-api-admin.php:121
+#: ../../api/lib/twitter-api-core.php:145
+msgid "Twitter application not fully configured"
+msgstr "Приложение в Твиттере не полностью настроено"
+
+#: ../../api/lib/twitter-api-admin.php:139
+msgid "Plugin not yet authenticated with Twitter"
+msgstr "Плагин еще не получил доступ к Твиттеру"
+
+#: ../../api/lib/twitter-api-admin.php:146
+#, php-format
+msgid "Authenticated as @%s"
+msgstr "Авторизован как @%s"
+
+#: ../../api/lib/twitter-api-admin.php:189
+msgid "Twitter API"
+msgstr "API Твиттера"
+
+#: ../../api/lib/twitter-api-core.php:230
+msgid "Twitter client not authenticated"
+msgstr "Пользователь Твиттера не аутентифицирован"
+
+#: ../../api/lib/twitter-api-core.php:246
+msgid "Invalid Twitter parameter"
+msgstr "Не верный параметр Твиттера"
+
+#: ../../api/lib/twitter-api-core.php:308
+#: ../../api/lib/twitter-api-core.php:320
+#, php-format
+msgid "Twitter error #%d"
+msgstr "Ошибка Твиттера #%d"
+
+#: ../../api/lib/twitter-api-core.php:356
+msgid "Malformed response from Twitter"
+msgstr "Ошибочный ответ от Твиттера"
+
+#: ../../api/lib/twitter-api-core.php:375
 msgid "Wordpress HTTP request failure"
 msgstr "Wordpress неудачный HTTP-запрос "
 
-#: x-minute-ago
+#: ../../api/lib/twitter-api-core.php:410
+msgid "Invalid OAuth token"
+msgstr "Неправильный OAuth token"
+
+#: ../../api/lib/twitter-api-core.php:410
+msgid "Key required even if secret is empty"
+msgstr "Требуется Ключ, даже если секретный ключ пуст"
+
+#: ../../api/lib/twitter-api-utils.php:155
+msgid "Just now"
+msgstr "Только что"
+
+#: ../../api/lib/twitter-api-utils.php:160
+#, php-format
 msgid "%u minute ago"
 msgid_plural "%u minutes ago"
 msgstr[0] "1 минуту назад"
 msgstr[1] "%u минуты назад"
 msgstr[2] ""
 
-#: yesterday-at
+#: ../../api/lib/twitter-api-utils.php:168
+#, php-format
+msgid "About an hour ago"
+msgid_plural "About %u hours ago"
+msgstr[0] "Около часа назад"
+msgstr[1] "Около %u часов назад"
+msgstr[2] ""
+
+#: ../../api/lib/twitter-api-utils.php:173
 msgid "Yesterday at"
 msgstr "Вчера в "
-
-#: you-dont-have-permission-to-manage-twitter-api-set
-msgid "You don't have permission to manage Twitter API settings"
-msgstr ""
-"Вы не имеете разрешения управлять "
-"настроечными параметрами программного API "
-"Твиттера"
-
-#: your-twitter-dashboard
-msgid "your Twitter dashboard"
-msgstr "Вашей панеле  в Твиттере"

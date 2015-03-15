@@ -23,5 +23,6 @@ loco pt BR
 loco de DE
 loco ru RU
 loco nl NL
+loco es ES
 
 echo Done.

@@ -142,7 +142,7 @@ class TwitterApiClient {
         extract( _twitter_api_config() );
         if( $default ){
             if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
-                trigger_error( __('Twitter application is not fully configured','twitter-api') );
+                trigger_error( __('Twitter application not fully configured','twitter-api') );
             }
             $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret ); 
         }       
@@ -511,17 +511,20 @@ class TwitterOAuthParams {
  * @return string HTTP status text
  */
 function _twitter_api_http_status_text( $s ){
+    // override status to be Twitter specific
     $codes = array (
-        429 => __('Twitter API rate limit exceeded','twitter-api'),
-        500 => __('Twitter server error','twitter-api'),
-        502 => __('Twitter is not responding','twitter-api'),
-        503 => __('Twitter is too busy to respond','twitter-api'),
+        429 => 'Twitter API rate limit exceeded',
+        500 => 'Twitter server error',
+        502 => 'Twitter is not responding',
+        503 => 'Twitter is too busy to respond',
     );
     if( isset($codes[$s]) ){
-        return $codes[$s];
+        $text = $codes[$s];
     }
-    // fall back to Wordpress registry to save bloat
-    $text = get_status_header_desc( $s );
+    // else fall back to Wordpress registry to save bloat
+    else {
+        $text = get_status_header_desc( $s );
+    }
     if( $text ){
         return __( $text, 'twitter-api' );
     }

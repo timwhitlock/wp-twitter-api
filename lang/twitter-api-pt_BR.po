@@ -1,23 +1,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 10:55+0100\n"
-"PO-Revision-Date: 2015-03-15 17:02+0000\n"
+"Report-Msgid-Bugs-To: Tim Whitlock\n"
+"POT-Creation-Date: 2015-03-15 17:15+0000\n"
+"PO-Revision-Date: 2015-03-15 17:15+0000\n"
 "Last-Translator: Tim Whitlock\n"
 "Language-Team: Wordpress\n"
 "Language: Portuguese (Brazil)\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Loco https://localise.biz\n"
 "X-Loco-Source-Locale: en_GB\n"
 "X-Loco-Target-Locale: pt_BR\n"
 "X-Loco-Project-Id: 284\n"
 "X-Loco-Tagged: Twitter API\n"
-"X-Loco-Api-Version: 1.0.9"
+"X-Loco-Api-Version: 1.0.9\n"
 
 #: ../../api/lib/twitter-api-utils.php:168 loco:5505af2214d725a5068b4569
 msgid "About an hour ago"
@@ -29,7 +29,8 @@ msgstr[1] "Cerca de %u horas atrás"
 msgid "Authenticated as @%s"
 msgstr "Autenticado como @%s"
 
-#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90 loco:#: 5505af2214d725a5068b4573
+#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90
+#: loco:5505af2214d725a5068b4573
 msgid "Connect to Twitter"
 msgstr ""
 
@@ -49,7 +50,8 @@ msgstr "Agora mesmo"
 msgid "Key required even if secret is empty"
 msgstr "Chave exigida mesmo se o secret estiver vazio"
 
-#: ../../latest-tweets.php:231 ../../latest-tweets.php:241 loco:#: 5505af2214d725a5068b4572
+#: ../../latest-tweets.php:231 ../../latest-tweets.php:241 loco:#:
+#: 5505af2214d725a5068b4572
 msgid "Latest Tweets"
 msgstr "Últimos Tweets"
 

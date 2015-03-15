@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
 "Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: 2015-03-15 17:02+0000\n"
+"POT-Creation-Date: 2015-03-15 17:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Loco-Tagged: Error codes\n"
 "X-Loco-Api-Version: 1.0.9"
 
-#: ../../../api/lang/extra-strings.php:18
+#: ../../../api/lang/extra-strings.php:18 loco:5505af7214d72572078b4586
 msgid "Accepted"
 msgstr ""
 

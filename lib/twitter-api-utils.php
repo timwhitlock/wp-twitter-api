@@ -152,12 +152,12 @@ function twitter_api_relative_date( $strdate ){
     }
     // Less than a minute ago?
     if( $tdiff < 60 ){
-        return __('Just now');
+        return __('Just now','twitter-api');
     }
     // within last hour? X minutes ago
     if( $tdiff < 3600 ){
         $idiff = (int) floor( $tdiff / 60 );
-        return sprintf( _n( '%u minute ago', '%u minutes ago', $idiff ), $idiff );
+        return sprintf( _n( '%u minute ago', '%u minutes ago', $idiff, 'twitter-api' ), $idiff );
     }
     // within same day? About X hours ago
     $samey = ($y === $yy) and
@@ -165,12 +165,12 @@ function twitter_api_relative_date( $strdate ){
     $samed = ($d === $dd);
     if( ! empty($samed) ){
         $hdiff = (int) floor( $tdiff / 3600 );
-        return sprintf( _n( 'About an hour ago', 'About %u hours ago', $hdiff ), $hdiff );
+        return sprintf( _n( 'About an hour ago', 'About %u hours ago', $hdiff, 'twitter-api' ), $hdiff );
     }
     $tf = get_option('time_format') or $tf = 'g:i A';
     // within 24 hours?
     if( $tdiff < 86400 ){
-        return __('Yesterday at').date_i18n(' '.$tf, $tt );
+        return __('Yesterday at','twitter-api').date_i18n(' '.$tf, $tt );
     }
     // else return formatted date, e.g. "Oct 20th 2008 9:27 PM" */
     $df = get_option('date_format') or $df= 'M jS Y'; 

@@ -1,396 +1,147 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twitter API plugin\n"
-"Report-Msgid-Bugs-To: Tim Whitlock\n"
-"POT-Creation-Date: Fri, 21 Mar 2014 14:49:33 +0000\n"
-"PO-Revision-Date: Sun Mar 15 2015 14:56:52 GMT+0000 (GMT)\n"
-"Last-Translator: admin <support@localise.biz>\n"
-"Language-Team: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-29 10:55+0100\n"
+"PO-Revision-Date: 2015-03-15 17:02+0000\n"
+"Last-Translator: Tim Whitlock\n"
+"Language-Team: Wordpress\n"
 "Language: Dutch\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Loco - https://localise.biz/\n"
+"X-Generator: Loco https://localise.biz\n"
 "X-Loco-Source-Locale: en_GB\n"
 "X-Loco-Target-Locale: nl_NL\n"
-"X-Loco-Tagged: \n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ../..\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
-"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
-"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
-"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2"
-
-#: ../../latest-tweets.php:217
-msgid "Minimum popularity"
-msgstr ""
-
-#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90
-msgid "Connect to Twitter"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:15
-msgid "Processing"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:23
-msgid "Multi-Status"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:24
-msgid "IM Used"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:31
-msgid "Reserved"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:52
-msgid "Unprocessable Entity"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:53
-msgid "Locked"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:54
-msgid "Failed Dependency"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:61
-msgid "Bad Gateway"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:62
-msgid "Service Unavailable"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:65
-msgid "Variant Also Negotiates"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:66
-msgid "Insufficient Storage"
-msgstr ""
-
-#: ../../api/lang/extra-strings.php:67
-msgid "Not Extended"
-msgstr ""
-
-#: ../../api/lib/twitter-api-core.php:532
-#, php-format
-msgid "Status %u from Twitter"
-msgstr ""
-
-#: ../../latest-tweets.php:44
-#, fuzzy
-msgid "Plugin not fully configured"
-msgstr "Twitter apllicatie is niet volledig geconfigureerd"
-
-#: ../../api/lang/extra-strings.php:41
-#, fuzzy
-msgid "Request Timeout"
-msgstr "Request time-out"
-
-#: ../../api/lang/extra-strings.php:47
-#, fuzzy
-msgid "Request-URI Too Long"
-msgstr "Request-URI te groot"
-
-#: ../../api/lang/extra-strings.php:49
-msgid "Requested Range Not Satisfiable"
-msgstr "Gevraagd bereik niet voldoende"
-
-#: ../../api/lang/extra-strings.php:55
-msgid "Upgrade Required"
-msgstr "Betaling vereist"
-
-#: ../../api/lang/extra-strings.php:56
-msgid "Precondition Required"
-msgstr "Precondition fout"
-
-#: ../../api/lang/extra-strings.php:57
-msgid "Too Many Requests"
-msgstr "Foute request"
-
-#: ../../api/lang/extra-strings.php:58
-msgid "Request Header Fields Too Large"
-msgstr "Request entiteit te groot"
-
-#: ../../api/lang/extra-strings.php:59
-msgid "Internal Server Error"
-msgstr "Twitter serverfout"
-
-#: ../../api/lang/extra-strings.php:63
-msgid "Gateway Timeout"
-msgstr "Gateway time-out"
-
-#: ../../api/lang/extra-strings.php:64
-msgid "HTTP Version Not Supported"
-msgstr "HTTP Versie niet ondersteund"
-
-#: ../../api/lang/extra-strings.php:68
-msgid "Network Authentication Required"
-msgstr "Proxy authenticatie vereist"
-
-#: ../../latest-tweets.php:202
-msgid "Widget title"
-msgstr "Titel"
-
-#: ../../latest-tweets.php:207
-msgid "Twitter handle"
-msgstr "Twitternaam"
-
-#: ../../latest-tweets.php:212
-msgid "Number of tweets"
-msgstr "Aantal tweets"
-
-#: ../../latest-tweets.php:222
-msgid "Show Retweets"
-msgstr "Retweets laten zien"
-
-#: ../../latest-tweets.php:227
-msgid "Show Replies"
-msgstr "Antwoorden laten zien"
-
-#: ../../latest-tweets.php:231 ../../latest-tweets.php:241
-msgid "Latest Tweets"
-msgstr "Laatste tweets"
-
-#: ../../api/lang/extra-strings.php:7
-msgid "Twitter API rate limit exceeded"
-msgstr "Twitter API limiet bereikt"
-
-#: ../../api/lang/extra-strings.php:8
-msgid "Twitter server error"
-msgstr "Twitter serverfout"
-
-#: ../../api/lang/extra-strings.php:9
-msgid "Twitter is not responding"
-msgstr "Twitter reageert niet"
-
-#: ../../api/lang/extra-strings.php:10
-msgid "Twitter is too busy to respond"
-msgstr "Twitter is te druk om te antwoorden"
-
-#. HTTP status codes from get_status_header_desc
-#: ../../api/lang/extra-strings.php:13
-msgid "Continue"
-msgstr "Ga verder"
-
-#: ../../api/lang/extra-strings.php:14
-msgid "Switching Protocols"
-msgstr "Protocol wisselen"
-
-#: ../../api/lang/extra-strings.php:16
-msgid "OK"
-msgstr "Oké"
-
-#: ../../api/lang/extra-strings.php:17
-msgid "Created"
-msgstr "Gemaakt"
-
-#: ../../api/lang/extra-strings.php:18
-msgid "Accepted"
-msgstr "Geaccepteerd"
-
-#: ../../api/lang/extra-strings.php:19
-msgid "Non-Authoritative Information"
-msgstr "Niet-geauthoriseerde informatie"
-
-#: ../../api/lang/extra-strings.php:20
-msgid "No Content"
-msgstr "Geen inhoud"
-
-#: ../../api/lang/extra-strings.php:21
-msgid "Reset Content"
-msgstr "Content resetten"
-
-#: ../../api/lang/extra-strings.php:22
-msgid "Partial Content"
-msgstr "Gedeeltelijke content"
-
-#: ../../api/lang/extra-strings.php:25
-msgid "Multiple Choices"
-msgstr "Meerdere keuzes"
-
-#: ../../api/lang/extra-strings.php:26
-msgid "Moved Permanently"
-msgstr "Permanent verhuisd"
-
-#: ../../api/lang/extra-strings.php:27
-msgid "Found"
-msgstr "Gevonden"
-
-#: ../../api/lang/extra-strings.php:28
-msgid "See Other"
-msgstr "Bekijk andere"
-
-#: ../../api/lang/extra-strings.php:29
-msgid "Not Modified"
-msgstr "Niet aangepast"
-
-#: ../../api/lang/extra-strings.php:30
-msgid "Use Proxy"
-msgstr "Gebruik proxy"
-
-#: ../../api/lang/extra-strings.php:32
-msgid "Temporary Redirect"
-msgstr "Tijdelijke omleiding"
-
-#: ../../api/lang/extra-strings.php:33
-msgid "Bad Request"
-msgstr "Foute request"
-
-#: ../../api/lang/extra-strings.php:34
-msgid "Unauthorized"
-msgstr "Authorizatie vereist"
-
-#: ../../api/lang/extra-strings.php:35
-msgid "Payment Required"
-msgstr "Betaling vereist"
-
-#: ../../api/lang/extra-strings.php:36
-msgid "Forbidden"
-msgstr "Verboden"
-
-#: ../../api/lang/extra-strings.php:37
-msgid "Not Found"
-msgstr "Niet gevonden"
-
-#: ../../api/lang/extra-strings.php:38
-msgid "Method Not Allowed"
-msgstr "Methode niet toegestaan"
-
-#: ../../api/lang/extra-strings.php:39
-msgid "Not Acceptable"
-msgstr "Niet acceptabel"
-
-#: ../../api/lang/extra-strings.php:40
-msgid "Proxy Authentication Required"
-msgstr "Proxy authenticatie vereist"
-
-#: ../../api/lang/extra-strings.php:42
-msgid "Conflict"
-msgstr "Conflict"
-
-#: ../../api/lang/extra-strings.php:43
-msgid "Gone"
-msgstr "Weg"
-
-#: ../../api/lang/extra-strings.php:44
-msgid "Length Required"
-msgstr "Lengte vereist"
-
-#: ../../api/lang/extra-strings.php:45
-msgid "Precondition Failed"
-msgstr "Precondition fout"
-
-#: ../../api/lang/extra-strings.php:46
-msgid "Request Entity Too Large"
-msgstr "Request entiteit te groot"
-
-#: ../../api/lang/extra-strings.php:48
-msgid "Unsupported Media Type"
-msgstr "Ongeldig mediatype"
-
-#: ../../api/lang/extra-strings.php:50
-msgid "Expectation Failed"
-msgstr "Verwachtingsfout"
-
-#: ../../api/lang/extra-strings.php:60
-msgid "Not Implemented"
-msgstr "Niet geïmplementeerd"
-
-#: ../../api/lib/twitter-api-admin.php:16
-msgid "Twitter API Authentication Settings"
-msgstr "Twitter API authenticatie-instellingen"
-
-#: ../../api/lib/twitter-api-admin.php:60
-msgid "Save settings"
-msgstr "Instellingen opslaan"
-
-#: ../../api/lib/twitter-api-admin.php:63
-msgid "These details are available in"
-msgstr "Deze details zijn beschikbaar in"
-
-#: ../../api/lib/twitter-api-admin.php:64
-msgid "your Twitter dashboard"
-msgstr "Twitter Dashboard"
-
-#: ../../api/lib/twitter-api-admin.php:102
-msgid "You don't have permission to manage Twitter API settings"
-msgstr "Je hebt geen rechten om de Twitter API instellingen aan te passen"
-
-#: ../../api/lib/twitter-api-admin.php:121
-#: ../../api/lib/twitter-api-core.php:145
-msgid "Twitter application not fully configured"
-msgstr "Twitter apllicatie is niet volledig geconfigureerd"
-
-#: ../../api/lib/twitter-api-admin.php:139
-msgid "Plugin not yet authenticated with Twitter"
-msgstr "Plugin nog niet geauthoriseerd bij Twitter"
-
-#: ../../api/lib/twitter-api-admin.php:146
-#, php-format
-msgid "Authenticated as @%s"
-msgstr "Authorizeren als @%s"
-
-#: ../../api/lib/twitter-api-admin.php:189
-msgid "Twitter API"
-msgstr "Twitter API"
-
-#: ../../api/lib/twitter-api-core.php:230
-msgid "Twitter client not authenticated"
-msgstr "Twitter Client niet geauthoriseerd"
-
-#: ../../api/lib/twitter-api-core.php:246
-msgid "Invalid Twitter parameter"
-msgstr "Ongeldige Twitter parameter"
-
-#: ../../api/lib/twitter-api-core.php:308
-#: ../../api/lib/twitter-api-core.php:320
-#, php-format
-msgid "Twitter error #%d"
-msgstr "Twitter fout #%d"
-
-#: ../../api/lib/twitter-api-core.php:356
-msgid "Malformed response from Twitter"
-msgstr "Onjuiste response van Twitter"
-
-#: ../../api/lib/twitter-api-core.php:375
-msgid "Wordpress HTTP request failure"
-msgstr "Wordpress HTTP Request fout"
-
-#: ../../api/lib/twitter-api-core.php:410
-msgid "Invalid OAuth token"
-msgstr "Ongeldige OAuth token"
-
-#: ../../api/lib/twitter-api-core.php:410
-msgid "Key required even if secret is empty"
-msgstr "Key (sleutel) vereist ookal is secret (geheim) leeg"
-
-#: ../../api/lib/twitter-api-utils.php:155
-msgid "Just now"
-msgstr "Zojuist"
-
-#: ../../api/lib/twitter-api-utils.php:160
-#, php-format
-msgid "%u minute ago"
-msgid_plural "%u minutes ago"
-msgstr[0] "1 minuut geleden"
-msgstr[1] "%u minuten geleden"
-
-#: ../../api/lib/twitter-api-utils.php:168
-#, php-format
+"X-Loco-Project-Id: 284\n"
+"X-Loco-Tagged: Twitter API\n"
+"X-Loco-Api-Version: 1.0.9"
+
+#: ../../api/lib/twitter-api-utils.php:168 loco:5505af2214d725a5068b4569
 msgid "About an hour ago"
 msgid_plural "About %u hours ago"
 msgstr[0] "Ongeveer 1 uur geleden"
 msgstr[1] "Ongeveer %u uur geleden"
 
-#: ../../api/lib/twitter-api-utils.php:173
+#: ../../api/lib/twitter-api-admin.php:146 loco:5505af2214d725a5068b457b
+msgid "Authenticated as @%s"
+msgstr "Authorizeren als @%s"
+
+#: ../../latest-tweets.php:322 ../../api/lib/twitter-api-admin.php:90 loco:#: 5505af2214d725a5068b4573
+msgid "Connect to Twitter"
+msgstr ""
+
+#: ../../api/lib/twitter-api-core.php:410 loco:5505af2214d725a5068b4582
+msgid "Invalid OAuth token"
+msgstr "Ongeldige OAuth token"
+
+#: ../../api/lib/twitter-api-core.php:246 loco:5505af2214d725a5068b457e
+msgid "Invalid Twitter parameter"
+msgstr "Ongeldige Twitter parameter"
+
+#: ../../api/lib/twitter-api-utils.php:155 loco:5505af2214d725a5068b4585
+msgid "Just now"
+msgstr "Zojuist"
+
+#: ../../api/lib/twitter-api-core.php:410 loco:5505af2214d725a5068b4583
+msgid "Key required even if secret is empty"
+msgstr "Key (sleutel) vereist ookal is secret (geheim) leeg"
+
+#: ../../latest-tweets.php:231 ../../latest-tweets.php:241 loco:#: 5505af2214d725a5068b4572
+msgid "Latest Tweets"
+msgstr "Laatste tweets"
+
+#: ../../api/lib/twitter-api-core.php:356 loco:5505af2214d725a5068b4580
+msgid "Malformed response from Twitter"
+msgstr "Onjuiste response van Twitter"
+
+#: ../../latest-tweets.php:217 loco:5505af2214d725a5068b456f
+msgid "Minimum popularity"
+msgstr ""
+
+#: ../../latest-tweets.php:212 loco:5505af2214d725a5068b456e
+msgid "Number of tweets"
+msgstr "Aantal tweets"
+
+#: ../../latest-tweets.php:44 loco:5505af2214d725a5068b456b
+#, fuzzy
+msgid "Plugin not fully configured"
+msgstr "Twitter apllicatie is niet volledig geconfigureerd"
+
+#: ../../api/lib/twitter-api-admin.php:139 loco:5505af2214d725a5068b457a
+msgid "Plugin not yet authenticated with Twitter"
+msgstr "Plugin nog niet geauthoriseerd bij Twitter"
+
+#: ../../api/lib/twitter-api-admin.php:60 loco:5505af2214d725a5068b4575
+msgid "Save settings"
+msgstr "Instellingen opslaan"
+
+#: ../../latest-tweets.php:227 loco:5505af2214d725a5068b4571
+msgid "Show Replies"
+msgstr "Antwoorden laten zien"
+
+#: ../../latest-tweets.php:222 loco:5505af2214d725a5068b4570
+msgid "Show Retweets"
+msgstr "Retweets laten zien"
+
+#: ../../api/lib/twitter-api-core.php:532 loco:5505af2214d725a5068b4584
+msgid "Status %u from Twitter"
+msgstr ""
+
+#: ../../api/lib/twitter-api-admin.php:63 loco:5505af2214d725a5068b4576
+msgid "These details are available in"
+msgstr "Deze details zijn beschikbaar in"
+
+#: ../../api/lib/twitter-api-admin.php:189 loco:5505af2214d725a5068b457c
+msgid "Twitter API"
+msgstr "Twitter API"
+
+#: ../../api/lib/twitter-api-admin.php:16 loco:5505af2214d725a5068b4574
+msgid "Twitter API Authentication Settings"
+msgstr "Twitter API authenticatie-instellingen"
+
+#: ../../api/lib/twitter-api-admin.php:121
+#: ../../api/lib/twitter-api-core.php:145 loco:5505af2214d725a5068b4579
+msgid "Twitter application not fully configured"
+msgstr "Twitter apllicatie is niet volledig geconfigureerd"
+
+#: ../../api/lib/twitter-api-core.php:230 loco:5505af2214d725a5068b457d
+msgid "Twitter client not authenticated"
+msgstr "Twitter Client niet geauthoriseerd"
+
+#: ../../api/lib/twitter-api-core.php:308
+#: ../../api/lib/twitter-api-core.php:320 loco:5505af2214d725a5068b457f
+msgid "Twitter error #%d"
+msgstr "Twitter fout #%d"
+
+#: ../../latest-tweets.php:207 loco:5505af2214d725a5068b456d
+msgid "Twitter handle"
+msgstr "Twitternaam"
+
+#: ../../latest-tweets.php:202 loco:5505af2214d725a5068b456c
+msgid "Widget title"
+msgstr "Titel"
+
+#: ../../api/lib/twitter-api-core.php:375 loco:5505af2214d725a5068b4581
+msgid "Wordpress HTTP request failure"
+msgstr "Wordpress HTTP Request fout"
+
+#: ../../api/lib/twitter-api-utils.php:160 loco:5505af2214d725a5068b4567
+msgid "%u minute ago"
+msgid_plural "%u minutes ago"
+msgstr[0] "1 minuut geleden"
+msgstr[1] "%u minuten geleden"
+
+#: ../../api/lib/twitter-api-utils.php:173 loco:5505af2214d725a5068b4586
 msgid "Yesterday at"
 msgstr "Gisteren om"
+
+#: ../../api/lib/twitter-api-admin.php:102 loco:5505af2214d725a5068b4578
+msgid "You don't have permission to manage Twitter API settings"
+msgstr "Je hebt geen rechten om de Twitter API instellingen aan te passen"
+
+#: ../../api/lib/twitter-api-admin.php:64 loco:5505af2214d725a5068b4577
+msgid "your Twitter dashboard"
+msgstr "Twitter Dashboard"

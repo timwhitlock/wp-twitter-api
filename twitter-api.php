@@ -154,22 +154,22 @@ if( is_admin() ){
  * Enable localisation
  * @internal
  */
-function twitter_api_load_textdomain( $locale = null ){
+function twitter_api_load_textdomain( $locale = null, $domain = 'twitter-api' ){
     static $current_locale;
     if( is_null($locale) ){
         $locale = get_locale();
     }
     if( ! $locale || 0 === strpos($locale,'en') ){
-        $current_locale and unload_textdomain( 'twitter-api' );
+        $current_locale and unload_textdomain( $domain );
         $locale = 'en_US';
     }
     else if( $current_locale !== $locale ){
         // purposefully not calling load_plugin_textdomain, due to symlinking 
         // and not knowing what plugin this could be called from.
-        $mofile = realpath( twitter_api_basedir().'/lang/twitter-api-'.$locale.'.mo' );
-        if( ! load_textdomain( 'twitter-api', $mofile ) ){
-            $mofile = WP_LANG_DIR . '/plugins/twitter-api-'.$locale.'.mo';
-            load_textdomain( 'twitter-api', $mofile );
+        $mofile = realpath( twitter_api_basedir().'/lang/'.$domain.'-'.$locale.'.mo' );
+        if( ! load_textdomain( $domain, $mofile ) ){
+            $mofile = WP_LANG_DIR . '/plugins/'.$domain.'-'.$locale.'.mo';
+            load_textdomain( $domain, $mofile );
         }
     }
     // detect changes in plugin locale, binding once only

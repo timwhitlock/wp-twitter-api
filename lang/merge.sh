@@ -7,16 +7,16 @@
 
 cd "`dirname $0`"
 
-function loco {
+function merge {
     echo "Merging $1_$2..."
-    msgmerge  "twitter-api-$1_$2.po" "twitter-api.pot" -o "twitter-api-$1_$2.po" && \
+    msgmerge  "twitter-api-$1_$2.po" "twitter-api.pot" --update && \
     msgfmt --no-hash "twitter-api-$1_$2.po" -o "twitter-api-$1_$2.mo"
 }
 
-loco pt BR
-loco de DE
-loco ru RU
-loco nl NL
-loco es ES
+merge es ES
+merge de DE
+merge nl NL
+merge pt BR
+merge ru RU
 
 echo Done.

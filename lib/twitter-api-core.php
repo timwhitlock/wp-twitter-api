@@ -526,7 +526,8 @@ function _twitter_api_http_status_text( $s ){
         $text = get_status_header_desc( $s );
     }
     if( $text ){
-        return __( $text, 'twitter-api' );
+        twitter_api_load_textdomain( null, 'twitter-errors' );
+        return __( $text, 'twitter-errors' );
     }
     // unknown status    
     return sprintf( __('Status %u from Twitter','twitter-api'), $s );

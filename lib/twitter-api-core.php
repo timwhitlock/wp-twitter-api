@@ -4,7 +4,7 @@
  * Uses built-in wordpress HTTP utilities.
  * @author Tim Whitlock <@timwhitlock>
  */
- 
+
 
 define('TWITTER_API_BASE', 'https://api.twitter.com/1.1' );
 
@@ -17,35 +17,28 @@ define('TWITTER_OAUTH_AUTHENTICATE_URL', 'https://twitter.com/oauth/authenticate
 define('TWITTER_OAUTH_ACCESS_TOKEN_URL', 'https://twitter.com/oauth/access_token');
 
 define('TWITTER_CACHE_APC', (bool) ini_get('apc.enabled') );
- 
 
- 
+
+
 /**
- * Get config options from DB
- * @param array any new options to update
+ * Get the config options from the database.
+ * If a field is not specified, uses the default.
  */
-function _twitter_api_config( array $update = array() ){
-    static $conf;
-    if( ! isset($conf) ){
-        $conf = array (
-            'consumer_key'    => '',
-            'consumer_secret' => '',
-            'request_secret'  => '',
-            'access_key'      => '',
-            'access_secret'   => '',
-        );
-        foreach( $conf as $key => $val ){
-            $conf[$key] = get_option('twitter_api_'.$key) or
-            $conf[$key] = $val;
-        }
-    }
-    foreach( $update as $key => $val ){
-        if( isset($conf[$key]) ){
-            update_option( 'twitter_api_'.$key, $val );
-            $conf[$key] = $val;
-        }
-    }
-    return $conf;
+function twitter_api_get_theme_options() {
+    $saved = (array) get_option( 'twitter_api_theme_options' );
+    $defaults = array(
+        'consumer_key'    => '',
+        'consumer_secret' => '',
+        'access_key'      => '',
+        'access_secret'   => '',
+    );
+
+    $defaults = apply_filters( 'twitter_api_default_theme_options', $defaults );
+
+    $options = wp_parse_args( $saved, $defaults );
+    $options = array_intersect_key( $options, $defaults );
+
+    return $options;
 }
 
 
@@ -53,7 +46,7 @@ function _twitter_api_config( array $update = array() ){
 
 /**
  * abstraction of cache fetching, using apc where possible
- * @return mixed 
+ * @return mixed
  */
 function _twitter_api_cache_get( $key ){
     if( TWITTER_CACHE_APC ){
@@ -63,7 +56,7 @@ function _twitter_api_cache_get( $key ){
         $key = 'twcache_'.md5($key);
     }
     return get_transient( $key );
-} 
+}
 
 
 
@@ -85,7 +78,7 @@ function _twitter_api_cache_set( $key, $value, $ttl ){
         $ttl = 864000;
     }
     set_transient( $key, $value, $ttl );
-} 
+}
 
 
 
@@ -106,60 +99,60 @@ class TwitterApiClient {
      * @var TwitterOAuthToken
      */
     private $AccessToken;
-    
+
     /**
      * Whether caching API GET requests
      * @var int
      */
     private $cache_ttl = null;
-    
+
     /**
      * Namespace/prefix for cache keys
      * @var string
-     */    
-    private $cache_ns;     
-    
+     */
+    private $cache_ns;
+
     /**
      * Registry of last rate limit arrays by full api function call
      * @var array
-     */    
-    private $last_rate = array();    
-    
+     */
+    private $last_rate = array();
+
     /**
      * Last api function called, e.g. "direct_messages/sent"
      * @var string
-     */    
-    private $last_call;     
+     */
+    private $last_call;
 
-    
+
     /**
      * Get client instance authenticated with 'system' credentials
      * @param bool whether we're getting the system default client which is expected to be authed
      * @return TwitterApiClient
-     */    
+     */
     public static function create_instance( $default = true ){
         $Client = new TwitterApiClient;
-        extract( _twitter_api_config() );
+        $options = twitter_api_get_theme_options();
         if( $default ){
-            if( ! $consumer_key || ! $consumer_secret || ! $access_key || ! $access_secret ){
+            if( ! $options['consumer_key'] || ! $options['consumer_secret'] || ! $options['access_key'] || ! $options['access_secret'] ){
                 trigger_error( __('Twitter application not fully configured','twitter-api') );
             }
-            $Client->set_oauth( $consumer_key, $consumer_secret, $access_key, $access_secret ); 
-        }       
-        else if( $consumer_key && $consumer_secret ){
-            $Client->set_oauth( $consumer_key, $consumer_secret );
+            $Client->set_oauth( $options['consumer_key'], $options['consumer_secret'], $options['access_key'], $options['access_secret'] );
+        }
+        else if( $options['consumer_key'] && $options['consumer_secret'] ){
+            $Client->set_oauth( $options['consumer_key'], $options['consumer_secret'] );
         }
         return $Client;
-    }     
-    
-    
+    }
+
+
     /**
      * @internal
      */
     public function __sleep(){
        return array('Consumer','AccessToken');
     }
-    
+
     /**
      * Enable caching of subsequent API calls
      * @return TwitterApiClient
@@ -169,7 +162,7 @@ class TwitterApiClient {
        $this->cache_ns  = $namespace;
        return $this;
     }
-    
+
     /**
      * Disable caching for susequent API calls
      * @return TwitterApiClient
@@ -182,13 +175,13 @@ class TwitterApiClient {
 
     /**
      * Test whether the client has full authentication data.
-     * Warning: does not validate credentials 
+     * Warning: does not validate credentials
      * @return bool
      */
     public function has_auth(){
         return $this->AccessToken instanceof TwitterOAuthToken && $this->AccessToken->secret;
-    }    
-    
+    }
+
     /**
      * Unset all logged in credentials - useful in error situations
      * @return TwitterApiClient
@@ -214,8 +207,8 @@ class TwitterApiClient {
         }
         return $this;
     }
-    
-    
+
+
     /**
      * Call API method over HTTP and return raw data
      * @param string API method, e.g. "users/show"
@@ -261,7 +254,7 @@ class TwitterApiClient {
            }
         }
         // @todo could validate args against endpoints here.
-        
+
         // Using Wordpress WP_Http for requests, see class-http.php
         $conf = array (
             'method' => $http_method,
@@ -294,9 +287,9 @@ class TwitterApiClient {
         }
         // unserializable array assumed to be serious error
         if( ! is_array($data) ){
-            $err = array( 
+            $err = array(
                 'message' => '', // <- blank so we use twitter-specific message
-                'code' => -1 
+                'code' => -1
             );
             TwitterApiException::chuck( $err, $status );
         }
@@ -355,7 +348,7 @@ class TwitterApiClient {
         if( ! is_array($params) || ! isset($params['oauth_token']) || ! isset($params['oauth_token_secret']) ){
             throw new TwitterApiException( __('Malformed response from Twitter','twitter-api'), -1, $stat );
         }
-        return $params;   
+        return $params;
     }
 
 
@@ -412,7 +405,7 @@ class TwitterOAuthToken {
         $this->key = $key;
         $this->secret = $secret;
     }
-    
+
     public function get_authorization_url(){
         return TWITTER_OAUTH_AUTHORIZE_URL.'?oauth_token='.rawurlencode($this->key);
     }
@@ -428,15 +421,15 @@ class TwitterOAuthToken {
  * @internal
  */
 class TwitterOAuthParams {
-    
+
     private $args;
     private $consumer_secret;
     private $token_secret;
-    
+
     private static function urlencode( $val ){
         return str_replace( '%7E', '~', rawurlencode($val) );
-    }    
-    
+    }
+
     private static function urlencode_params( array $args ){
         $pairs = array();
         foreach( $args as $key => $val ){
@@ -444,23 +437,23 @@ class TwitterOAuthParams {
         }
         return str_replace( '%7E', '~', implode( '&', $pairs ) );
     }
-    
+
     public function __construct( array $args = array() ){
-        $this->args = $args + array ( 
+        $this->args = $args + array (
             'oauth_version' => '1.0',
         );
     }
-    
+
     public function set_consumer( TwitterOAuthToken $Consumer ){
         $this->consumer_secret = $Consumer->secret;
         $this->args['oauth_consumer_key'] = $Consumer->key;
-    }   
-    
+    }
+
     public function set_token( TwitterOAuthToken $Token ){
         $this->token_secret = $Token->secret;
         $this->args['oauth_token'] = $Token->key;
-    }   
-    
+    }
+
     private function normalize(){
         $flags = SORT_STRING | SORT_ASC;
         ksort( $this->args, $flags );
@@ -471,7 +464,7 @@ class TwitterOAuthParams {
         }
         return $this->args;
     }
-    
+
     public function serialize(){
         return self::urlencode_params( $this->args );
     }
@@ -529,7 +522,7 @@ function _twitter_api_http_status_text( $s ){
         twitter_api_load_textdomain( null, 'twitter-errors' );
         return __( $text, 'twitter-errors' );
     }
-    // unknown status    
+    // unknown status
     return sprintf( __('Status %u from Twitter','twitter-api'), $s );
 }
 
@@ -545,13 +538,13 @@ class TwitterApiException extends Exception {
     /**
      * HTTP Status of error
      * @var int
-     */        
-    protected $status = 0;        
+     */
+    protected $status = 0;
 
-        
+
     /**
      * Throw appropriate exception type according to HTTP status code
-     * @param array Twitter error data from their response 
+     * @param array Twitter error data from their response
      */
     public static function chuck( array $err, $status ){
         $code = isset($err['code']) ? (int) $err['code'] : -1;
@@ -563,12 +556,12 @@ class TwitterApiException extends Exception {
         $eclass = isset($classes[$status]) ? $classes[$status] : __CLASS__;
         throw new $eclass( $mess, $code, $status );
     }
-        
-        
+
+
     /**
      * Construct TwitterApiException with addition of HTTP status code.
      * @overload
-     */        
+     */
     public function __construct( $message, $code = 0 ){
         if( 2 < func_num_args() ){
             $this->status = (int) func_get_arg(2);
@@ -578,8 +571,8 @@ class TwitterApiException extends Exception {
         }
         parent::__construct( $message, $code );
     }
-    
-    
+
+
     /**
      * Get HTTP status of error
      * @return int
@@ -587,19 +580,19 @@ class TwitterApiException extends Exception {
     public function getStatus(){
         return $this->status;
     }
-    
+
 }
 
 
 /** 404 */
 class TwitterApiNotFoundException extends TwitterApiException {
-    
+
 }
 
 
 /** 429 */
 class TwitterApiRateLimitException extends TwitterApiException {
-    
+
 }
 
 

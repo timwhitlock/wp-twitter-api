@@ -2,6 +2,7 @@
 /**
  * Twitter API Wordpress library.
  * @author Tim Whitlock <@timwhitlock>
+ * v1.1.0
  */
 
 
@@ -9,32 +10,32 @@
 
 /**
  * Call a Twitter API GET method.
- * 
+ *
  * @param string endpoint/method, e.g. "users/show"
  * @param array Request arguments, e.g. array( 'screen_name' => 'timwhitlock' )
  * @return array raw, deserialised data from Twitter
  * @throws TwitterApiException
- */ 
+ */
 function twitter_api_get( $path, array $args = array() ){
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'GET' );
-} 
+}
 
 
 
 
 /**
  * Call a Twitter API POST method.
- * 
+ *
  * @param string endpoint/method, e.g. "users/show"
  * @param array Request arguments, e.g. array( 'screen_name' => 'timwhitlock' )
  * @return array raw, deserialised data from Twitter
  * @throws TwitterApiException
- */ 
+ */
 function twitter_api_post( $path, array $args = array() ){
     $Client = twitter_api_client();
     return $Client->call( $path, $args, 'POST' );
-} 
+}
 
 
 
@@ -63,8 +64,8 @@ function twitter_api_disable_cache(){
 
 
 
- 
-/** 
+
+/**
  * Include a component from the lib directory.
  * @param string $component e.g. "core", or "admin"
  * @return void fatal error on failure
@@ -73,7 +74,7 @@ function twitter_api_include(){
     foreach( func_get_args() as $component ){
         require_once twitter_api_basedir().'/lib/twitter-api-'.$component.'.php';
     }
-} 
+}
 
 
 
@@ -83,8 +84,8 @@ function twitter_api_include(){
 function twitter_api_basedir(){
     static $dir;
     isset($dir) or $dir = dirname(__FILE__);
-    return $dir;    
-}    
+    return $dir;
+}
 
 
 
@@ -92,17 +93,17 @@ function twitter_api_basedir(){
  * Test if system-configured client is authed and ready to use
  */
 function twitter_api_configured(){
-    function_exists('_twitter_api_config') or twitter_api_include('core');
-    extract( _twitter_api_config() );
-    return $consumer_key && $consumer_secret && $access_key && $access_secret;
-} 
+    function_exists('twitter_api_get_theme_options') or twitter_api_include('core');
+    $options = twitter_api_get_theme_options();
+    return $options['consumer_key'] && $options['consumer_secret'] && $options['access_key'] && $options['access_secret'];
+}
 
 
 
 /**
  * Get fully configured and authenticated Twitter API client.
  * @return TwitterApiClient
- */ 
+ */
 function twitter_api_client( $id = null ){
     static $clients = array();
     if( ! isset($clients[$id]) ){
@@ -121,7 +122,7 @@ function twitter_api_client( $id = null ){
  */
 function twitter_api_oauth_request_token( $consumer_key, $consumer_secret, $oauth_callback = 'oob' ){
     $Client = twitter_api_client('oauth');
-    $Client->set_oauth( $consumer_key, $consumer_secret );     
+    $Client->set_oauth( $consumer_key, $consumer_secret );
     $params = $Client->oauth_exchange( TWITTER_OAUTH_REQUEST_TOKEN_URL, compact('oauth_callback') );
     return new TwitterOAuthToken( $params['oauth_token'], $params['oauth_token_secret'] );
 }
@@ -135,7 +136,7 @@ function twitter_api_oauth_request_token( $consumer_key, $consumer_secret, $oaut
  */
 function twitter_api_oauth_access_token( $consumer_key, $consumer_secret, $request_key, $request_secret, $oauth_verifier ){
     $Client = twitter_api_client('oauth');
-    $Client->set_oauth( $consumer_key, $consumer_secret, $request_key, $request_secret );     
+    $Client->set_oauth( $consumer_key, $consumer_secret, $request_key, $request_secret );
     $params = $Client->oauth_exchange( TWITTER_OAUTH_ACCESS_TOKEN_URL, compact('oauth_verifier') );
     return new TwitterOAuthToken( $params['oauth_token'], $params['oauth_token_secret'] );
 }
@@ -164,7 +165,7 @@ function twitter_api_load_textdomain( $locale = null, $domain = 'twitter-api' ){
         $locale = 'en_US';
     }
     else if( $current_locale !== $locale ){
-        // purposefully not calling load_plugin_textdomain, due to symlinking 
+        // purposefully not calling load_plugin_textdomain, due to symlinking
         // and not knowing what plugin this could be called from.
         $mofile = realpath( twitter_api_basedir().'/lang/'.$domain.'-'.$locale.'.mo' );
         if( ! load_textdomain( $domain, $mofile ) ){

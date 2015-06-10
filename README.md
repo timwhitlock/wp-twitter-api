@@ -9,16 +9,16 @@ This library exposes a fully authenticated Twitter API client for developing Wor
 * Access to a common Twitter API client that any plugin can use
 * Caching of API responses
 * Light-weight: uses WordPress utilities where possible
- 
 
-## Example plugin 
+
+## Example plugin
 
 See the [Latest Tweets Widget](http://wordpress.org/extend/plugins/latest-tweets-widget/) for an example plugin using this library.
 
 
 ## Installation
 
-Clone this repo to where you will develop your plugin. e.g. 
+Clone this repo to where you will develop your plugin. e.g.
 
     git submodule add https://github.com/timwhitlock/wp-twitter-api.git \
       wp-content/plugins/my-twitter-plugin/api
@@ -59,25 +59,39 @@ The following functions are available from anywhere as soon as the plugin is aut
 They all operate as the Twitter account you connected in your admin area.
 
 #### twitter_api_get
-`array twitter_api_get ( string $path [, array $args ]  )`  
+`array twitter_api_get ( string $path [, array $args ]  )`
 GETs data from the Twitter API, returning the raw unserialized data.
 
-`$path` is any Twitter API method, e.g. `'users/show'` or `'statuses/user_timeline'`  
+`$path` is any Twitter API method, e.g. `'users/show'` or `'statuses/user_timeline'`
 `$args` is an associative array of parameters, e.g. `array('screen_name'=>'timwhitlock')`
 
 Note that neither the path nor the arguments are validated.
 
 #### twitter_api_post
-`array twitter_api_post ( string $path [, array $args ]  )`  
+`array twitter_api_post ( string $path [, array $args ]  )`
 As above, but POSTs data to the Twitter API.
 
 #### twitter_api_enable_cache
-`TwitterApiClient twitter_api_enable_cache( int $ttl )`  
+`TwitterApiClient twitter_api_enable_cache( int $ttl )`
 Enable caching of Twitter response data for `$ttl` seconds.
 
 #### twitter_api_disable_cache
-`TwitterApiClient twitter_api_disable_cache( )`  
+`TwitterApiClient twitter_api_disable_cache( )`
 Disables caching of responses. Caching is disabled by default.
+
+
+## Getting Credentials from the Admin Settings
+
+```php
+if ( twitter_api_configured() ) {
+    $options = twitter_api_get_theme_options();
+    // Variables
+    $options['consumer_key'];
+    $options['consumer_secret'];
+    $options['access_key'];
+    $options['access_secret'];
+}
+```
 
 
 ## Custom OAuth flows
@@ -88,7 +102,7 @@ If you want to authenticate multiple clients or create OAuth flows other than th
 The following utility functions will do some lifting for you, but please see [Twitter's own documentation](https://dev.twitter.com/docs/auth/obtaining-access-tokens) if you're not familiar with the process.
 
 #### twitter_api_oauth_request_token
-`TwitterOAuthToken twitter_api_oauth_request_token ( string $consumer_key, string $consumer_secret, string $oauth_callback )`  
+`TwitterOAuthToken twitter_api_oauth_request_token ( string $consumer_key, string $consumer_secret, string $oauth_callback )`
 Fetches an OAuth request token from Twitter: e.g. `{ key: 'your request key', secret: 'your request secret' }`
 
 #### twitter_api_oauth_access_token
@@ -103,8 +117,9 @@ This example shows the main methods you might use:
 ```php
     try {
         if ( twitter_api_configured() ) {
+            $options = twitter_api_get_theme_options();
             $Client = twitter_api_client('some client');
-            $Client->set_oauth( 'my consumer key', 'my consumer secret', 'their access key', 'their access secret' );
+            $Client->set_oauth( $options['consumer_key'], $options['consumer_secret'], $options['access_key'], $options['access_secret'] );
             $user = $Client->call( 'users/show', array( 'screen_name' => 'timwhitlock' ), 'GET' );
             var_dump( $user );
         }

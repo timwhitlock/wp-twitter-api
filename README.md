@@ -1,3 +1,10 @@
+# NO LONGER MAINTAINED
+
+If you want it, fork it. Just don't ask me to fix it.
+
+
+---
+
 # Twitter API WordPress Library
 
 This library exposes a fully authenticated Twitter API client for developing WordPress plugins.
